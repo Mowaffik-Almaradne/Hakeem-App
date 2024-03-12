@@ -18,6 +18,7 @@ class TextUtiels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       text,
       style: style ??
           GoogleFonts.tajawal(

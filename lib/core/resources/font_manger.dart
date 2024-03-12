@@ -13,4 +13,7 @@ class AppFontSizeManger {
   static double s24 = 24.sp;
   static double s16 = 16.sp;
   static double s14 = 14.sp;
+  static double s13 = 13.sp;
+  static double s9 = 9.sp;
+  static double s10 = 10.5.sp;
 }

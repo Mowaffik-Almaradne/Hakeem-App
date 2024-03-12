@@ -5,8 +5,10 @@ import 'package:hosptel_app/core/function/shadow_function.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
-import 'package:hosptel_app/core/widget/text_utile_widget.dart';
+import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/auth/presentation/widget/bottome_sheet_widget.dart';
 import 'package:hosptel_app/features/intro/presentation/widget/go_login_widget.dart';
+import 'package:hosptel_app/router/app_router.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -73,11 +75,34 @@ class IntroPage extends StatelessWidget {
                   ]),
                 ),
               ), //?
-              //? Image For move to page Login : 
+              //? Image For move to page Login :
               Row(
                 children: [
                   GoLoginImageWidget(
-                    onTap: () {},
+                    onTap: () {
+                      //? navigation to login screen :
+                      Navigator.pushReplacementNamed(
+                        context,
+                        RouteNamedScreens.loginScreenNameRoute,
+                      ); //?
+                      //? animation to show BottomSheet :
+                      AnimationController controller = AnimationController(
+                        vsync: Navigator.of(context),
+                        duration: const Duration(
+                          seconds: 3,
+                        ),
+                      );
+
+                      showModalBottomSheet(
+                        isDismissible: false,
+                        enableDrag: true,
+                        transitionAnimationController: controller,
+                        context: context,
+                        builder: (context) {
+                          return const BottomeSheetWidget();
+                        },
+                      );
+                    },
                   ),
                   SvgPicture.asset(
                     width: 176.w,
@@ -85,7 +110,7 @@ class IntroPage extends StatelessWidget {
                     AppSvgManger.arrowIntroPage,
                   )
                 ],
-              ),//?
+              ), //?
             ],
           ),
         ),
