@@ -22,6 +22,7 @@ class ApiMethods {
       {required String url,
       required Map<String, dynamic> path,
       required Map<String, dynamic> query}) async {
+    query.removeWhere((key, value) => value == null);
     if (path.isNotEmpty && query.isNotEmpty) {
       return await http.get(ApiUrl(url).getPath(path).getQuery(query).getLink(),
           headers: headers);

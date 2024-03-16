@@ -16,9 +16,7 @@ class MyApp extends StatelessWidget {
           theme: appTheme,
         );
       },
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
+      designSize: const Size(350, 812),
     );
   }
 }

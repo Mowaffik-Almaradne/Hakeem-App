@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/function/shadow_function.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
@@ -77,19 +78,20 @@ class IntroPage extends StatelessWidget {
               ), //?
               //? Image For move to page Login :
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GoLoginImageWidget(
                     onTap: () {
                       //? navigation to login screen :
-                      Navigator.pushReplacementNamed(
+                      navigationPage(
                         context,
-                        RouteNamedScreens.loginScreenNameRoute,
-                      ); //?
+                        page: RouteNamedScreens.loginScreenNameRoute,
+                      );
                       //? animation to show BottomSheet :
                       AnimationController controller = AnimationController(
                         vsync: Navigator.of(context),
                         duration: const Duration(
-                          seconds: 3,
+                          seconds: 2,
                         ),
                       );
 
@@ -105,8 +107,8 @@ class IntroPage extends StatelessWidget {
                     },
                   ),
                   SvgPicture.asset(
-                    width: 176.w,
-                    height: 130.h,
+                    width: 170.w,
+                    height: 120.h,
                     AppSvgManger.arrowIntroPage,
                   )
                 ],

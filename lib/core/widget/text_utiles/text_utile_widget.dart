@@ -18,13 +18,14 @@ class TextUtiels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      textAlign: TextAlign.center,
+      textAlign: TextAlign.end,
       text,
       style: style ??
           GoogleFonts.tajawal(
             fontSize: 16.sp,
             fontWeight: fontWeight,
             color: textColor,
+
           ),
     );
   }

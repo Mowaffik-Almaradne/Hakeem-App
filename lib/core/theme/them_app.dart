@@ -19,12 +19,22 @@ final appTheme = ThemeData(
     bodySmall: GoogleFonts.tajawal(
       color: AppColorManger.white,
       fontSize: AppFontSizeManger.s16,
-      fontWeight: AppFontWeightManger.fontWeightRagular,
+      fontWeight: AppFontWeightManger.fontWeightRagularBold,
+    ),
+    displayMedium: GoogleFonts.tajawal(
+      color: AppColorManger.white,
+      fontSize: AppFontSizeManger.s24,
+      fontWeight: AppFontWeightManger.fontWeightExtraBold,
+    ),
+    displaySmall: GoogleFonts.tajawal(
+      color: AppColorManger.white,
+      fontSize: AppFontSizeManger.s10,
+      fontWeight: AppFontWeightManger.fontWeightRagularBold,
     ),
     labelSmall: GoogleFonts.tajawal(
       color: AppColorManger.black,
       fontSize: AppFontSizeManger.s13,
-      fontWeight: AppFontWeightManger.fontWeightRagular,
+      fontWeight: AppFontWeightManger.fontWeightRagularBold,
     ),
   ),
 );
