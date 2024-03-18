@@ -9,23 +9,23 @@ class TextUtiels extends StatelessWidget {
     this.style,
     this.fontWeight,
     this.textColor,
+    this.textAlign,
   });
   final String text;
   final TextStyle? style;
   final FontWeight? fontWeight;
   final Color? textColor;
-
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     return Text(
-      textAlign: TextAlign.end,
+      textAlign: textAlign ?? TextAlign.end,
       text,
       style: style ??
           GoogleFonts.tajawal(
             fontSize: 16.sp,
             fontWeight: fontWeight,
             color: textColor,
-
           ),
     );
   }

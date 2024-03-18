@@ -13,4 +13,6 @@ class AppColorManger {
   static Color grayNavButton = const Color(0xffD9D9D9);
   static Color colorLinear = const Color(0xffE3E3E3);
   static Color textColor = const Color(0xff404040);
+  static Color fillColorCard = const Color(0xFFF2F6FA);
+  static Color shadowColor = const Color(0x3F000000);
 }

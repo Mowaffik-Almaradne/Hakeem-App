@@ -107,8 +107,8 @@ class IntroPage extends StatelessWidget {
                     },
                   ),
                   SvgPicture.asset(
-                    width: 170.w,
-                    height: 120.h,
+                    width: 100.w,
+                    height: 110.h,
                     AppSvgManger.arrowIntroPage,
                   )
                 ],

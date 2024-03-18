@@ -1,5 +1,4 @@
 //! static word all application for localization :
-
 class AppWordManger {
   static const easyBookingExperience = 'تجربة سهلة ومريحة لحجز';
   static const medicalAppointments = 'المواعيد الطبية';
@@ -23,4 +22,8 @@ class AppWordManger {
   static const reservationNow = 'احجز الآن';
   static const textVisible =
       'هذا النص وهمي نقديم خدمات متنوعة تشمل حقن التجميل والملء، والعلاج بالليزر، وجراحات التجميل، وإجراءات تجديد البشرة. يستخدم مهاراته وخبرته لتقديم استشارات فردية للمرضى، حيث يقيم احتياجاتهم ويوجههم نحو الخيارات الأمثل لتحقيق أهدافهم التجميلة';
+  static const tipsAndNews = 'نصائح وأخبار';
+
+  static const textVisibale =
+      "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
 }

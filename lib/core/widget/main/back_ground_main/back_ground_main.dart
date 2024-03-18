@@ -5,11 +5,14 @@ class MainBackGround extends StatelessWidget {
   const MainBackGround({
     super.key,
     required this.mainBody,
+     this.appBar,
   });
   final Widget mainBody;
+  final PreferredSizeWidget? appBar;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar,
       bottomNavigationBar: const MainButtonNavigation(),
       body: SafeArea(
         child: mainBody,
