@@ -20,7 +20,7 @@ class InfoDoctor extends StatelessWidget {
           vertical: 10.h,
         ),
         width: 120.w,
-        height: 51.h,
+        height: 42.h,
         decoration: ShapeDecoration(
           gradient: LinearGradient(
             begin: const Alignment(-0.03, -1.00),

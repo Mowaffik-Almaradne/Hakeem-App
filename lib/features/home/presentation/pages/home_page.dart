@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainBackGround(
       appBar: CustomAppBar(
+        heightAppBar: 250.h,
         flexibleSpace: Stack(
           children: [
             Container(
@@ -89,7 +90,7 @@ class HomePage extends StatelessWidget {
                       icon: AppSvgManger.iconPhone,
                       text: '0935059787',
                     ),
-                    SizedBox(height: 6.5.h),
+                    SizedBox(height: 8.h),
                     const InfoDoctor(
                       icon: AppSvgManger.iconLocation,
                       text: 'دمشق _المزة',
@@ -101,7 +102,6 @@ class HomePage extends StatelessWidget {
             //?
           ],
         ),
-        hieghtAppbar: 250.h,
       ),
       mainBody: SingleChildScrollView(
         child: Column(
@@ -122,7 +122,7 @@ class HomePage extends StatelessWidget {
               child: TextUtiels(
                 text: AppWordManger.textVisible,
                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: AppColorManger.textColor,
+                      color: AppColorManger.textColor1,
                       fontSize: AppFontSizeManger.s13,
                       fontWeight: AppFontWeightManger.fontWeightRagular,
                       height: 1.5.h,
@@ -144,7 +144,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 18.h),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
               child: const InfoTipasNewsWidget(),
             ),
             SizedBox(height: 60.h)

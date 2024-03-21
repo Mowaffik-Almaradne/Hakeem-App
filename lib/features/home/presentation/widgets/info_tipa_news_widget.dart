@@ -39,68 +39,75 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
           child: ListView.separated(
             controller: _pageController,
             scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => SizedBox(width: 18.w),
+            separatorBuilder: (context, index) => SizedBox(width: 0.w),
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Container(
-                width: 220.w,
-                height: 170.h,
-                decoration: BoxDecoration(
-                  color: AppColorManger.fillColorCard,
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border(
-                    bottom: BorderSide(
-                      color: AppColorManger.primaryColor,
-                      width: 1.7,
-                    ),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColorManger.shadowColor,
-                      blurRadius: 4,
-                      offset: const Offset(0, 4),
-                      spreadRadius: 0,
-                    )
-                  ],
+              return Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 15.w,
                 ),
-                child: Column(
-                  children: [
-                    TextUtiels(
-                      text: 'بعد حقن الفيلر',
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            color: AppColorManger.primaryColor,
-                            fontSize: AppFontSizeManger.s16,
-                            fontWeight: AppFontWeightManger.fontWeightExtraBold,
-                            height: 3.h,
-                          ),
+                child: Container(
+                  width: 225.w,
+                  height: 170.h,
+                  decoration: BoxDecoration(
+                    color: AppColorManger.fillColorCard,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border(
+                      bottom: BorderSide(
+                        color: AppColorManger.primaryColor,
+                        width: 1.7,
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        TextUtiels(
-                          text: AppWordManger.textVisibale,
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall!
-                              .copyWith(
-                                color: AppColorManger.textColor,
-                                fontSize: AppFontSizeManger.s10,
-                                fontWeight:
-                                    AppFontWeightManger.fontWeightExtraBold,
-                                height: 1.2,
-                              ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 15.w),
-                          child: SvgPicture.asset(
-                            width: 88.w,
-                            height: 88.h,
-                            AppSvgManger.iconLight,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColorManger.shadowColor,
+                        blurRadius: 4,
+                        offset: const Offset(0, 4),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      TextUtiels(
+                        text: 'بعد حقن الفيلر',
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  color: AppColorManger.primaryColor,
+                                  fontSize: AppFontSizeManger.s16,
+                                  fontWeight:
+                                      AppFontWeightManger.fontWeightExtraBold,
+                                  height: 3.h,
+                                ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextUtiels(
+                            text: AppWordManger.textVisibale,
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  color: AppColorManger.textColor1,
+                                  fontSize: AppFontSizeManger.s10,
+                                  fontWeight:
+                                      AppFontWeightManger.fontWeightExtraBold,
+                                  height: 1.2,
+                                ),
                           ),
-                        )
-                      ],
-                    ),
-                  ],
+                          Padding(
+                            padding: EdgeInsets.only(left: 15.w),
+                            child: SvgPicture.asset(
+                              width: 88.w,
+                              height: 88.h,
+                              AppSvgManger.iconLight,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
@@ -110,14 +117,19 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
         SmoothPageIndicator(
           controller: _pageController,
           count: 4,
-          effect: SlideEffect(
+          onDotClicked: (index) {
+            _pageController.animateToPage(
+              index,
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.ease,
+            );
+          },
+          effect: JumpingDotEffect(
             spacing: 8,
-            radius: 4.0,
-            dotWidth: 40,
-            dotHeight: 1,
+            dotWidth: 45.w,
+            dotHeight: 3.h,
             paintStyle: PaintingStyle.stroke,
             strokeWidth: 1.5,
-            dotColor: Colors.grey,
             activeDotColor: AppColorManger.primaryColor,
           ),
         ),

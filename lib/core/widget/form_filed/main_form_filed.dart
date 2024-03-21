@@ -48,8 +48,8 @@ class MainTextFormFiled extends StatelessWidget {
             fillColor: AppColorManger.fillColor,
             hintText: hintText,
             contentPadding: EdgeInsets.symmetric(
-              horizontal: 14.w,
-              vertical: 14.h,
+              horizontal: 12.w,
+              vertical: 12.h,
             ),
             hintStyle: Theme.of(context).textTheme.labelSmall,
             enabledBorder: outlineInputBorder(circular: 13),
@@ -65,13 +65,3 @@ class MainTextFormFiled extends StatelessWidget {
     );
   }
 }
-
-
-/*
-
-          errorStyle: TextStyle(
-            fontFamily: FontFamily.fontPoppinsBold,
-            fontSize: 12.sp,
-            color: AppColors.borderColor,
-          ),
-*/

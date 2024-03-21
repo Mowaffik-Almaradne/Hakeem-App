@@ -54,7 +54,7 @@ class BottomeSheetWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(13),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.only(top: 9.w),
+                    padding: EdgeInsets.only(top: 9.h),
                     child: TextUtiels(
                       text: AppWordManger.characterCity,
                       style: Theme.of(context).textTheme.labelSmall!.copyWith(
@@ -80,7 +80,7 @@ class BottomeSheetWidget extends StatelessWidget {
               onChange: (value) {},
               textInputType: TextInputType.visiblePassword,
               filedWidth: 285,
-              filedHeight: 60,
+              filedHeight: 55,
             ),
 
             SizedBox(height: 5.h),

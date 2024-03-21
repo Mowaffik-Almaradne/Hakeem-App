@@ -25,7 +25,7 @@ class InfoServicesWidget extends StatelessWidget {
               children: [
                 Container(
                   width: 70.w,
-                  height: 90.h,
+                  height: 80.h,
                   padding: EdgeInsets.symmetric(vertical: 8.h),
                   margin: EdgeInsets.only(bottom: 8.h),
                   decoration: ShapeDecoration(
@@ -47,7 +47,7 @@ class InfoServicesWidget extends StatelessWidget {
                   textAlign: TextAlign.center,
                   text: 'العلاج\n بالأوكسجين',
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        color: AppColorManger.textColor,
+                        color: AppColorManger.textColor1,
                         fontSize: AppFontSizeManger.s13,
                         fontWeight: AppFontWeightManger.fontWeightRagular,
                         height: 1.5.h,
