@@ -70,6 +70,7 @@ class HomePage extends StatelessWidget {
                       textStyle: TextStyle(
                         fontSize: 25.sp,
                         color: AppColorManger.white,
+                        fontFamily: 'Tajawal',
                       ),
                       strokeColor: AppColorManger.secoundryColor,
                       strokeWidth: 4.2,
@@ -78,11 +79,9 @@ class HomePage extends StatelessWidget {
                     //? api this text not static :
                     TextUtiels(
                       text: 'اخصائي في الجراحة التجميلية',
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            color: AppColorManger.offWhite,
-                            fontSize: AppFontSizeManger.s12,
-                            fontWeight: AppFontWeightManger.fontWeightRagular,
-                          ),
+                      color: AppColorManger.offWhite,
+                      fontSize: AppFontSizeManger.s12,
+                      fontWeight: AppFontWeightManger.fontWeightRagular,
                     ),
                     SizedBox(height: 9.h),
                     //? api this text not static :
@@ -121,12 +120,10 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 5.h),
               child: TextUtiels(
                 text: AppWordManger.textVisible,
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: AppColorManger.textColor1,
-                      fontSize: AppFontSizeManger.s13,
-                      fontWeight: AppFontWeightManger.fontWeightRagular,
-                      height: 1.5.h,
-                    ),
+                color: AppColorManger.textColor1,
+                fontSize: AppFontSizeManger.s13,
+                fontWeight: AppFontWeightManger.fontWeightRagular,
+                height: 1.5.h,
               ),
             ),
             SizedBox(height: 18.h),

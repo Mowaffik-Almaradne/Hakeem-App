@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hosptel_app/core/theme/them_app.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,7 +12,6 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           onGenerateRoute: appRouter.onGenerateRoute,
           debugShowCheckedModeBanner: false,
-          theme: appTheme,
         );
       },
       designSize: const Size(375, 812),
@@ -22,3 +20,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+//          theme: appTheme,

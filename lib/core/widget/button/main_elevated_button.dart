@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
@@ -40,12 +41,12 @@ class MainElevatedButton extends StatelessWidget {
         ),
         child: TextUtiels(
           text: text,
-          style: Theme.of(context)
-              .textTheme
-              .bodySmall!
-              .copyWith(fontWeight: AppFontWeightManger.fontWeightBold),
+          fontWeight: AppFontWeightManger.fontWeightBold,
+          color: AppColorManger.white,
+          fontSize: AppFontSizeManger.s16,
         ),
       ),
     );
   }
 }
+  

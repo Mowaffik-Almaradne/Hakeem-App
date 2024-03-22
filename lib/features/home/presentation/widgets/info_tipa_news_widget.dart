@@ -71,30 +71,20 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                     children: [
                       TextUtiels(
                         text: 'بعد حقن الفيلر',
-                        style:
-                            Theme.of(context).textTheme.displaySmall!.copyWith(
-                                  color: AppColorManger.primaryColor,
-                                  fontSize: AppFontSizeManger.s16,
-                                  fontWeight:
-                                      AppFontWeightManger.fontWeightExtraBold,
-                                  height: 3.h,
-                                ),
+                        color: AppColorManger.primaryColor,
+                        fontSize: AppFontSizeManger.s16,
+                        fontWeight: AppFontWeightManger.fontWeightExtraBold,
+                        height: 3.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           TextUtiels(
                             text: AppWordManger.textVisibale,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displaySmall!
-                                .copyWith(
-                                  color: AppColorManger.textColor1,
-                                  fontSize: AppFontSizeManger.s10,
-                                  fontWeight:
-                                      AppFontWeightManger.fontWeightExtraBold,
-                                  height: 1.2,
-                                ),
+                            color: AppColorManger.textColor1,
+                            fontSize: AppFontSizeManger.s10,
+                            fontWeight: AppFontWeightManger.fontWeightExtraBold,
+                            height: 1.2,
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 15.w),

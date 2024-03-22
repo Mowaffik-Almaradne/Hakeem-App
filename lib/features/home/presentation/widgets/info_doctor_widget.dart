@@ -39,11 +39,9 @@ class InfoDoctor extends StatelessWidget {
           children: [
             TextUtiels(
               text: text,
-              style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: AppFontSizeManger.s13,
-                    color: AppColorManger.secoundryColor,
-                    fontWeight: AppFontWeightManger.fontWeightBold,
-                  ),
+              fontSize: AppFontSizeManger.s13,
+              color: AppColorManger.secoundryColor,
+              fontWeight: AppFontWeightManger.fontWeightBold,
             ),
             SizedBox(width: 8.w),
             SvgPicture.asset(

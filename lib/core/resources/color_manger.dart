@@ -17,4 +17,5 @@ class AppColorManger {
   static Color shadowColor = const Color(0x3F000000);
   static Color textColor2 = const Color(0xff4D4D4D);
   static Color textlight = const Color(0xffC6C6C6);
+  static Color borderColor = const Color(0xffD9D9D9);
 }

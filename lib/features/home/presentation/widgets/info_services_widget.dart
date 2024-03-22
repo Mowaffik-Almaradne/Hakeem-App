@@ -46,12 +46,10 @@ class InfoServicesWidget extends StatelessWidget {
                 TextUtiels(
                   textAlign: TextAlign.center,
                   text: 'العلاج\n بالأوكسجين',
-                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        color: AppColorManger.textColor1,
-                        fontSize: AppFontSizeManger.s13,
-                        fontWeight: AppFontWeightManger.fontWeightRagular,
-                        height: 1.5.h,
-                      ),
+                  color: AppColorManger.textColor1,
+                  fontSize: AppFontSizeManger.s13,
+                  fontWeight: AppFontWeightManger.fontWeightRagular,
+                  height: 1.5.h,
                 )
               ],
             ),

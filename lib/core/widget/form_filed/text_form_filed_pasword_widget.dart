@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/function/outline_input_border_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 
 class TextFormFiledPassword extends StatefulWidget {
   const TextFormFiledPassword({
@@ -71,7 +72,12 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
               horizontal: 14.w,
               vertical: 19.h,
             ),
-            hintStyle: Theme.of(context).textTheme.labelSmall,
+            hintStyle: TextStyle(
+              fontFamily: 'Tajawal',
+              fontSize: AppFontSizeManger.s13,
+              color: AppColorManger.black,
+              fontWeight: AppFontWeightManger.fontWeightRagular,
+            ),
             enabledBorder: outlineInputBorder(circular: 13),
             focusedBorder: outlineInputBorder(circular: 13),
             errorBorder: outlineInputBorder(circular: 13),

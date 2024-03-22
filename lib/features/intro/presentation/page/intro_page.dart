@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/function/shadow_function.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
@@ -35,58 +36,63 @@ class IntroPage extends StatelessWidget {
               //? Text Word :
               TextUtiels(
                 text: AppWordManger.easyBookingExperience,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(shadows: [
-                  shadowText(blurRadius: 2.0, offset: const Offset(2.0, 2.0))
-                ]),
+                color: AppColorManger.white,
+                fontSize: AppFontSizeManger.s24,
+                fontWeight: AppFontWeightManger.fontWeightBold,
+                shadows: [
+                  shadowText(
+                    blurRadius: 2.0,
+                    offset: const Offset(2.0, 2.0),
+                  )
+                ],
               ),
+
               Padding(
                 padding: EdgeInsets.only(bottom: 17.5.w),
                 child: TextUtiels(
-                  text: AppWordManger.medicalAppointments,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(shadows: [
-                    shadowText(blurRadius: 1.5, offset: const Offset(2.0, 2.0))
-                  ]),
-                ),
+                    text: AppWordManger.medicalAppointments,
+                    color: AppColorManger.white,
+                    fontSize: AppFontSizeManger.s24,
+                    fontWeight: AppFontWeightManger.fontWeightBold,
+                    shadows: [
+                      shadowText(
+                        blurRadius: 1.5,
+                        offset: const Offset(2.0, 2.0),
+                      )
+                    ]),
               ),
+
               TextUtiels(
-                text: AppWordManger
-                    .bookYourAppointmentNowAndEnjoyAUniqueExperience,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(shadows: [
-                  shadowText(blurRadius: 1.5, offset: const Offset(1.0, 1.0))
-                ]),
-              ),
+                  text: AppWordManger
+                      .bookYourAppointmentNowAndEnjoyAUniqueExperience,
+                  color: AppColorManger.white,
+                  fontSize: AppFontSizeManger.s16,
+                  fontWeight: AppFontWeightManger.fontWeightRagularBold,
+                  shadows: [
+                    shadowText(blurRadius: 1.5, offset: const Offset(1.0, 1.0))
+                  ]),
+
               Padding(
                 padding: EdgeInsets.only(bottom: 40.sp),
                 child: TextUtiels(
-                  text: AppWordManger.andSpecial,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall!
-                      .copyWith(shadows: [
-                    shadowText(blurRadius: 1.5, offset: const Offset(1.0, 1.0))
-                  ]),
-                ),
-              ), //?
+                    text: AppWordManger.andSpecial,
+                    color: AppColorManger.white,
+                    fontSize: AppFontSizeManger.s16,
+                    fontWeight: AppFontWeightManger.fontWeightRagularBold,
+                    shadows: [
+                      shadowText(
+                          blurRadius: 1.5, offset: const Offset(1.0, 1.0))
+                    ]),
+              ),
+//?
               //? Image For move to page Login :
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GoLoginImageWidget(
                     onTap: () {
                       //? navigation to login screen :
-                      navigationPage(
-                        context,
-                        page: RouteNamedScreens.loginScreenNameRoute,
-                      );
+                      Navigator.pushReplacementNamed(
+                          context, RouteNamedScreens.loginScreenNameRoute);
                       //? animation to show BottomSheet :
                       AnimationController controller = AnimationController(
                         vsync: Navigator.of(context),
@@ -106,10 +112,13 @@ class IntroPage extends StatelessWidget {
                       );
                     },
                   ),
-                  SvgPicture.asset(
-                    width: 100.w,
-                    height: 110.h,
-                    AppSvgManger.arrowIntroPage,
+                  Padding(
+                    padding: EdgeInsets.only(top: 20.h),
+                    child: SvgPicture.asset(
+                      width: 100.w,
+                      height: 110.h,
+                      AppSvgManger.arrowIntroPage,
+                    ),
                   )
                 ],
               ), //?
