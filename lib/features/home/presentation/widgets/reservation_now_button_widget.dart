@@ -27,10 +27,11 @@ class ReservationNowButtonWidget extends StatelessWidget {
           ),
         ),
         child: TextUtiels(
-            text: text,
-            color: AppColorManger.white,
-            fontSize: AppFontSizeManger.s18,
-            fontWeight: AppFontWeightManger.fontWeightExtraBold),
+          text: text,
+          fontFamily: AppFontFamily.extraBold,
+          color: AppColorManger.white,
+          fontSize: AppFontSizeManger.s18,
+        ),
       ),
     );
   }

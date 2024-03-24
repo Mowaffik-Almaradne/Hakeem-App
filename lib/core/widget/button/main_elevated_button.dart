@@ -14,6 +14,8 @@ class MainElevatedButton extends StatelessWidget {
     this.sideColor,
     this.width,
     this.icon,
+    this.heightButton,
+    this.widthButton,
   });
 
   final String text;
@@ -23,13 +25,15 @@ class MainElevatedButton extends StatelessWidget {
   final Color? sideColor;
   final double? width;
   final String? icon;
+  final double? widthButton;
+  final double? heightButton;
 
   @override
   Widget build(BuildContext context) {
     //! Button All App
     return SizedBox(
-      width: 290.w,
-      height: 60.h,
+      width: widthButton ?? 290.w,
+      height: heightButton ?? 60.h,
       child: ElevatedButton(
         onPressed: onPreesed,
         style: ElevatedButton.styleFrom(
@@ -40,8 +44,8 @@ class MainElevatedButton extends StatelessWidget {
           backgroundColor: backgroundColor,
         ),
         child: TextUtiels(
+          fontFamily: AppFontFamily.tajawalBold,
           text: text,
-          fontWeight: AppFontWeightManger.fontWeightBold,
           color: AppColorManger.white,
           fontSize: AppFontSizeManger.s16,
         ),
@@ -49,4 +53,3 @@ class MainElevatedButton extends StatelessWidget {
     );
   }
 }
-  

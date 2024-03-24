@@ -26,4 +26,13 @@ class AppWordManger {
 
   static const textVisibale =
       "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
+
+  static const welcome = 'مرحبا بك';
+  static const fullName = 'الاسم الكامل';
+  static const phoneNumber = 'رقم هاتفك';
+  static const birthDay = 'تاريخ ميلادك';
+  static const gander = 'الجنس';
+  static const meal = 'ذكر';
+  static const fmeal = 'أنثى';
+  static const save = 'حفظ';
 }

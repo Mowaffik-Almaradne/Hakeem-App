@@ -18,4 +18,6 @@ class AppColorManger {
   static Color textColor2 = const Color(0xff4D4D4D);
   static Color textlight = const Color(0xffC6C6C6);
   static Color borderColor = const Color(0xffD9D9D9);
+  static Color backGroundClipper = const Color(0xff0173B4);
+  static Color backGroundColorGender = const Color(0xffBFD7ED).withOpacity(0.3);
 }

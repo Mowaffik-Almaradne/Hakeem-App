@@ -35,10 +35,10 @@ class IntroPage extends StatelessWidget {
             children: [
               //? Text Word :
               TextUtiels(
+                fontFamily: AppFontFamily.tajawalBold,
                 text: AppWordManger.easyBookingExperience,
                 color: AppColorManger.white,
                 fontSize: AppFontSizeManger.s24,
-                fontWeight: AppFontWeightManger.fontWeightBold,
                 shadows: [
                   shadowText(
                     blurRadius: 2.0,
@@ -50,10 +50,10 @@ class IntroPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 17.5.w),
                 child: TextUtiels(
+                    fontFamily: AppFontFamily.tajawalBold,
                     text: AppWordManger.medicalAppointments,
                     color: AppColorManger.white,
                     fontSize: AppFontSizeManger.s24,
-                    fontWeight: AppFontWeightManger.fontWeightBold,
                     shadows: [
                       shadowText(
                         blurRadius: 1.5,
@@ -63,11 +63,11 @@ class IntroPage extends StatelessWidget {
               ),
 
               TextUtiels(
+                  fontFamily: AppFontFamily.tajawalRegular,
                   text: AppWordManger
                       .bookYourAppointmentNowAndEnjoyAUniqueExperience,
                   color: AppColorManger.white,
                   fontSize: AppFontSizeManger.s16,
-                  fontWeight: AppFontWeightManger.fontWeightRagularBold,
                   shadows: [
                     shadowText(blurRadius: 1.5, offset: const Offset(1.0, 1.0))
                   ]),
@@ -75,10 +75,10 @@ class IntroPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 40.sp),
                 child: TextUtiels(
+                    fontFamily: AppFontFamily.tajawalRegular,
                     text: AppWordManger.andSpecial,
                     color: AppColorManger.white,
                     fontSize: AppFontSizeManger.s16,
-                    fontWeight: AppFontWeightManger.fontWeightRagularBold,
                     shadows: [
                       shadowText(
                           blurRadius: 1.5, offset: const Offset(1.0, 1.0))

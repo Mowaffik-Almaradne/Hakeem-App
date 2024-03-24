@@ -14,10 +14,10 @@ class CaptionTextWidget extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 19.w),
         child: TextUtiels(
+          fontFamily: AppFontFamily.tajawalBold,
           color: AppColorManger.primaryColor,
           text: text,
           fontSize: AppFontSizeManger.s24,
-          fontWeight: AppFontWeightManger.fontWeightRagularBold ,
         ),
       ),
     );

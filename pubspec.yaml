@@ -53,9 +53,26 @@ flutter:
 
   # example:
   fonts:
-    - family: Tajawal
+    - family: ExtraBold
+      fonts:
+        - asset: assets/fonts/Tajawal-ExtraBold.ttf 
+
+    - family: TajawalLight
+      fonts:
+        - asset: assets/fonts/Tajawal-Light.ttf 
+
+    - family: TajawalRegular
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf 
+    
+    - family: TajawalMedium
+      fonts:
+        - asset: assets/fonts/Tajawal-Medium.ttf  
+    
+    - family: TajawalBold
       fonts:
         - asset: assets/fonts/Tajawal-Bold.ttf
-        # - asset: fonts/Schyler-Italic.ttf
+
+     
           
     

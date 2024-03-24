@@ -8,7 +8,7 @@ import 'package:hosptel_app/core/resources/font_manger.dart';
 class MainTextFormFiled extends StatelessWidget {
   const MainTextFormFiled({
     super.key,
-    required this.hintText,
+     this.hintText,
     required this.onChange,
     required this.textInputType,
     this.filedWidth,
@@ -26,7 +26,7 @@ class MainTextFormFiled extends StatelessWidget {
     this.contentPaddingVertical,
     this.obscureText,
   });
-  final String hintText;
+  final String? hintText;
   final TextInputType textInputType;
   final Function(String) onChange;
   final String? Function(String?)? validator;

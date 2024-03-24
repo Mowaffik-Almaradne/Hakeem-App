@@ -68,9 +68,9 @@ class HomePage extends StatelessWidget {
                     StrokeText(
                       text: "د. علي محمد",
                       textStyle: TextStyle(
-                        fontSize: 25.sp,
+                        fontSize: AppFontSizeManger.s24,
+                        fontFamily: AppFontFamily.extraBold,
                         color: AppColorManger.white,
-                        fontFamily: 'Tajawal',
                       ),
                       strokeColor: AppColorManger.secoundryColor,
                       strokeWidth: 4.2,
@@ -79,9 +79,9 @@ class HomePage extends StatelessWidget {
                     //? api this text not static :
                     TextUtiels(
                       text: 'اخصائي في الجراحة التجميلية',
+                      fontFamily: AppFontFamily.tajawalRegular,
                       color: AppColorManger.offWhite,
                       fontSize: AppFontSizeManger.s12,
-                      fontWeight: AppFontWeightManger.fontWeightRagular,
                     ),
                     SizedBox(height: 9.h),
                     //? api this text not static :
@@ -120,9 +120,9 @@ class HomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 5.h),
               child: TextUtiels(
                 text: AppWordManger.textVisible,
+                fontFamily: AppFontFamily.tajawalRegular,
                 color: AppColorManger.textColor1,
                 fontSize: AppFontSizeManger.s13,
-                fontWeight: AppFontWeightManger.fontWeightRagular,
                 height: 1.5.h,
               ),
             ),

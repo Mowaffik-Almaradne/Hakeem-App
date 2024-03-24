@@ -4,17 +4,16 @@ class TextUtiels extends StatelessWidget {
   const TextUtiels({
     super.key,
     required this.text,
-    this.style,
-    required this.fontWeight,
+
     required this.color,
     required this.fontSize,
+    required this.fontFamily,
     this.textAlign,
     this.shadows,
     this.height,
   });
   final String text;
-  final TextStyle? style;
-  final FontWeight fontWeight;
+  final String fontFamily;
   final Color color;
   final double fontSize;
   final TextAlign? textAlign;
@@ -26,9 +25,8 @@ class TextUtiels extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.end,
       text,
       style: TextStyle(
-        fontFamily: 'Tajawal',
+        fontFamily: fontFamily,
         fontSize: fontSize,
-        fontWeight: fontWeight,
         color: color,
         shadows: shadows,
         height: height,

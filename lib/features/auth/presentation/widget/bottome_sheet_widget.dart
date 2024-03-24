@@ -53,9 +53,9 @@ class BottomeSheetWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: TextUtiels(
-                    text: '+963',
+                    text: AppWordManger.characterCity,
                     color: AppColorManger.white,
-                    fontWeight: AppFontWeightManger.fontWeightRagular,
+                    fontFamily: AppFontFamily.tajawalMedium,
                     fontSize: AppFontSizeManger.s13,
                   ),
                 ),
@@ -101,10 +101,10 @@ class BottomeSheetWidget extends StatelessWidget {
                       context, RouteNamedScreens.forgetPasswordScreenNameRoute);
                 },
                 child: TextUtiels(
+                  fontFamily: AppFontFamily.tajawalRegular,
                   text: AppWordManger.forgotYourPassword,
                   color: AppColorManger.primaryColor,
                   fontSize: AppFontSizeManger.s9,
-                  fontWeight: AppFontWeightManger.fontWeightRagularBold,
                 ),
               ),
             ),
@@ -129,8 +129,8 @@ class BottomeSheetWidget extends StatelessWidget {
                         context, RouteNamedScreens.signUpScreenNameRoute);
                   },
                   child: TextUtiels(
+                    fontFamily: AppFontFamily.tajawalLight,
                     text: AppWordManger.createAccount,
-                    fontWeight: AppFontWeightManger.fontWeightRagularBold,
                     color: AppColorManger.primaryColor,
                     fontSize: AppFontSizeManger.s10,
                     height: 4.h,
@@ -138,8 +138,8 @@ class BottomeSheetWidget extends StatelessWidget {
                 ),
                 SizedBox(width: 8.w),
                 TextUtiels(
+                  fontFamily: AppFontFamily.tajawalLight,
                   text: AppWordManger.dontHaveAnAccountAlreadyPlease,
-                  fontWeight: AppFontWeightManger.fontWeightRagularBold,
                   color: AppColorManger.fillBlack,
                   fontSize: AppFontSizeManger.s10,
                 ),

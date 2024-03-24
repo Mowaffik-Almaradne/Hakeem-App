@@ -6,4 +6,5 @@ class AppPngManger {
       'assets/image/png/backGroundImageForloginPage.png';
 
   static const layerShadow = 'assets/image/png/shadow.png';
+  static const imageProfile = 'assets/image/png/3d_avatar_21.png';
 }

@@ -44,11 +44,11 @@ class InfoServicesWidget extends StatelessWidget {
                   ),
                 ),
                 TextUtiels(
+                  fontFamily: AppFontFamily.tajawalLight,
                   textAlign: TextAlign.center,
                   text: 'العلاج\n بالأوكسجين',
                   color: AppColorManger.textColor1,
                   fontSize: AppFontSizeManger.s13,
-                  fontWeight: AppFontWeightManger.fontWeightRagular,
                   height: 1.5.h,
                 )
               ],

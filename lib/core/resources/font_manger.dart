@@ -2,13 +2,22 @@
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-//? Font Weight
+//? Font Weight :
 class AppFontWeightManger {
   static FontWeight fontWeightRagular = FontWeight.w400;
   static FontWeight fontWeightBold = FontWeight.w700;
   static FontWeight fontWeightRagularBold = FontWeight.w500;
   static FontWeight fontWeight800 = FontWeight.w800;
   static FontWeight fontWeightExtraBold = FontWeight.w900;
+}
+
+//? Font Family :
+class AppFontFamily {
+  static const extraBold = 'ExtraBold';
+  static const tajawalBold = 'TajawalBold';
+  static const tajawalMedium = 'TajawalMedium';
+  static const tajawalRegular = 'TajawalRegular';
+  static const tajawalLight = 'TajawalLight';
 }
 
 //? Font Size :

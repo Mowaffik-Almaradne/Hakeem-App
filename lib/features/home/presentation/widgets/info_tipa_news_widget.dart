@@ -71,9 +71,9 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                     children: [
                       TextUtiels(
                         text: 'بعد حقن الفيلر',
+                        fontFamily: AppFontFamily.tajawalBold,
                         color: AppColorManger.primaryColor,
                         fontSize: AppFontSizeManger.s16,
-                        fontWeight: AppFontWeightManger.fontWeightExtraBold,
                         height: 3.h,
                       ),
                       Row(
@@ -81,9 +81,9 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                         children: [
                           TextUtiels(
                             text: AppWordManger.textVisibale,
+                            fontFamily: AppFontFamily.tajawalRegular,
                             color: AppColorManger.textColor1,
                             fontSize: AppFontSizeManger.s10,
-                            fontWeight: AppFontWeightManger.fontWeightExtraBold,
                             height: 1.2,
                           ),
                           Padding(
