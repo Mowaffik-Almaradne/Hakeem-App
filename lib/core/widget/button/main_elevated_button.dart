@@ -5,50 +5,45 @@ import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class MainElevatedButton extends StatelessWidget {
-  const MainElevatedButton({
-    super.key,
-    required this.text,
-    required this.backgroundColor,
-    required this.textColor,
-    required this.onPreesed,
-    this.sideColor,
-    this.width,
-    this.icon,
-    this.heightButton,
-    this.widthButton,
-  });
+  const MainElevatedButton(
+      {super.key,
+      required this.text,
+      required this.backgroundColor,
+      required this.textColor,
+      required this.onPreesed,
+      this.horizontalPadding,
+      this.verticalPadding,
+      this.raduiseBorder});
 
   final String text;
   final Color backgroundColor;
   final Color textColor;
   final void Function()? onPreesed;
-  final Color? sideColor;
-  final double? width;
-  final String? icon;
-  final double? widthButton;
-  final double? heightButton;
+  final double? verticalPadding;
+  final double? horizontalPadding;
+  final double? raduiseBorder;
 
   @override
   Widget build(BuildContext context) {
     //! Button All App
-    return SizedBox(
-      width: widthButton ?? 290.w,
-      height: heightButton ?? 60.h,
-      child: ElevatedButton(
-        onPressed: onPreesed,
-        style: ElevatedButton.styleFrom(
-          alignment: Alignment.center,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(13),
-          ),
-          backgroundColor: backgroundColor,
+    return ElevatedButton(
+      onPressed: onPreesed,
+      style: ElevatedButton.styleFrom(
+        alignment: Alignment.center,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(raduiseBorder ?? 13).r,
         ),
-        child: TextUtiels(
-          fontFamily: AppFontFamily.tajawalBold,
-          text: text,
-          color: AppColorManger.white,
-          fontSize: AppFontSizeManger.s16,
+        padding: EdgeInsets.symmetric(
+          vertical: verticalPadding ?? 11.5.w,
+          horizontal: horizontalPadding ?? 85.5.w,
         ),
+        backgroundColor: backgroundColor,
+      ),
+      child: TextUtiels(
+        fontFamily: AppFontFamily.tajawalBold,
+        text: text,
+        color: AppColorManger.white,
+        fontSize: AppFontSizeManger.s16,
       ),
     );
   }

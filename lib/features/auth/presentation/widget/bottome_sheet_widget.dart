@@ -22,9 +22,9 @@ class BottomeSheetWidget extends StatelessWidget {
         constraints: BoxConstraints(minHeight: 310.h),
         decoration: BoxDecoration(
           color: AppColorManger.white,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.r),
+            topRight: Radius.circular(30.r),
           ),
         ),
         child: Column(
@@ -40,17 +40,21 @@ class BottomeSheetWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 28.h),
+            //? filed mobile phone :
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 60.w,
-                  height: 60.h,
-                  padding: EdgeInsets.symmetric(vertical: 22.h),
+                  padding: EdgeInsets.only(
+                    top: 18.h,
+                    bottom: 15.h,
+                    left: 14.w,
+                    right: 14.w,
+                  ),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: AppColorManger.primaryColor,
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(13).w,
                   ),
                   child: TextUtiels(
                     text: AppWordManger.characterCity,
@@ -59,7 +63,6 @@ class BottomeSheetWidget extends StatelessWidget {
                     fontSize: AppFontSizeManger.s13,
                   ),
                 ),
-                //? filed mobile phone :
                 Padding(
                   padding: EdgeInsets.only(
                     top: 10.h,
@@ -69,10 +72,10 @@ class BottomeSheetWidget extends StatelessWidget {
                     hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                     onChange: (value) {},
                     textInputType: TextInputType.phone,
-                    filedWidth: 220,
-                    filedHeight: 60,
-                    contentPaddingVertical: 15.h,
-                    contentPaddingHorizontal: 27.w,
+                    filedWidth: 200.w,
+                    filedHeight: 60.h,
+                    contentPaddingVertical: 13.h,
+                    contentPaddingHorizontal: 25.w,
                   ),
                 ),
               ],
@@ -80,13 +83,13 @@ class BottomeSheetWidget extends StatelessWidget {
             //? filed  Paswword :
             Padding(
               padding: EdgeInsets.only(
-                top: 10.h,
+                top: 20.h,
               ),
               child: TextFormFiledPassword(
                 hintText: AppWordManger.password,
                 onChange: (value) {},
                 textInputType: TextInputType.visiblePassword,
-                filedWidth: 285,
+                filedWidth: 275,
                 filedHeight: 60,
               ),
             ),
@@ -94,7 +97,7 @@ class BottomeSheetWidget extends StatelessWidget {
             SizedBox(height: 5.h),
             //? forget password :
             Padding(
-              padding: EdgeInsets.only(left: 160.w, bottom: 13.h),
+              padding: EdgeInsets.only(left: 160.r, bottom: 13.h),
               child: InkWell(
                 onTap: () {
                   Navigator.pushReplacementNamed(
@@ -115,8 +118,11 @@ class BottomeSheetWidget extends StatelessWidget {
               backgroundColor: AppColorManger.primaryColor,
               textColor: AppColorManger.white,
               onPreesed: () {
-                Navigator.pushReplacementNamed(
-                    context, RouteNamedScreens.homeScreenNameRoute);
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  RouteNamedScreens.homeScreenNameRoute,
+                  (route) => false,
+                );
               },
             ),
             //? any account go to page regestir :
@@ -146,7 +152,7 @@ class BottomeSheetWidget extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 200.h,
+              height: 50.h,
             )
           ],
         ),

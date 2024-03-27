@@ -19,7 +19,6 @@ final appTheme = ThemeData(
       fontSize: AppFontSizeManger.s16,
       fontWeight: AppFontWeightManger.fontWeightRagularBold,
     ),
-
     displaySmall: GoogleFonts.tajawal(
       color: AppColorManger.white,
       fontSize: AppFontSizeManger.s10,

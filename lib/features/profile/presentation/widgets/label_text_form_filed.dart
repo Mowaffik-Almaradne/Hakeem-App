@@ -16,7 +16,7 @@ class LabelTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomRight,
-      padding: EdgeInsets.only(top: paddingTop.h, right: 55.sp),
+      padding: EdgeInsets.only(top: paddingTop.h, right: 51.w),
       child: TextUtiels(
         fontFamily: AppFontFamily.tajawalRegular,
         text: text,

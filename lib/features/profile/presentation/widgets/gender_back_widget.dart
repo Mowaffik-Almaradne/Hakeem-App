@@ -6,12 +6,13 @@ import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class GenderBackWidget extends StatefulWidget {
   const GenderBackWidget({
-    super.key,
-    required this.text,
+    Key? key,
+    required this.texts,
     this.marginleft,
     this.marginRight,
-  });
-  final String text;
+  }) : super(key: key);
+
+  final List<String> texts;
   final double? marginleft;
   final double? marginRight;
 
@@ -19,36 +20,44 @@ class GenderBackWidget extends StatefulWidget {
   State<GenderBackWidget> createState() => _GenderBackWidgetState();
 }
 
-bool changeBackGroundColor = false;
+int selectIndex = -1;
 
 class _GenderBackWidgetState extends State<GenderBackWidget> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          changeBackGroundColor = !changeBackGroundColor;
-        });
-      },
-      child: Container(
-        width: 74.5.w,
-        height: 50.h,
-        margin: EdgeInsets.only(
-            left: widget.marginleft ?? 0.0, right: widget.marginRight ?? 0.0),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: changeBackGroundColor
-              ? AppColorManger.primaryColor
-              : AppColorManger.backGroundColorGender,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: TextUtiels(
-          fontFamily: AppFontFamily.tajawalRegular,
-          text: widget.text,
-          color: AppColorManger.white,
-          fontSize: AppFontSizeManger.s16,
-        ),
-      ),
+    return Wrap(
+      direction: Axis.horizontal,
+      //? list for choose gender :
+      children: List.generate(widget.texts.length, (index) {
+        return GestureDetector(
+          onTap: () {
+            setState(() {
+              selectIndex = index;
+            });
+          },
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 18.h),
+            margin: EdgeInsets.only(
+              left: widget.marginleft ?? 0.0,
+              right: widget.marginRight ?? 0.0,
+            ),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: selectIndex == index
+                  ? AppColorManger.primaryColor
+                  : AppColorManger.backGroundColorGender,
+              borderRadius: BorderRadius.circular(18.r),
+            ),
+            //? pass text gender :
+            child: TextUtiels(
+              fontFamily: AppFontFamily.tajawalRegular,
+              text: widget.texts[index],
+              color: AppColorManger.white,
+              fontSize: AppFontSizeManger.s16,
+            ),
+          ),
+        );
+      }),
     );
   }
 }

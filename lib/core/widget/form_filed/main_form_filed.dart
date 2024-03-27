@@ -8,7 +8,7 @@ import 'package:hosptel_app/core/resources/font_manger.dart';
 class MainTextFormFiled extends StatelessWidget {
   const MainTextFormFiled({
     super.key,
-     this.hintText,
+    this.hintText,
     required this.onChange,
     required this.textInputType,
     this.filedWidth,
@@ -51,7 +51,6 @@ class MainTextFormFiled extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: TextFormField(
-      
           obscureText: obscureText ?? false,
           textDirection: TextDirection.rtl,
           textInputAction: TextInputAction.next,
@@ -66,10 +65,10 @@ class MainTextFormFiled extends StatelessWidget {
               vertical: contentPaddingVertical ?? 12.h,
             ),
             hintStyle: TextStyle(
-              fontFamily: 'Tajawal',
+              fontFamily: AppFontFamily.tajawalRegular,
               fontSize: AppFontSizeManger.s13,
-              color: AppColorManger.black,
-              fontWeight: AppFontWeightManger.fontWeightRagular,
+              color: Colors.black,
+              fontWeight: FontWeight.w600,
             ),
             enabledBorder: outlineInputBorder(
               circular: 13,

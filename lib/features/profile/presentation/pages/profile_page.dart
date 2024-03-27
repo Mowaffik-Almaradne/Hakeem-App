@@ -7,9 +7,9 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
+import 'package:hosptel_app/core/widget/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/profile/presentation/helper/class_clipping_helper.dart';
-import 'package:hosptel_app/features/profile/presentation/widgets/chracter_number_widget.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/gender_back_widget.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_text_form_filed.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_type_gender_widget.dart';
@@ -36,7 +36,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: -27.h,
+                  bottom: -5.h,
                   child: Image.asset(
                     width: 100.w,
                     height: 100.h,
@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 25.h),
+            SizedBox(height: 2.h),
             TextUtiels(
               text: 'حسن الحلاق',
               fontFamily: AppFontFamily.tajawalBold,
@@ -54,9 +54,10 @@ class ProfilePage extends StatelessWidget {
             ),
             TextUtiels(
               text: AppWordManger.welcome,
-              fontFamily: AppFontFamily.tajawalBold,
+              fontFamily: AppFontFamily.extraBold,
               color: AppColorManger.textlight,
-              fontSize: AppFontSizeManger.s13,
+              fontSize: AppFontSizeManger.s16,
+              fontWeight: AppFontWeightManger.fontWeight800,
             ),
             //? filed privat name :
             const LabelTextFormFiled(
@@ -87,12 +88,13 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CharacterNumberWidget(),
+                const CharacterCityWidget(),
                 Padding(
                   padding: EdgeInsets.only(
                     top: 10.h,
                     left: 10.w,
-                    right: 22.w,
+                    right: 35.w,
+                    bottom: 5.h,
                   ),
                   child: MainTextFormFiled(
                     filedWidth: 230.w,
@@ -101,8 +103,8 @@ class ProfilePage extends StatelessWidget {
                     fillColor: AppColorManger.white,
                     borderColor: AppColorManger.borderColor,
                     borderWidht: 1.3.w,
-                    contentPaddingVertical: 15.h,
-                    contentPaddingHorizontal: 27.w,
+                    contentPaddingVertical: 13.5.h,
+                    contentPaddingHorizontal: 30.w,
                   ),
                 ),
               ],
@@ -115,7 +117,7 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                 left: 25.w,
-                right: 51.w,
+                right: 47.w,
                 top: 10.h,
               ),
               child: MainTextFormFiled(
@@ -137,9 +139,9 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                 left: 25.w,
-                right: 51.w,
+                right: 47.w,
                 top: 10.h,
-                bottom: 9.h,
+                bottom: 20.h,
               ),
               child: MainTextFormFiled(
                 obscureText: true,
@@ -156,13 +158,10 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const GenderBackWidget(
-                  text: AppWordManger.fmeal,
-                ),
                 GenderBackWidget(
-                  text: AppWordManger.meal,
+                  texts: const [AppWordManger.fmeal, AppWordManger.meal],
                   marginleft: 12.w,
-                  marginRight: 12.w,
+                  marginRight: 10.w,
                 ),
                 const LabelTypeGenderWidget(),
               ],
@@ -170,8 +169,9 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: 33.h),
             //? button save info :
             MainElevatedButton(
-              heightButton: 50.h,
-              widthButton: 154.w,
+              verticalPadding: 15.h,
+              horizontalPadding: 65.w,
+              raduiseBorder: 18,
               text: AppWordManger.save,
               backgroundColor: AppColorManger.secoundryColor,
               textColor: AppColorManger.white,
@@ -184,3 +184,4 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+

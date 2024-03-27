@@ -5,24 +5,27 @@ import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
-class CharacterNumberWidget extends StatelessWidget {
-  const CharacterNumberWidget({super.key});
+class CharacterCityWidget extends StatelessWidget {
+  const CharacterCityWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 60.w,
-      height: 60.h,
-      padding: EdgeInsets.symmetric(vertical: 22.h),
+      padding: EdgeInsets.only(
+        top: 18.h,
+        bottom: 15.h,
+        left: 14.w,
+        right: 14.w,
+      ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppColorManger.primaryColor,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(13).w,
       ),
       child: TextUtiels(
         text: AppWordManger.characterCity,
-        fontFamily: AppFontFamily.tajawalMedium,
         color: AppColorManger.white,
+        fontFamily: AppFontFamily.tajawalMedium,
         fontSize: AppFontSizeManger.s13,
       ),
     );

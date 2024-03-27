@@ -12,21 +12,20 @@ class LabelTypeGenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 89.w,
-      height: 50.h,
+      padding: EdgeInsets.symmetric(horizontal: 25.5.w, vertical: 18.h),
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColorManger.grayNavButton,
           width: 1.5,
         ),
-        borderRadius: BorderRadius.circular(13),
+        borderRadius: BorderRadius.all(Radius.circular(18.r)),
         color: AppColorManger.white,
       ),
       child: TextUtiels(
         text: AppWordManger.gander,
         fontFamily: AppFontFamily.tajawalBold,
         color: AppColorManger.black,
-        fontSize: AppFontSizeManger.s13,
+        fontSize: AppFontSizeManger.s14,
       ),
     );
   }

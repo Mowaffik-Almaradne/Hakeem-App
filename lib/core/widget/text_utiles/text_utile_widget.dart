@@ -4,13 +4,13 @@ class TextUtiels extends StatelessWidget {
   const TextUtiels({
     super.key,
     required this.text,
-
     required this.color,
     required this.fontSize,
     required this.fontFamily,
     this.textAlign,
     this.shadows,
     this.height,
+    this.fontWeight,
   });
   final String text;
   final String fontFamily;
@@ -18,6 +18,8 @@ class TextUtiels extends StatelessWidget {
   final double fontSize;
   final TextAlign? textAlign;
   final List<Shadow>? shadows;
+  final FontWeight? fontWeight;
+
   final double? height;
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class TextUtiels extends StatelessWidget {
         color: color,
         shadows: shadows,
         height: height,
+        fontWeight: fontWeight,
       ),
       overflow: TextOverflow.visible,
     );
