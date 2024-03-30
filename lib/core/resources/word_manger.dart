@@ -1,9 +1,13 @@
 //! static word all application for localization :
 class AppWordManger {
+  //? intro :
   static const easyBookingExperience = 'تجربة سهلة ومريحة لحجز';
   static const medicalAppointments = 'المواعيد الطبية';
   static const bookYourAppointmentNowAndEnjoyAUniqueExperience =
       'احجز موعدك الآن واستمتع بتجربة فريدة ';
+  //?
+
+  //? auth :
   static const andSpecial = 'ومميزة';
   static const characterCity = '+963';
   static const pleaseEnterYourPhoneNumber = 'يرجى إدخال رقم هاتفك';
@@ -12,6 +16,8 @@ class AppWordManger {
   static const login = 'تسجيل الدخول';
   static const createAccount = 'إنشاء حساب';
   static const dontHaveAnAccountAlreadyPlease = 'ليس لديك حساب مسبقا يرجى';
+  static const loginGust = 'الدخول كضيف';
+  //?
   static const health = 'صحتي';
   static const notification = 'الاشعارات';
   static const home = 'الرئيسية';
@@ -27,6 +33,7 @@ class AppWordManger {
   static const textVisibale =
       "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
 
+//? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';
   static const phoneNumber = 'رقم هاتفك';
@@ -35,4 +42,5 @@ class AppWordManger {
   static const meal = 'ذكر';
   static const fmeal = 'أنثى';
   static const save = 'حفظ';
+  //?
 }

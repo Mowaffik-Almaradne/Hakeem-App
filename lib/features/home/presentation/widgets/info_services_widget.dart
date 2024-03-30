@@ -24,9 +24,8 @@ class InfoServicesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 70.w,
-                  height: 80.h,
-                  padding: EdgeInsets.symmetric(vertical: 8.h),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 9.5.h, horizontal: 15.w),
                   margin: EdgeInsets.only(bottom: 8.h),
                   decoration: ShapeDecoration(
                     color: AppColorManger.white,

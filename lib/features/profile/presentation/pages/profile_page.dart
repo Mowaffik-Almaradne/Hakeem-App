@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
@@ -9,7 +10,6 @@ import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
-import 'package:hosptel_app/features/profile/presentation/helper/class_clipping_helper.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/gender_back_widget.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_text_form_filed.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_type_gender_widget.dart';
@@ -155,16 +155,18 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             //? choose gender :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GenderBackWidget(
-                  texts: const [AppWordManger.fmeal, AppWordManger.meal],
-                  marginleft: 12.w,
-                  marginRight: 10.w,
-                ),
-                const LabelTypeGenderWidget(),
-              ],
+            Padding(
+              padding: EdgeInsets.only(right: 15.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GenderBackWidget(
+                    texts: const [AppWordManger.fmeal, AppWordManger.meal],
+                    marginRight: 10.w,
+                  ),
+                  const LabelTypeGenderWidget(),
+                ],
+              ),
             ),
             SizedBox(height: 33.h),
             //? button save info :
@@ -184,4 +186,3 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
-

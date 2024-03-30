@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
@@ -11,15 +12,14 @@ import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
-class BottomeSheetWidget extends StatelessWidget {
-  const BottomeSheetWidget({super.key});
+class BottomeSheetLoginWidget extends StatelessWidget {
+  const BottomeSheetLoginWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         width: double.infinity,
-        constraints: BoxConstraints(minHeight: 310.h),
         decoration: BoxDecoration(
           color: AppColorManger.white,
           borderRadius: BorderRadius.only(
@@ -76,6 +76,10 @@ class BottomeSheetWidget extends StatelessWidget {
                     filedHeight: 60.h,
                     contentPaddingVertical: 13.h,
                     contentPaddingHorizontal: 25.w,
+                    inputFormatter: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10),
+                    ],
                   ),
                 ),
               ],
@@ -153,7 +157,7 @@ class BottomeSheetWidget extends StatelessWidget {
             ),
             SizedBox(
               height: 50.h,
-            )
+            ),
           ],
         ),
       ),
