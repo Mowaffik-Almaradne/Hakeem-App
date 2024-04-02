@@ -66,8 +66,8 @@ class ProfilePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: 25.w,
-                right: 51.w,
+                left: 51.w,
+                right: 53.w,
                 top: 10.h,
               ),
               child: MainTextFormFiled(
@@ -85,29 +85,27 @@ class ProfilePage extends StatelessWidget {
               text: AppWordManger.phoneNumber,
               paddingTop: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const CharacterCityWidget(),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 10.h,
-                    left: 10.w,
-                    right: 35.w,
-                    bottom: 5.h,
+            Padding(
+              padding: EdgeInsets.only(left: 42.w, right: 52.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const CharacterCityWidget(),
+                  Padding(
+                    padding: EdgeInsets.only(left: 9.w),
+                    child: MainTextFormFiled(
+                      filedWidth: 200.w,
+                      onChange: (value) {},
+                      textInputType: TextInputType.name,
+                      fillColor: AppColorManger.white,
+                      borderColor: AppColorManger.borderColor,
+                      borderWidht: 1.3.w,
+                      contentPaddingVertical: 13.5.h,
+                      contentPaddingHorizontal: 30.w,
+                    ),
                   ),
-                  child: MainTextFormFiled(
-                    filedWidth: 230.w,
-                    onChange: (value) {},
-                    textInputType: TextInputType.name,
-                    fillColor: AppColorManger.white,
-                    borderColor: AppColorManger.borderColor,
-                    borderWidht: 1.3.w,
-                    contentPaddingVertical: 13.5.h,
-                    contentPaddingHorizontal: 30.w,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             //? password form filed :
             const LabelTextFormFiled(
@@ -116,8 +114,8 @@ class ProfilePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: 25.w,
-                right: 47.w,
+                left: 51.w,
+                right: 51.w,
                 top: 10.h,
               ),
               child: MainTextFormFiled(
@@ -139,7 +137,7 @@ class ProfilePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                 left: 25.w,
-                right: 47.w,
+                right: 51.w,
                 top: 10.h,
                 bottom: 20.h,
               ),

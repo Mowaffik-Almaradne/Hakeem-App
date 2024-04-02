@@ -17,6 +17,10 @@ class AppWordManger {
   static const createAccount = 'إنشاء حساب';
   static const dontHaveAnAccountAlreadyPlease = 'ليس لديك حساب مسبقا يرجى';
   static const loginGust = 'الدخول كضيف';
+  static const writeNumber = 'ادخل الرمز';
+  static const doneVerification = 'تأكيد الرمز';
+  static const resendMessage = 'إعادة إرساله';
+  static const dontGetVerificationCode = 'لم تحصل على الرمز ؟';
   //?
   static const health = 'صحتي';
   static const notification = 'الاشعارات';

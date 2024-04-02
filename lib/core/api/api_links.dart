@@ -1,25 +1,18 @@
 //! all api links
 
 //? Api GET
-class ApiGet {
-  //Api Url For User
- 
- 
-}
+class ApiGet {}
+//?
+
+//? Api POST
+class ApiPost {}
 //
 
-//?API Post 
-class ApiPost{
-  //Api Url For Auth
-  static const String loginUrl = "Authenticate/GetToken"; 
-}
-
 //? Api PUT
-class ApiPut { 
-}
+class ApiPut {}
 //
 
 //? Api DELETE
-class ApiDelete { 
-}
+class ApiDelete {}
+
 //

@@ -30,6 +30,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   curved_labeled_navigation_bar: ^2.0.2 
   stroke_text: any
+  logger: ^2.2.0
 
 
 dev_dependencies:

@@ -1,8 +1,8 @@
 
-import 'package:http/http.dart';
+import 'package:hosptel_app/core/entity/error_entity_response.dart';
 
 class ServerException implements Exception {
-  final Response response;
+  ErrorResponseEntity response;
   ServerException({
     required this.response,
   });

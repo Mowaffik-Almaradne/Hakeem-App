@@ -1,28 +1,36 @@
-//! api url generator
-//! like base url , path , query
+import 'package:flutter/foundation.dart';
+
+/// api url generator
+/// like base url , path , query
 class ApiUrl {
   late String _link;
-  final String baseUrl = "";
+
+  //? host Name :
+  static const String hostName = "test.tuqaatech.info";
+  //? base Url :
+  static const String baseUrl = "https://$hostName/api/services/app/";
 
   ApiUrl(this._link);
 
   getLink() {
-    // print('Http request : $_link');
-
+    if (kDebugMode) {
+      print('Http request : $_link');
+    }
     return Uri.parse(baseUrl + _link);
   }
 
   ApiUrl getQuery(Map<String, dynamic> query) {
     _link += '?';
     for (int i = 0; i < query.length; i++) {
-      String key = query.keys.elementAt(i); // kays
-      var value = query.values.elementAt(i); // values
+      String key = query.keys.elementAt(i);
+      var value = query.values.elementAt(i);
 
       if (value is List) {
         for (int i = 0; i < value.length; i++) {
-          var it = value.elementAt(i); 
+          var it = value.elementAt(i);
 
           _link += '$key=$it';
+
           if (i < value.length - 1) {
             _link += '&';
           }
@@ -32,6 +40,30 @@ class ApiUrl {
       }
 
       if (i != query.length - 1) _link += '&';
+    }
+    return this;
+  }
+
+  ApiUrl getHeader(Map<String, dynamic> header) {
+    for (int i = 0; i < header.length; i++) {
+      String key = header.keys.elementAt(i);
+      var value = header.values.elementAt(i);
+
+      if (value is List) {
+        for (int i = 0; i < value.length; i++) {
+          var it = value.elementAt(i);
+
+          '$key=$it';
+
+          if (i < value.length - 1) {
+            '&';
+          }
+        }
+      } else {
+        '$key=$value';
+      }
+
+      if (i != header.length - 1) '&';
     }
     return this;
   }
@@ -52,9 +84,9 @@ class ApiUrl {
     return q;
   }
 
-  //?this method
-  //? make the link as a api required path
-  //? only the unique path key can replaced
+  /// this method
+  /// make the link as a api required path
+  /// only the unique path key can replaced
   ApiUrl getPath(Map<String, dynamic> path) {
     path.forEach((key, value) {
       _link = _link.replaceAll(key, value.toString());

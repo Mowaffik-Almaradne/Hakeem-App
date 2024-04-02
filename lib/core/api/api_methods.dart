@@ -1,78 +1,95 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-import 'api_url.dart';
+import 'package:logger/logger.dart';
 
-//! all api method with configuration to send http request
+/// all api method with configuration to send http request
 class ApiMethods {
-  late Map<String, String> headers;
-
-  ApiMethods() {
-    headers = {
-      "Content-type": "application/json",
+  Map<String, String> headersConst({required String contentType}) {
+    return {
+      'Content-Type': contentType,
       "Accept": "application/json",
-      // "Authorization": "Bearer ${AppSharedPreferences.getAccToken()}"
+      // "Authorization": "Bearer ${AppSharedPreferences.getToken()}"
     };
   }
 
-  //? using this function for all get requests
-  //? when the parameter does not needed set as empty value
-  Future<http.Response> get(
-      {required String url,
-      required Map<String, dynamic> path,
-      required Map<String, dynamic> query}) async {
-    query.removeWhere((key, value) => value == null);
-    if (path.isNotEmpty && query.isNotEmpty) {
-      return await http.get(ApiUrl(url).getPath(path).getQuery(query).getLink(),
-          headers: headers);
-    } else if (query.isNotEmpty) {
-      return await http.get(ApiUrl(url).getQuery(query).getLink(),
-          headers: headers);
-    } else if (path.isNotEmpty) {
-      return await http.get(ApiUrl(url).getPath(path).getLink(),
-          headers: headers);
-    } else {
-      return await http.get(ApiUrl(url).getLink(), headers: headers);
-    }
+  Logger logger() {
+    return Logger(
+      printer: PrettyPrinter(
+          methodCount: 0,
+          // number of method calls to be displayed
+          errorMethodCount: 0,
+          // number of method calls if stacktrace is provided
+          lineLength: 120,
+          // noBoxingByDefault: true,
+          // width of the output
+          colors: true,
+          // Colorful log messages
+          printEmojis: false,
+          // Print an emoji for each log message
+          printTime: false // Should each log print contain a timestamp
+          ),
+    );
   }
 
-  //? using this function for all post requests
-  //? when the parameter does not needed set as empty value
-  Future<http.Response> post(
-      {required String url,
-      required body,
-      required Map<String, dynamic> query}) async {
-    if (body != null && query.isNotEmpty) {
-      return await http.post(ApiUrl(url).getQuery(query).getLink(),
-          body: jsonEncode(body), headers: headers);
-    } else if (query.isNotEmpty) {
-      return await http.post(ApiUrl(url).getQuery(query).getLink(),
-          headers: headers);
-    } else {
-      return await http.post(ApiUrl(url).getLink(),
-          body: jsonEncode(body), headers: headers);
+  void logRequest({
+    required String url,
+    Map<String, dynamic>? query,
+    dynamic body,
+    Map<String, dynamic>? path,
+    List<File>? files,
+  }) {
+    String msg = '';
+    if (query != null) msg += '\n query: ${jsonEncode(query)}';
+    if (body != null) msg += '\n body: ${jsonEncode(body)}';
+    if (path != null) msg += '\n path: ${jsonEncode(path)}';
+    if (files != null) {
+      msg += '\n files ${files.map((e) => e.path).toList().toString()}';
     }
+
+    logger().i('$url \n${splitMessage(msg)}');
   }
 
-  //? using this function for all pu requests
-  //? when the parameter does not needed set as empty value
-  Future<http.Response> put(
-      {required String url,
-      required body,
-      required Map<String, dynamic> query}) async {
-    if (query.isEmpty) {
-      return await http.put(ApiUrl(url).getLink(),
-          body: jsonEncode(body), headers: headers);
-    } else {
-      return await http.put(ApiUrl(url).getQuery(query).getLink(),
-          body: jsonEncode(body), headers: headers);
-    }
+//! print response
+  void logResponse(http.Response response, String url) {
+    logger().w('${response.statusCode}  $url \n${splitMessage(response.body)}');
   }
+}
 
-  //? using this function for all delete requests
-  //? when the parameter does not needed set as empty value
-  Future<http.Response> delete({required String url}) async {
-    return await http.delete(ApiUrl(url).getLink(), headers: headers);
+extension StringSplitByLength on String {
+  List<String> splitByLength(int length, {bool ignoreEmpty = false}) {
+    List<String> pieces = [];
+
+    for (int i = 0; i < this.length; i += length) {
+      int offset = i + length;
+      String piece = substring(i, offset >= this.length ? this.length : offset);
+
+      if (ignoreEmpty) {
+        piece = piece.replaceAll(RegExp(r'\s+'), '');
+      }
+
+      pieces.add(piece);
+    }
+    return pieces;
   }
+}
+
+String splitMessage(dynamic map) {
+  var m = '';
+  if (map == null) return m;
+
+  if (map is Map) m = jsonEncode(map);
+  if (map is String) m = map;
+
+  if (m.length > 800) {
+    final list = m.splitByLength(800);
+    var message = '';
+    for (var element in list) {
+      message += '$element \n';
+    }
+    return message;
+  }
+  return m;
 }

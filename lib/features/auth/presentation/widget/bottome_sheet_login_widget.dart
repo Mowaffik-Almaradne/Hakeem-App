@@ -10,6 +10,7 @@ import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
+import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class BottomeSheetLoginWidget extends StatelessWidget {
@@ -122,39 +123,24 @@ class BottomeSheetLoginWidget extends StatelessWidget {
               backgroundColor: AppColorManger.primaryColor,
               textColor: AppColorManger.white,
               onPreesed: () {
-                Navigator.pushNamedAndRemoveUntil(
+                Navigator.pushNamed(
                   context,
-                  RouteNamedScreens.homeScreenNameRoute,
-                  (route) => false,
+                  RouteNamedScreens.reciveNumberVerificationPageScreenNameRoute,
                 );
               },
             ),
             //? any account go to page regestir :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(
-                        context, RouteNamedScreens.signUpScreenNameRoute);
-                  },
-                  child: TextUtiels(
-                    fontFamily: AppFontFamily.tajawalLight,
-                    text: AppWordManger.createAccount,
-                    color: AppColorManger.primaryColor,
-                    fontSize: AppFontSizeManger.s10,
-                    height: 4.h,
-                  ),
-                ),
-                SizedBox(width: 8.w),
-                TextUtiels(
-                  fontFamily: AppFontFamily.tajawalLight,
-                  text: AppWordManger.dontHaveAnAccountAlreadyPlease,
-                  color: AppColorManger.fillBlack,
-                  fontSize: AppFontSizeManger.s10,
-                ),
-              ],
+            MovPageText(
+              movPageText: AppWordManger.createAccount,
+              onTap: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  RouteNamedScreens.signUpScreenNameRoute,
+                );
+              },
+              primaryText: AppWordManger.dontHaveAnAccountAlreadyPlease,
             ),
+
             SizedBox(
               height: 50.h,
             ),

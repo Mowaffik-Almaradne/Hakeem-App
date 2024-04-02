@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/forget_password_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/login_page.dart';
+import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/health_page.dart';
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
@@ -12,12 +13,15 @@ import 'package:hosptel_app/features/reservation/presentation/pages/reservation_
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      //! Start Feature Intro //! :
       //? Start Intro Page :
       case RouteNamedScreens.introScreenNameRoute:
         return MaterialPageRoute(
           builder: (_) => const IntroPage(),
         ); //? End Intro Page
+      //! End Feature Intro //! :
 
+      //! Start Feature Auth //! :
       //? Start Login Screen:
       case RouteNamedScreens.loginScreenNameRoute:
         return PageRouteBuilder(
@@ -72,6 +76,27 @@ class AppRouter {
             );
           },
         ); //? End Forget Password Screen:
+
+        //? Start Forget Password Screen:
+      case RouteNamedScreens.reciveNumberVerificationPageScreenNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const ReciveNumberVerificationPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Forget Password Screen:
+        
+      //! End Feature Auth //! :
       //? Start Home Screen:
       case RouteNamedScreens.homeScreenNameRoute:
         return PageRouteBuilder(
@@ -172,13 +197,20 @@ class AppRouter {
 class RouteNamedScreens {
   //! Routing Naming
   static const introScreenNameRoute = '/';
+
   static const loginScreenNameRoute = '/login-screen';
   static const signUpScreenNameRoute = '/signUp-screen';
   static const forgetPasswordScreenNameRoute = '/forget-password-screen';
-  static const healthNameRoute = '/health-screen';
-  static const notificationNameRoute = '/notification-screen';
+  static const reciveNumberVerificationPageScreenNameRoute = '/verification-number-screen';
+
   static const homeScreenNameRoute = '/home-screen';
+
+  static const healthNameRoute = '/health-screen';
+
+  static const notificationNameRoute = '/notification-screen';
+  
   static const reservationNameRoute = '/reservation-screen';
+
   static const profileNameRoute = '/profile-screen';
 
   //!
