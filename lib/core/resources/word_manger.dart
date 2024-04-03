@@ -21,6 +21,8 @@ class AppWordManger {
   static const doneVerification = 'تأكيد الرمز';
   static const resendMessage = 'إعادة إرساله';
   static const dontGetVerificationCode = 'لم تحصل على الرمز ؟';
+  static const useTheCodeSentToYouToVerifyAndAccessYourAccount =
+      'استخدم الرمز المرسل لك للتحقق والوصول إلى حسابك';
   //?
   static const health = 'صحتي';
   static const notification = 'الاشعارات';

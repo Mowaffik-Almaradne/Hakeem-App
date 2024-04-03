@@ -14,8 +14,17 @@ import 'package:hosptel_app/features/auth/presentation/widget/text_form_filed_ve
 import 'package:hosptel_app/router/app_router.dart';
 
 class BottomeSheetVerifivcationWidget extends StatelessWidget {
-  const BottomeSheetVerifivcationWidget({super.key});
-
+  const BottomeSheetVerifivcationWidget({
+    super.key,
+    required this.subText,
+    required this.fontSizeSubText,
+    required this.fontColorSubText,
+    required this.fontFamailySubText,
+  });
+  final String subText;
+  final double fontSizeSubText;
+  final Color fontColorSubText;
+  final String fontFamailySubText;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -74,10 +83,10 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextUtiels(
-                text: '+963 935049855',
-                color: AppColorManger.black,
-                fontSize: AppFontSizeManger.s16,
-                fontFamily: AppFontFamily.tajawalBold,
+                text: subText,
+                color: fontColorSubText,
+                fontSize: fontSizeSubText,
+                fontFamily: fontFamailySubText,
                 paddingTop: 39.h,
                 paddingRight: 18.w,
                 paddingBottome: 10.h,

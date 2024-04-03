@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/bottome_sheet_verification_widget.dart';
 
@@ -18,7 +20,12 @@ class ReciveNumberVerificationPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomSheet: const BottomeSheetVerifivcationWidget(),
+      bottomSheet: BottomeSheetVerifivcationWidget(
+        subText: '+963 935049855',
+        fontColorSubText: AppColorManger.black,
+        fontFamailySubText: AppFontFamily.tajawalBold,
+        fontSizeSubText: AppFontSizeManger.s16,
+      ),
     );
   }
 }

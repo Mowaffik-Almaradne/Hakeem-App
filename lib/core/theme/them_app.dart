@@ -8,6 +8,9 @@ final appTheme = ThemeData(
   appBarTheme: const AppBarTheme(
     centerTitle: true,
   ),
+  colorScheme: ColorScheme.light(
+    primary: AppColorManger.primaryColor,
+  ),
   textTheme: TextTheme(
     bodyMedium: GoogleFonts.tajawal(
       color: AppColorManger.white,

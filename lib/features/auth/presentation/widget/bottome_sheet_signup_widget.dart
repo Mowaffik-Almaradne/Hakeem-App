@@ -21,6 +21,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
     return Container(
       width: double.infinity,
       height: 400.h,
@@ -125,6 +126,20 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
               bottom: 10.h,
             ),
             child: MainTextFormFiled(
+              readOnly: true,
+              controller: controller,
+              onPressedSuffixIcon: () async {
+                DateTime? selectedDate = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(2000),
+                  lastDate: DateTime(2100),
+                );
+                if (selectedDate != null) {
+                  controller.text = selectedDate.toString().substring(0, 10);
+                }
+              },
+              suffixIcon: Icons.calendar_month_outlined,
               hintText: AppWordManger.birthDay,
               onChange: (value) {},
               textInputType: TextInputType.name,

@@ -105,8 +105,10 @@ class BottomeSheetLoginWidget extends StatelessWidget {
               padding: EdgeInsets.only(left: 160.r, bottom: 13.h),
               child: InkWell(
                 onTap: () {
-                  Navigator.pushReplacementNamed(
-                      context, RouteNamedScreens.forgetPasswordScreenNameRoute);
+                  Navigator.pushNamed(
+                    context,
+                    RouteNamedScreens.forgetPasswordScreenNameRoute,
+                  );
                 },
                 child: TextUtiels(
                   fontFamily: AppFontFamily.tajawalRegular,

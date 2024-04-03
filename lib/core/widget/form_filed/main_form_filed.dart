@@ -25,6 +25,9 @@ class MainTextFormFiled extends StatelessWidget {
     this.contentPaddingHorizontal,
     this.contentPaddingVertical,
     this.obscureText,
+    this.readOnly,
+    this.suffixIcon,
+    this.controller,
   });
   final String? hintText;
   final TextInputType textInputType;
@@ -43,6 +46,9 @@ class MainTextFormFiled extends StatelessWidget {
   final double? contentPaddingHorizontal;
   final double? contentPaddingVertical;
   final bool? obscureText;
+  final bool? readOnly;
+  final IconData? suffixIcon;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -51,6 +57,8 @@ class MainTextFormFiled extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: TextFormField(
+          controller: controller,
+          readOnly: readOnly ?? false,
           obscureText: obscureText ?? false,
           textDirection: TextDirection.rtl,
           textInputAction: TextInputAction.next,
@@ -63,6 +71,13 @@ class MainTextFormFiled extends StatelessWidget {
             contentPadding: EdgeInsets.symmetric(
               horizontal: contentPaddingHorizontal ?? 12.w,
               vertical: contentPaddingVertical ?? 12.h,
+            ),
+            suffixIcon: IconButton(
+              onPressed: onPressedSuffixIcon,
+              icon: Icon(
+                suffixIcon,
+                color: AppColorManger.primaryColor,
+              ),
             ),
             hintStyle: TextStyle(
               fontFamily: AppFontFamily.tajawalRegular,
