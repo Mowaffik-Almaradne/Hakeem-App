@@ -86,7 +86,7 @@ class MainTextFormFiled extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
             enabledBorder: outlineInputBorder(
-              circular: 13,
+              circular: 13.r,
               width: borderWidht ?? 0,
               color: borderColor ?? Colors.transparent,
             ),

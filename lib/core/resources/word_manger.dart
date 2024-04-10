@@ -48,5 +48,9 @@ class AppWordManger {
   static const meal = 'ذكر';
   static const fmeal = 'أنثى';
   static const save = 'حفظ';
+  static const infoAccount = 'معلومات الحساب';
+  static const changePassword = 'تغيير كلمة السر';
+  static const updateMyNumber = 'تعديل رقمي';
+  static const deleteAccount = 'حذف حسابي';
   //?
 }

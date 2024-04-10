@@ -93,13 +93,35 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
               ),
             ),
             //? Inputs for verificaton code :
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                TextFormFiledVerficationCodeWidget(),
-                TextFormFiledVerficationCodeWidget(),
-                TextFormFiledVerficationCodeWidget(),
-                TextFormFiledVerficationCodeWidget()
+                TextFormFiledVerficationCodeWidget(
+                  onChanged: (value) {
+                    nextFilledFun(value, context);
+                  },
+                ),
+                TextFormFiledVerficationCodeWidget(
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      FocusScope.of(context).nextFocus();
+                    }
+                  },
+                ),
+                TextFormFiledVerficationCodeWidget(
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      nextFilledFun(value, context);
+                    }
+                  },
+                ),
+                TextFormFiledVerficationCodeWidget(
+                  onChanged: (value) {
+                    if (value.length == 1) {
+                      nextFilledFun(value, context);
+                    }
+                  },
+                )
               ],
             ),
             SizedBox(height: 52.h),
@@ -126,5 +148,12 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+//? to next filled :
+  void nextFilledFun(String value, BuildContext context) {
+    if (value.length == 1) {
+      FocusScope.of(context).nextFocus();
+    }
   }
 }

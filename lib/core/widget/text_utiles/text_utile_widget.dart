@@ -15,7 +15,7 @@ class TextUtiels extends StatelessWidget {
     this.paddingRight,
     this.paddingBottome,
     this.paddingTop,
-  
+    this.paddingLeft,
   });
   final String text;
   final String fontFamily;
@@ -26,6 +26,7 @@ class TextUtiels extends StatelessWidget {
   final FontWeight? fontWeight;
   final double? height;
   final double? paddingRight;
+  final double? paddingLeft;
   final double? paddingTop;
   final double? paddingBottome;
   @override
@@ -33,6 +34,7 @@ class TextUtiels extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         right: paddingRight ?? 0,
+        left: paddingLeft ?? 0,
         bottom: paddingBottome ?? 0,
         top: paddingTop ?? 0,
       ),

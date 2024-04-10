@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/nav_button_main.dart';
 import 'package:hosptel_app/router/app_router.dart';
+
 //? function for padding word
 EdgeInsetsGeometry paddingWordUnSelected({required int index}) {
   if (selectedIndex != index) {

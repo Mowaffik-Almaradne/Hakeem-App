@@ -7,7 +7,8 @@ import 'package:hosptel_app/features/health/presentation/pages/health_page.dart'
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
 import 'package:hosptel_app/features/intro/presentation/page/intro_page.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';
-import 'package:hosptel_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:hosptel_app/features/profile/presentation/pages/info_profile_page.dart';
+import 'package:hosptel_app/features/profile/presentation/pages/main_profile_page.dart';
 import 'package:hosptel_app/features/reservation/presentation/pages/reservation_page.dart';
 
 class AppRouter {
@@ -77,7 +78,7 @@ class AppRouter {
           },
         ); //? End Forget Password Screen:
 
-        //? Start Forget Password Screen:
+      //? Start Forget Password Screen:
       case RouteNamedScreens.reciveNumberVerificationPageScreenNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
@@ -95,7 +96,7 @@ class AppRouter {
             );
           },
         ); //? End Forget Password Screen:
-        
+
       //! End Feature Auth //! :
       //? Start Home Screen:
       case RouteNamedScreens.homeScreenNameRoute:
@@ -170,7 +171,7 @@ class AppRouter {
           },
         ); //? End Reservation Screen
 
-      //? Start Profile Page :
+      //? Start  Profile Page :
       case RouteNamedScreens.profileNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
@@ -187,7 +188,25 @@ class AppRouter {
               child: child,
             );
           },
-        ); //? End Reservation Screen
+        ); //? End Profile page
+      //? Start Profile Info Page :
+      case RouteNamedScreens.infoProfileNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const InfoProfilePage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Profile Info Screen
     }
 
     return null;
@@ -198,20 +217,24 @@ class RouteNamedScreens {
   //! Routing Naming
   static const introScreenNameRoute = '/';
 
+  //? Start Auth Feature :
   static const loginScreenNameRoute = '/login-screen';
   static const signUpScreenNameRoute = '/signUp-screen';
   static const forgetPasswordScreenNameRoute = '/forget-password-screen';
-  static const reciveNumberVerificationPageScreenNameRoute = '/verification-number-screen';
-
+  static const reciveNumberVerificationPageScreenNameRoute =
+      '/verification-number-screen';
+  //? End Auth Feature :
   static const homeScreenNameRoute = '/home-screen';
 
   static const healthNameRoute = '/health-screen';
 
   static const notificationNameRoute = '/notification-screen';
-  
+
   static const reservationNameRoute = '/reservation-screen';
 
+  //? Start Profile Feature :
   static const profileNameRoute = '/profile-screen';
-
+  static const infoProfileNameRoute = '/info-profile-screen';
+  //? End Profile Feature :
   //!
 }

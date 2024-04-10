@@ -14,8 +14,8 @@ import 'package:hosptel_app/features/profile/presentation/widgets/gender_back_wi
 import 'package:hosptel_app/features/profile/presentation/widgets/label_text_form_filed.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_type_gender_widget.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+class InfoProfilePage extends StatelessWidget {
+  const InfoProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {

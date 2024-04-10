@@ -50,7 +50,7 @@ class IntroPage extends StatelessWidget {
                   fontFamily: AppFontFamily.tajawalBold,
                   text: AppWordManger.easyBookingExperience,
                   color: AppColorManger.white,
-                  fontSize: AppFontSizeManger.s24,
+                  fontSize: 24.sp,
                 ),
 
                 Padding(
@@ -64,11 +64,11 @@ class IntroPage extends StatelessWidget {
                 ),
 
                 TextUtiels(
-                  fontFamily: AppFontFamily.tajawalRegular,
+                  fontFamily: 'TajawalRegular',
                   text: AppWordManger
                       .bookYourAppointmentNowAndEnjoyAUniqueExperience,
-                  color: AppColorManger.white,
-                  fontSize: AppFontSizeManger.s16,
+                  color: Colors.white,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                 ),
 
