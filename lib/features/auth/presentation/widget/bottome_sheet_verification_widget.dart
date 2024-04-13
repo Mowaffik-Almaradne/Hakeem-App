@@ -72,9 +72,9 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
                 //? text for number :
                 TextUtiels(
                   text: AppWordManger.writeNumber,
-                  color: AppColorManger.primaryColor,
-                  fontSize: AppFontSizeManger.s24,
-                  fontFamily: AppFontFamily.tajawalBold,
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                        fontSize: AppFontSizeManger.s24,
+                      ),
                   paddingRight: 18.w,
                 ),
               ],

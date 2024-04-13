@@ -7,6 +7,7 @@ import 'package:hosptel_app/features/health/presentation/pages/health_page.dart'
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
 import 'package:hosptel_app/features/intro/presentation/page/intro_page.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';
+import 'package:hosptel_app/features/profile/presentation/pages/change_password_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/info_profile_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/main_profile_page.dart';
 import 'package:hosptel_app/features/reservation/presentation/pages/reservation_page.dart';
@@ -207,6 +208,24 @@ class AppRouter {
             );
           },
         ); //? End Profile Info Screen
+      //? Start Change Password Page :
+      case RouteNamedScreens.changePasswordNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const ChangePasswordPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Change Password Page :
     }
 
     return null;
@@ -235,6 +254,7 @@ class RouteNamedScreens {
   //? Start Profile Feature :
   static const profileNameRoute = '/profile-screen';
   static const infoProfileNameRoute = '/info-profile-screen';
+  static const changePasswordNameRoute = '/change-password-screen';
   //? End Profile Feature :
   //!
 }

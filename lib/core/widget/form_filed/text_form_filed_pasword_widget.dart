@@ -16,9 +16,19 @@ class TextFormFiledPassword extends StatefulWidget {
     this.onFieldSubmitted,
     this.inputFormatter,
     this.onPressed,
-    required this.filedWidth,
-    required this.filedHeight,
+    this.filedWidth,
+    this.filedHeight,
     this.onPressedSuffixIcon,
+    this.fillColor,
+    this.filled,
+    this.contenetPaddingvertical,
+    this.borderWidht,
+    this.borderColor,
+    this.contentPaddingHorizontal,
+    this.suffixIconColor,
+    this.colorHintText,
+    this.fontSizeHintText,
+    this.fontWeightHintText,
   }) : super(key: key);
 
   final String hintText;
@@ -29,10 +39,19 @@ class TextFormFiledPassword extends StatefulWidget {
   final void Function()? onTap;
   final void Function(String)? onFieldSubmitted;
   final void Function()? onPressed;
-  final double filedWidth;
-  final double filedHeight;
+  final double? filedWidth;
+  final double? filedHeight;
+  final bool? filled;
+  final Color? fillColor;
   final void Function()? onPressedSuffixIcon;
-
+  final double? contenetPaddingvertical;
+  final double? contentPaddingHorizontal;
+  final double? borderWidht;
+  final Color? borderColor;
+  final Color? suffixIconColor;
+  final Color? colorHintText;
+  final double? fontSizeHintText;
+  final FontWeight? fontWeightHintText;
   @override
   State<TextFormFiledPassword> createState() => _TextFormFiledPasswordState();
 }
@@ -43,44 +62,64 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.filedWidth.w,
-      height: widget.filedHeight.h,
+      width: widget.filedWidth?.w,
+      height: widget.filedHeight?.h,
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: TextFormField(
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: 16.sp,
+                color: AppColorManger.black,
+              ),
           obscureText: !showPassword,
           textDirection: TextDirection.rtl,
           textInputAction: TextInputAction.next,
           inputFormatters: widget.inputFormatter,
           keyboardType: widget.textInputType,
           decoration: InputDecoration(
-            suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  showPassword = !showPassword;
-                });
-              },
-              icon: Icon(
-                showPassword ? Icons.visibility_off : Icons.visibility,
-                color: AppColorManger.primaryColor,
+            suffixIcon: Padding(
+              padding: EdgeInsets.only(left: 5.w),
+              child: IconButton(
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                icon: Icon(
+                  showPassword ? Icons.visibility_off : Icons.visibility,
+                  color: widget.suffixIconColor ?? AppColorManger.primaryColor,
+                ),
               ),
             ),
-            filled: true,
-            fillColor: AppColorManger.fillColor,
+            filled: widget.filled ?? true,
+            fillColor: widget.fillColor ?? AppColorManger.fillColor,
             hintText: widget.hintText,
             contentPadding: EdgeInsets.symmetric(
-              horizontal: 26.w,
-              vertical: 13.h,
+              horizontal: widget.contentPaddingHorizontal ?? 27.w,
+              vertical: widget.contenetPaddingvertical ?? 13.h,
             ),
-            hintStyle: TextStyle(
-              fontFamily: AppFontFamily.tajawalRegular,
-              fontSize: AppFontSizeManger.s13,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
+            hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  fontFamily: AppFontFamily.tajawalRegular,
+                  fontSize: widget.fontSizeHintText ?? 13.sp,
+                  fontWeight: widget.fontWeightHintText ??
+                      AppFontWeightManger.fontWeightSemiBold,
+                  color: widget.colorHintText ?? AppColorManger.black,
+                ),
+            enabledBorder: outlineInputBorder(
+              circular: 13.r,
+              width: widget.borderWidht ?? 0,
+              color: widget.borderColor ?? Colors.transparent,
             ),
-            enabledBorder: outlineInputBorder(circular: 13.r),
-            focusedBorder: outlineInputBorder(circular: 13.r),
-            errorBorder: outlineInputBorder(circular: 13.r),
+            focusedBorder: outlineInputBorder(
+              width: widget.borderWidht ?? 0,
+              color: widget.borderColor ?? Colors.transparent,
+              circular: 13.r,
+            ),
+            errorBorder: outlineInputBorder(
+              circular: 13.r,
+              width: widget.borderWidht ?? 0,
+              color: widget.borderColor ?? Colors.transparent,
+            ),
           ),
           onChanged: widget.onChange,
           validator: widget.validator,

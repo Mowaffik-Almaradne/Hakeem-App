@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
@@ -25,7 +26,7 @@ class ForgetPasswordPage extends StatelessWidget {
         subText: AppWordManger.useTheCodeSentToYouToVerifyAndAccessYourAccount,
         fontColorSubText: AppColorManger.textColor2,
         fontFamailySubText: AppFontFamily.tajawalRegular,
-        fontSizeSubText: AppFontSizeManger.s12,
+        fontSizeSubText: 12.sp,
       ),
     );
   }

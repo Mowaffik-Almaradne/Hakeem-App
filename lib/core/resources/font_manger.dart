@@ -5,9 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 //? Font Weight :
 class AppFontWeightManger {
   static FontWeight fontWeightRagular = FontWeight.w400;
-  static FontWeight fontWeightBold = FontWeight.w700;
-  static FontWeight fontWeightRagularBold = FontWeight.w500;
-  static FontWeight fontWeight800 = FontWeight.w800;
+  static FontWeight fontWeightSemiBold = FontWeight.w600;
+  static FontWeight fontWeightBold = FontWeight.w800;
   static FontWeight fontWeightExtraBold = FontWeight.w900;
 }
 

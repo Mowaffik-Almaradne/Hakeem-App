@@ -57,6 +57,10 @@ class MainTextFormFiled extends StatelessWidget {
       child: Directionality(
         textDirection: TextDirection.rtl,
         child: TextFormField(
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                fontSize: 16.sp,
+                color: AppColorManger.black,
+              ),
           controller: controller,
           readOnly: readOnly ?? false,
           obscureText: obscureText ?? false,
@@ -79,12 +83,11 @@ class MainTextFormFiled extends StatelessWidget {
                 color: AppColorManger.primaryColor,
               ),
             ),
-            hintStyle: TextStyle(
-              fontFamily: AppFontFamily.tajawalRegular,
-              fontSize: AppFontSizeManger.s13,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
+            hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                  fontFamily: AppFontFamily.tajawalRegular,
+                  fontSize: 13.sp,
+                  fontWeight: AppFontWeightManger.fontWeightSemiBold,
+                ),
             enabledBorder: outlineInputBorder(
               circular: 13.r,
               width: borderWidht ?? 0,

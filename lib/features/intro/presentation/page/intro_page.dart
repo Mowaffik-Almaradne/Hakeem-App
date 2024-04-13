@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
-import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
@@ -47,40 +46,28 @@ class IntroPage extends StatelessWidget {
               children: [
                 //? Text Word :
                 TextUtiels(
-                  fontFamily: AppFontFamily.tajawalBold,
                   text: AppWordManger.easyBookingExperience,
-                  color: AppColorManger.white,
-                  fontSize: 24.sp,
-                ),
-
-                Padding(
-                  padding: EdgeInsets.only(bottom: 17.5.w),
-                  child: TextUtiels(
-                    fontFamily: AppFontFamily.tajawalBold,
-                    text: AppWordManger.medicalAppointments,
-                    color: AppColorManger.white,
-                    fontSize: AppFontSizeManger.s24,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 24.sp,
+                      ),
                 ),
 
                 TextUtiels(
-                  fontFamily: 'TajawalRegular',
-                  text: AppWordManger
-                      .bookYourAppointmentNowAndEnjoyAUniqueExperience,
-                  color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
+                  text: AppWordManger.medicalAppointments,
+                  paddingBottome: 17.5.h,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 24.sp,
+                      ),
                 ),
 
-                Padding(
-                  padding: EdgeInsets.only(bottom: 40.sp),
-                  child: TextUtiels(
-                    fontFamily: AppFontFamily.tajawalRegular,
-                    text: AppWordManger.andSpecial,
-                    color: AppColorManger.white,
-                    fontSize: AppFontSizeManger.s16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                const TextUtiels(
+                  text: AppWordManger
+                      .bookYourAppointmentNowAndEnjoyAUniqueExperience,
+                ),
+
+                TextUtiels(
+                  text: AppWordManger.andSpecial,
+                  paddingBottome: 40.h,
                 ),
                 //?
                 //? Image For move to page Login :

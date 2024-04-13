@@ -12,21 +12,22 @@ class CharacterCityWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: 18.h,
-        bottom: 15.h,
-        left: 14.w,
-        right: 14.w,
+        top: 16.h,
+        bottom: 12.h,
+        left: 13.w,
+        right: 13.w,
       ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: AppColorManger.primaryColor,
-        borderRadius: BorderRadius.circular(13).w,
+        borderRadius: BorderRadius.circular(18).r,
       ),
       child: TextUtiels(
         text: AppWordManger.characterCity,
-        color: AppColorManger.white,
-        fontFamily: AppFontFamily.tajawalMedium,
-        fontSize: AppFontSizeManger.s13,
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 15.sp,
+              fontWeight: AppFontWeightManger.fontWeightBold,
+            ),
       ),
     );
   }

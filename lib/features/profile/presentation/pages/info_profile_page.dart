@@ -20,6 +20,7 @@ class InfoProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainBackGround(
+      //? Back Groung Profile And Image :
       mainBody: SingleChildScrollView(
         child: Column(
           children: [
@@ -48,16 +49,14 @@ class InfoProfilePage extends StatelessWidget {
             SizedBox(height: 2.h),
             TextUtiels(
               text: 'حسن الحلاق',
-              fontFamily: AppFontFamily.tajawalBold,
-              color: AppColorManger.textColor2,
-              fontSize: AppFontSizeManger.s24,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    fontSize: 24.sp,
+                  ),
             ),
             TextUtiels(
               text: AppWordManger.welcome,
               fontFamily: AppFontFamily.extraBold,
               color: AppColorManger.textlight,
-              fontSize: AppFontSizeManger.s16,
-              fontWeight: AppFontWeightManger.fontWeight800,
             ),
             //? filed privat name :
             const LabelTextFormFiled(
@@ -65,10 +64,9 @@ class InfoProfilePage extends StatelessWidget {
               paddingTop: 50,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                left: 51.w,
-                right: 53.w,
-                top: 10.h,
+              padding: EdgeInsets.symmetric(
+                horizontal: 45.w,
+                vertical: 9.h,
               ),
               child: MainTextFormFiled(
                 onChange: (value) {},
@@ -86,7 +84,10 @@ class InfoProfilePage extends StatelessWidget {
               paddingTop: 10,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 42.w, right: 52.w),
+              padding: EdgeInsets.symmetric(
+                horizontal: 45.w,
+                vertical: 9.h,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -113,10 +114,9 @@ class InfoProfilePage extends StatelessWidget {
               paddingTop: 10,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                left: 51.w,
-                right: 51.w,
-                top: 10.h,
+              padding: EdgeInsets.symmetric(
+                horizontal: 45.w,
+                vertical: 9.h,
               ),
               child: MainTextFormFiled(
                 obscureText: true,
@@ -135,11 +135,9 @@ class InfoProfilePage extends StatelessWidget {
               paddingTop: 10,
             ),
             Padding(
-              padding: EdgeInsets.only(
-                left: 25.w,
-                right: 51.w,
-                top: 10.h,
-                bottom: 20.h,
+              padding: EdgeInsets.symmetric(
+                horizontal: 45.w,
+                vertical: 9.h,
               ),
               child: MainTextFormFiled(
                 obscureText: true,
@@ -154,7 +152,7 @@ class InfoProfilePage extends StatelessWidget {
             ),
             //? choose gender :
             Padding(
-              padding: EdgeInsets.only(right: 15.w),
+              padding: EdgeInsets.only(right: 10.w, top: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

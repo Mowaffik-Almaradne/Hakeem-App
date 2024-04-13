@@ -10,6 +10,7 @@ import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
+import 'package:hosptel_app/core/widget/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
@@ -33,7 +34,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
         ),
       ),
       child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 45.w),
+        padding: EdgeInsets.symmetric(horizontal: 35.w),
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
@@ -48,68 +49,52 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
           SizedBox(height: 28.h),
           //? full name filed  :
           Padding(
-            padding: EdgeInsets.only(
-              top: 10.h,
-              right: 2.w,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
             ),
             child: MainTextFormFiled(
               hintText: AppWordManger.fullName,
               onChange: (value) {},
               textInputType: TextInputType.name,
-              filedWidth: 275.w,
+              filedWidth: 250.w,
               filedHeight: 60.h,
               contentPaddingVertical: 13.h,
-              contentPaddingHorizontal: 25.w,
+              contentPaddingHorizontal: 27.w,
             ),
           ),
           //? filed mobile phone :
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: 18.h,
-                  bottom: 15.h,
-                  left: 14.w,
-                  right: 14.w,
+          Padding(
+            padding: EdgeInsets.only(bottom: 10.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CharacterCityWidget(),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 12.h,
+                    left: 10.w,
+                  ),
+                  child: MainTextFormFiled(
+                    hintText: AppWordManger.pleaseEnterYourPhoneNumber,
+                    onChange: (value) {},
+                    textInputType: TextInputType.phone,
+                    filedWidth: 200.w,
+                    filedHeight: 60.h,
+                    contentPaddingVertical: 13.h,
+                    contentPaddingHorizontal: 25.w,
+                    inputFormatter: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10),
+                    ],
+                  ),
                 ),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: AppColorManger.primaryColor,
-                  borderRadius: BorderRadius.circular(13).w,
-                ),
-                child: TextUtiels(
-                  text: AppWordManger.characterCity,
-                  color: AppColorManger.white,
-                  fontFamily: AppFontFamily.tajawalMedium,
-                  fontSize: AppFontSizeManger.s13,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 10.h,
-                  left: 10.w,
-                ),
-                child: MainTextFormFiled(
-                  hintText: AppWordManger.pleaseEnterYourPhoneNumber,
-                  onChange: (value) {},
-                  textInputType: TextInputType.phone,
-                  filedWidth: 200.w,
-                  filedHeight: 60.h,
-                  contentPaddingVertical: 13.h,
-                  contentPaddingHorizontal: 25.w,
-                  inputFormatter: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(10),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           //? filed  Paswword :
           Padding(
-            padding: EdgeInsets.only(
-              top: 20.h,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
             ),
             child: TextFormFiledPassword(
               hintText: AppWordManger.password,
@@ -121,9 +106,9 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
           ),
           //? filed birthDay :
           Padding(
-            padding: EdgeInsets.only(
-              top: 10.h,
-              bottom: 10.h,
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 10.h,
             ),
             child: MainTextFormFiled(
               readOnly: true,
@@ -163,16 +148,17 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                 ),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+                      EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
                   decoration: BoxDecoration(
                     color: AppColorManger.fillColor,
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: TextUtiels(
                     text: AppWordManger.gander,
-                    fontFamily: AppFontFamily.tajawalBold,
-                    color: AppColorManger.black,
-                    fontSize: AppFontSizeManger.s14,
+                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                          fontSize: 13.sp,
+                          fontFamily: AppFontFamily.tajawalBold,
+                        ),
                   ),
                 ),
               ],
@@ -191,7 +177,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                 (route) => false,
               );
             },
-            horizontalPadding: 83.w,
+            horizontalPadding: 80.w,
           ),
           SizedBox(height: 20.h),
           //? button for login :

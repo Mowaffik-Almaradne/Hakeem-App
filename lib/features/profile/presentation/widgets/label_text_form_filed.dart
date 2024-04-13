@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
@@ -9,19 +8,23 @@ class LabelTextFormFiled extends StatelessWidget {
     super.key,
     required this.text,
     required this.paddingTop,
+    this.paddingRight,
   });
   final String text;
   final double paddingTop;
+  final double? paddingRight;
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomRight,
-      padding: EdgeInsets.only(top: paddingTop.h, right: 51.w),
+      padding: EdgeInsets.only(top: paddingTop.h, right: paddingRight ?? 51.w),
       child: TextUtiels(
-        fontFamily: AppFontFamily.tajawalRegular,
         text: text,
-        color: AppColorManger.black,
-        fontSize: AppFontSizeManger.s13,
+        style: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontFamily: AppFontFamily.tajawalRegular,
+              fontSize: 13.sp,
+              fontWeight: AppFontWeightManger.fontWeightExtraBold,
+            ),
       ),
     );
   }

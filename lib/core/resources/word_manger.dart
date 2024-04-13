@@ -52,5 +52,13 @@ class AppWordManger {
   static const changePassword = 'تغيير كلمة السر';
   static const updateMyNumber = 'تعديل رقمي';
   static const deleteAccount = 'حذف حسابي';
+  static const areYoueSureDeletedAccount = 'هل تريد بالتأكيد حذف حسابك؟';
+  static const yes = 'نعم';
+  static const no = 'لا';
+  static const pleaseWriteSomeThingYouRemember = 'يرجى كتابة شيئ تتذكره';
+  static const newPassword = 'كلمة السر الجديدة';
+  static const mustbeSavenNumbers = 'يجب أن يكون 7 ارقام';
+  static const confirmTheNewPassword = 'تأكيد كلمة السر الجديدة';
+ static const reEnterPassword='إعادة كتابة كلمة السر';
   //?
 }

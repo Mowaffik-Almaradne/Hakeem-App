@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
-import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
+import 'package:hosptel_app/core/widget/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
@@ -45,25 +45,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 18.h,
-                    bottom: 15.h,
-                    left: 14.w,
-                    right: 14.w,
-                  ),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: AppColorManger.primaryColor,
-                    borderRadius: BorderRadius.circular(13).w,
-                  ),
-                  child: TextUtiels(
-                    text: AppWordManger.characterCity,
-                    color: AppColorManger.white,
-                    fontFamily: AppFontFamily.tajawalMedium,
-                    fontSize: AppFontSizeManger.s13,
-                  ),
-                ),
+                const CharacterCityWidget(),
                 Padding(
                   padding: EdgeInsets.only(
                     top: 10.h,
@@ -76,7 +58,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                     filedWidth: 200.w,
                     filedHeight: 60.h,
                     contentPaddingVertical: 13.h,
-                    contentPaddingHorizontal: 25.w,
+                    contentPaddingHorizontal: 27.w,
                     inputFormatter: [
                       FilteringTextInputFormatter.digitsOnly,
                       LengthLimitingTextInputFormatter(10),
@@ -111,10 +93,10 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                   );
                 },
                 child: TextUtiels(
-                  fontFamily: AppFontFamily.tajawalRegular,
                   text: AppWordManger.forgotYourPassword,
-                  color: AppColorManger.primaryColor,
-                  fontSize: AppFontSizeManger.s9,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        fontSize: 10.sp,
+                      ),
                 ),
               ),
             ),

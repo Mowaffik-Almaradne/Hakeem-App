@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 
@@ -11,31 +10,35 @@ final appTheme = ThemeData(
   colorScheme: ColorScheme.light(
     primary: AppColorManger.primaryColor,
   ),
+  dialogBackgroundColor: const Color.fromARGB(161, 255, 255, 255),
   textTheme: TextTheme(
-    bodyMedium: GoogleFonts.tajawal(
+    bodyLarge: TextStyle(
+      fontFamily: AppFontFamily.tajawalBold,
       color: AppColorManger.white,
-      fontSize: AppFontSizeManger.s24,
-      fontWeight: AppFontWeightManger.fontWeightBold,
     ),
-    bodySmall: GoogleFonts.tajawal(
+    bodyMedium: TextStyle(
+      fontFamily: AppFontFamily.tajawalMedium,
       color: AppColorManger.white,
-      fontSize: AppFontSizeManger.s16,
-      fontWeight: AppFontWeightManger.fontWeightRagularBold,
     ),
-    displaySmall: GoogleFonts.tajawal(
-      color: AppColorManger.white,
-      fontSize: AppFontSizeManger.s10,
-      fontWeight: AppFontWeightManger.fontWeightRagularBold,
+    bodySmall: TextStyle(
+      fontFamily: AppFontFamily.tajawalRegular,
+      color: AppColorManger.primaryColor,
     ),
     displayMedium: TextStyle(
-      fontFamily: 'Tajawal',
-      color: AppColorManger.white,
-      fontSize: AppFontSizeManger.s24,
-    ),
-    labelSmall: GoogleFonts.tajawal(
+      fontFamily: AppFontFamily.tajawalLight,
       color: AppColorManger.black,
-      fontSize: AppFontSizeManger.s13,
-      fontWeight: AppFontWeightManger.fontWeightRagularBold,
+    ),
+    displayLarge: TextStyle(
+      fontFamily: AppFontFamily.tajawalBold,
+      color: AppColorManger.primaryColor,
+    ),
+    labelLarge: TextStyle(
+      fontFamily: AppFontFamily.tajawalBold,
+      color: AppColorManger.black,
+    ),
+    labelSmall: TextStyle(
+      fontFamily: AppFontFamily.tajawalRegular,
+      color: AppColorManger.textColor2,
     ),
   ),
 );

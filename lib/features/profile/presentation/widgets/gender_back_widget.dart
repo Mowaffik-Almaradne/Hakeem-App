@@ -20,7 +20,7 @@ class GenderBackWidget extends StatefulWidget {
   State<GenderBackWidget> createState() => _GenderBackWidgetState();
 }
 
-int selectIndex = -1;
+int selectIndex = 1;
 
 class _GenderBackWidgetState extends State<GenderBackWidget> {
   @override
@@ -50,10 +50,8 @@ class _GenderBackWidgetState extends State<GenderBackWidget> {
             ),
             //? pass text gender :
             child: TextUtiels(
-              fontFamily: AppFontFamily.tajawalRegular,
+              fontFamily: AppFontFamily.tajawalBold,
               text: widget.texts[index],
-              color: AppColorManger.white,
-              fontSize: AppFontSizeManger.s16,
             ),
           ),
         );

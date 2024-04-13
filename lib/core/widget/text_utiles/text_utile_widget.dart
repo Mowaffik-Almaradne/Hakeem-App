@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 
 class TextUtiels extends StatelessWidget {
   const TextUtiels({
     super.key,
     required this.text,
-    required this.color,
-    required this.fontSize,
-    required this.fontFamily,
+    this.color,
+    this.fontSize,
+    this.fontFamily,
     this.textAlign,
     this.shadows,
     this.height,
@@ -16,11 +19,12 @@ class TextUtiels extends StatelessWidget {
     this.paddingBottome,
     this.paddingTop,
     this.paddingLeft,
+    this.style,
   });
   final String text;
-  final String fontFamily;
-  final Color color;
-  final double fontSize;
+  final String? fontFamily;
+  final Color? color;
+  final double? fontSize;
   final TextAlign? textAlign;
   final List<Shadow>? shadows;
   final FontWeight? fontWeight;
@@ -29,6 +33,7 @@ class TextUtiels extends StatelessWidget {
   final double? paddingLeft;
   final double? paddingTop;
   final double? paddingBottome;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,7 +46,24 @@ class TextUtiels extends StatelessWidget {
       child: Text(
         textAlign: textAlign ?? TextAlign.end,
         text,
-        style: TextStyle(
+        style: style ??
+            TextStyle(
+              fontFamily: fontFamily ?? AppFontFamily.tajawalRegular,
+              fontSize: fontSize ?? 16.sp,
+              color: color ?? AppColorManger.white,
+              shadows: shadows,
+              height: height,
+              fontWeight: fontWeight ?? FontWeight.w400,
+            ),
+        overflow: TextOverflow.visible,
+      ),
+    );
+  }
+}
+
+
+/*
+  TextStyle(
           fontFamily: fontFamily,
           fontSize: fontSize,
           color: color,
@@ -49,8 +71,13 @@ class TextUtiels extends StatelessWidget {
           height: height,
           fontWeight: fontWeight,
         ),
-        overflow: TextOverflow.visible,
-      ),
-    );
-  }
-}
+*/
+
+//  TextUtiels(
+//                   fontFamily: 'TajawalRegular',
+//                   text: AppWordManger
+//                       .bookYourAppointmentNowAndEnjoyAUniqueExperience,
+//                   color: Colors.white,
+//                   fontSize: 16.sp,
+//                   fontWeight: FontWeight.w400,
+//                 )

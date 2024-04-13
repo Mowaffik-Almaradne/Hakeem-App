@@ -21,4 +21,7 @@ class AppColorManger {
   static Color backGroundClipper = const Color(0xff0173B4);
   static Color backGroundColorGender = const Color(0xffBFD7ED).withOpacity(0.3);
   static Color colorBox = const Color(0xFFD2D2D2);
+  static Color colorTextShowDailog = const Color(0xff888888);
+  static Color colorButtonShowDailog = const Color(0xffE6F3FC);
+  static Color backGroundColorShowDialog = const Color(0xff666565);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
@@ -24,7 +25,7 @@ class ReciveNumberVerificationPage extends StatelessWidget {
         subText: '+963 935049855',
         fontColorSubText: AppColorManger.black,
         fontFamailySubText: AppFontFamily.tajawalBold,
-        fontSizeSubText: AppFontSizeManger.s16,
+        fontSizeSubText: 16.sp,
       ),
     );
   }
