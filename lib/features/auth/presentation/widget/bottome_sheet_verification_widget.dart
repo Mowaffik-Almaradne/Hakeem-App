@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
@@ -10,7 +8,7 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
-import 'package:hosptel_app/features/auth/presentation/widget/text_form_filed_verification_code.dart';
+import 'package:hosptel_app/core/widget/form_filed/text_form_filed_verification_code.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class BottomeSheetVerifivcationWidget extends StatelessWidget {
@@ -97,30 +95,16 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {
-                    nextFilledFun(value, context);
-                  },
+                  onChanged: (value) {},
                 ),
                 TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      FocusScope.of(context).nextFocus();
-                    }
-                  },
+                  onChanged: (value) {},
                 ),
                 TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      nextFilledFun(value, context);
-                    }
-                  },
+                  onChanged: (value) {},
                 ),
                 TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      nextFilledFun(value, context);
-                    }
-                  },
+                  onChanged: (value) {},
                 )
               ],
             ),
@@ -150,10 +134,5 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
     );
   }
 
-//? to next filled :
-  void nextFilledFun(String value, BuildContext context) {
-    if (value.length == 1) {
-      FocusScope.of(context).nextFocus();
-    }
-  }
+
 }

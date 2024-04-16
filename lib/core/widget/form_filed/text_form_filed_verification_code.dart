@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
 
 class TextFormFiledVerficationCodeWidget extends StatelessWidget {
   const TextFormFiledVerficationCodeWidget({
@@ -17,6 +18,7 @@ class TextFormFiledVerficationCodeWidget extends StatelessWidget {
       style: TextStyle(
         fontSize: 24.sp,
         fontWeight: FontWeight.w800,
+        color: AppColorManger.black,
       ),
       inputFormatters: [
         LengthLimitingTextInputFormatter(1),
@@ -30,7 +32,18 @@ class TextFormFiledVerficationCodeWidget extends StatelessWidget {
           vertical: 1,
         ),
       ),
-      onChanged: onChanged,
+      onChanged: (value) {
+        if (value.length == 1) {
+          nextFilledFun(value, context);
+        }
+        onChanged;
+      },
     );
+  }
+}
+
+void nextFilledFun(String value, BuildContext context) {
+  if (value.length == 1) {
+    FocusScope.of(context).nextFocus();
   }
 }

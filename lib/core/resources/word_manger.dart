@@ -57,8 +57,16 @@ class AppWordManger {
   static const no = 'لا';
   static const pleaseWriteSomeThingYouRemember = 'يرجى كتابة شيئ تتذكره';
   static const newPassword = 'كلمة السر الجديدة';
-  static const mustbeSavenNumbers = 'يجب أن يكون 7 ارقام';
+  static const mustbeSavenNumbers = 'يجsب أن يكون 7 ارقام';
   static const confirmTheNewPassword = 'تأكيد كلمة السر الجديدة';
- static const reEnterPassword='إعادة كتابة كلمة السر';
+  static const reEnterPassword = 'إعادة كتابة كلمة السر';
+  static const editMyNumber = 'تعديل رقمي';
+  static const editNumber = 'تعديل الرقم';
+  static const pleaseWriteTheNewNumber = 'يرجى كتابة رقمك الجديد';
+  static const newNumber = 'رقمك الجديد';
+  static const pleaseWritePhoneNumber = 'يرجى ادخال رقم هاتفك';
+  static const sure = 'تأكيد';
+  static const aCodeisSentViaTextMessageTo = 'تم إرسال رمز برسالة نصية إلى';
+  static const codeNumber = 'تأكيد الرمز';
   //?
 }

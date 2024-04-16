@@ -83,11 +83,16 @@ class ProfilePage extends StatelessWidget {
                   );
                 },
               ),
-              //? Updata Number :
+              //? Edit Number :
               CardMainProfile(
                 paddingLeft: 165,
                 text: AppWordManger.updateMyNumber,
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RouteNamedScreens.editNumberNameRoute,
+                  );
+                },
               ),
               //? Delete My Account :
               CardMainProfile(

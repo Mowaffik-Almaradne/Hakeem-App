@@ -8,8 +8,10 @@ import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
 import 'package:hosptel_app/features/intro/presentation/page/intro_page.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/change_password_page.dart';
+import 'package:hosptel_app/features/profile/presentation/pages/edit_number_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/info_profile_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/main_profile_page.dart';
+import 'package:hosptel_app/features/profile/presentation/pages/verification_edit_number.dart';
 import 'package:hosptel_app/features/reservation/presentation/pages/reservation_page.dart';
 
 class AppRouter {
@@ -226,6 +228,43 @@ class AppRouter {
             );
           },
         ); //? End Change Password Page :
+      //? Start Edit Number Page :
+      case RouteNamedScreens.editNumberNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const EditNumberPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Edit Number Page :
+
+      //? Start Verfication Edit Number Page :
+      case RouteNamedScreens.verificationEditNumberNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const VerficationEditNumber();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Verfication Edit Number Page :
     }
 
     return null;
@@ -255,6 +294,8 @@ class RouteNamedScreens {
   static const profileNameRoute = '/profile-screen';
   static const infoProfileNameRoute = '/info-profile-screen';
   static const changePasswordNameRoute = '/change-password-screen';
+  static const editNumberNameRoute = '/edit-number-screen';
+  static const verificationEditNumberNameRoute = '/verification-edit-screen';
   //? End Profile Feature :
   //!
 }
