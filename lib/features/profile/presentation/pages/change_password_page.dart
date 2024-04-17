@@ -44,6 +44,7 @@ class ChangePasswordPage extends StatelessWidget {
                         ),
                       ),
                       TextUtiels(
+                        paddingRight: 16.w,
                         text: AppWordManger.changePassword,
                         fontFamily: AppFontFamily.tajawalBold,
                         color: AppColorManger.white,
@@ -58,7 +59,7 @@ class ChangePasswordPage extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextUtiels(
-                paddingRight: 17.w,
+                paddingRight: 30.w,
                 paddingBottome: 11.h,
                 text: AppWordManger.changePassword,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -69,7 +70,7 @@ class ChangePasswordPage extends StatelessWidget {
             Align(
               alignment: Alignment.centerRight,
               child: TextUtiels(
-                paddingRight: 17.w,
+                paddingRight: 30.w,
                 paddingBottome: 42.h,
                 text: AppWordManger.pleaseWriteSomeThingYouRemember,
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
@@ -82,7 +83,7 @@ class ChangePasswordPage extends StatelessWidget {
             LabelTextFormFiled(
               text: AppWordManger.newPassword,
               paddingTop: 0,
-              paddingRight: 37.w,
+              paddingRight: 34.w,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -93,9 +94,8 @@ class ChangePasswordPage extends StatelessWidget {
                 hintText: AppWordManger.mustbeSavenNumbers,
                 onChange: (value) {},
                 textInputType: TextInputType.name,
-                contenetPaddingvertical: 18.h,
+                contenetPaddingvertical: 20.h,
                 contentPaddingHorizontal: 16.w,
-                suffixIconColor: AppColorManger.black.withOpacity(0.6),
                 filled: false,
                 fillColor: AppColorManger.white,
                 borderColor: AppColorManger.borderColor,
@@ -121,9 +121,8 @@ class ChangePasswordPage extends StatelessWidget {
                 hintText: AppWordManger.reEnterPassword,
                 onChange: (value) {},
                 textInputType: TextInputType.name,
-                contenetPaddingvertical: 18.h,
+                contenetPaddingvertical: 20.h,
                 contentPaddingHorizontal: 16.w,
-                suffixIconColor: AppColorManger.black.withOpacity(0.6),
                 filled: false,
                 fillColor: AppColorManger.white,
                 borderColor: AppColorManger.borderColor,
@@ -136,6 +135,7 @@ class ChangePasswordPage extends StatelessWidget {
             //? Button for cahnge Password  :
             SizedBox(height: 38.h),
             MainElevatedButton(
+              horizontalPadding: 70.w,
               text: AppWordManger.changePassword,
               backgroundColor: AppColorManger.secoundryColor,
               textColor: AppColorManger.white,

@@ -28,6 +28,8 @@ class MainTextFormFiled extends StatelessWidget {
     this.readOnly,
     this.suffixIcon,
     this.controller,
+    this.hintTextColor,
+    this.fontSize,
   });
   final String? hintText;
   final TextInputType textInputType;
@@ -49,6 +51,8 @@ class MainTextFormFiled extends StatelessWidget {
   final bool? readOnly;
   final IconData? suffixIcon;
   final TextEditingController? controller;
+  final Color? hintTextColor;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -85,9 +89,11 @@ class MainTextFormFiled extends StatelessWidget {
             ),
             hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
                   fontFamily: AppFontFamily.tajawalRegular,
-                  fontSize: 13.sp,
+                  fontSize: fontSize ?? 13.sp,
                   fontWeight: AppFontWeightManger.fontWeightSemiBold,
+                  color: hintTextColor,
                 ),
+            //? border :
             enabledBorder: outlineInputBorder(
               circular: 13.r,
               width: borderWidht ?? 0,
@@ -104,6 +110,7 @@ class MainTextFormFiled extends StatelessWidget {
               color: borderColor ?? Colors.transparent,
             ),
           ),
+          //? Function Event :
           onChanged: onChange,
           validator: validator,
           onFieldSubmitted: onFieldSubmitted,

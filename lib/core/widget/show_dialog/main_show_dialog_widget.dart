@@ -13,10 +13,9 @@ class MainShowDialog {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 30.w,
-            vertical: 30.h,
-          ),
+          elevation: 0,
+          backgroundColor: AppColorManger.white,
+          contentPadding: EdgeInsets.zero,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0).r,
           ), //
@@ -26,32 +25,42 @@ class MainShowDialog {
             width: 30.w,
             height: 30.h,
           ),
-          content: TextUtiels(
-            text: AppWordManger.areYoueSureDeletedAccount,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontSize: 16.sp,
-                  color: AppColorManger.backGroundColorShowDialog,
-                ),
-            textAlign: TextAlign.center,
-          ),
-          actions: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          content: SizedBox(
+            width: 313.w,
+            height: 170.h,
+            child: Column(
               children: [
-                ButtonShowDeailog(
-                  buttonColor: AppColorManger.fillColorCard,
-                  textButton: AppWordManger.yes,
-                  textColor: AppColorManger.textlight,
+                TextUtiels(
+                  paddingTop: 20.h,
+                  paddingBottome: 30.h,
+                  text: AppWordManger.areYoueSureDeletedAccount,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 16.sp,
+                        color: AppColorManger.backGroundColorShowDialog,
+                      ),
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(width: 23.w),
-                ButtonShowDeailog(
-                  buttonColor: AppColorManger.colorButtonShowDailog,
-                  textButton: AppWordManger.no,
-                  textColor: AppColorManger.primaryColor,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    //? Yes :
+                    ButtonShowDeailog(
+                      buttonColor: AppColorManger.fillColorCard,
+                      textButton: AppWordManger.yes,
+                      textColor: AppColorManger.colorShowDailogButton,
+                    ),
+                    //? Cansle :
+                    SizedBox(width: 23.w),
+                    ButtonShowDeailog(
+                      buttonColor: AppColorManger.colorButtonShowDailog,
+                      textButton: AppWordManger.no,
+                      textColor: AppColorManger.primaryColor,
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         );
       },
     );

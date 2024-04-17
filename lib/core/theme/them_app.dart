@@ -10,7 +10,7 @@ final appTheme = ThemeData(
   colorScheme: ColorScheme.light(
     primary: AppColorManger.primaryColor,
   ),
-  dialogBackgroundColor: const Color.fromARGB(161, 255, 255, 255),
+  dialogBackgroundColor: AppColorManger.white,
   textTheme: TextTheme(
     bodyLarge: TextStyle(
       fontFamily: AppFontFamily.tajawalBold,

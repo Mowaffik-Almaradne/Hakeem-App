@@ -16,7 +16,7 @@ class ReservationNowButtonWidget extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         width: 130.w,
-        height: 55.h,
+        height: 45.h,
         alignment: Alignment.center,
         margin: EdgeInsets.only(
           left: 28.w,
@@ -24,7 +24,7 @@ class ReservationNowButtonWidget extends StatelessWidget {
         decoration: ShapeDecoration(
           color: AppColorManger.primaryColor.withOpacity(0.98),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(22.r),
+            borderRadius: BorderRadius.circular(18.r),
           ),
         ),
         child: TextUtiels(

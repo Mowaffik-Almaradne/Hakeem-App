@@ -13,8 +13,11 @@ class SignUpPage extends StatelessWidget {
         height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(AppPngManger.backGroundSignUpPage),
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.topCenter,
+            image: AssetImage(
+              AppPngManger.backGroundSignUpPage,
+            ),
           ),
         ),
       ),

@@ -116,9 +116,10 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
               backgroundColor: AppColorManger.primaryColor,
               textColor: AppColorManger.white,
               onPreesed: () {
-                Navigator.pushReplacementNamed(
+                Navigator.pushNamedAndRemoveUntil(
                   context,
                   RouteNamedScreens.homeScreenNameRoute,
+                  (route) => false,
                 );
               },
             ),
@@ -133,6 +134,4 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
       ),
     );
   }
-
-
 }

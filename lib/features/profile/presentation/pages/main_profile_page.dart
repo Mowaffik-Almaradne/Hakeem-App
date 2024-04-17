@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
-import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
@@ -42,13 +40,8 @@ class ProfilePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 14.w),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        SvgPicture.asset(
-                          AppSvgManger.iconArrow,
-                          width: 30.w,
-                          height: 30.h,
-                        ),
                         TextUtiels(
                           text: AppWordManger.profile,
                           fontFamily: AppFontFamily.tajawalBold,

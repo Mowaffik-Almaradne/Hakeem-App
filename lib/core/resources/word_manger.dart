@@ -9,7 +9,7 @@ class AppWordManger {
 
   //? auth :
   static const andSpecial = 'ومميزة';
-  static const characterCity = '+963';
+  static const characterCity = '09';
   static const pleaseEnterYourPhoneNumber = 'يرجى إدخال رقم هاتفك';
   static const password = 'كلمة السر';
   static const forgotYourPassword = 'هل نسيت كلمة السر؟';
@@ -57,7 +57,7 @@ class AppWordManger {
   static const no = 'لا';
   static const pleaseWriteSomeThingYouRemember = 'يرجى كتابة شيئ تتذكره';
   static const newPassword = 'كلمة السر الجديدة';
-  static const mustbeSavenNumbers = 'يجsب أن يكون 7 ارقام';
+  static const mustbeSavenNumbers = 'يجب أن يكون 7 ارقام';
   static const confirmTheNewPassword = 'تأكيد كلمة السر الجديدة';
   static const reEnterPassword = 'إعادة كتابة كلمة السر';
   static const editMyNumber = 'تعديل رقمي';

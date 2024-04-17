@@ -29,7 +29,7 @@ class MainElevatedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         alignment: Alignment.center,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(raduiseBorder ?? 13).r,
+          borderRadius: BorderRadius.circular(raduiseBorder ?? 20).r,
         ),
         padding: EdgeInsets.symmetric(
           vertical: verticalPadding ?? 11.5.w,

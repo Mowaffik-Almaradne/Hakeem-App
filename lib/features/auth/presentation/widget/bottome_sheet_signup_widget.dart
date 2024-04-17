@@ -25,7 +25,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
     TextEditingController controller = TextEditingController();
     return Container(
       width: double.infinity,
-      height: 400.h,
+      height: 500.h,
       decoration: BoxDecoration(
         color: AppColorManger.white,
         borderRadius: BorderRadius.only(
@@ -84,7 +84,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                     contentPaddingHorizontal: 25.w,
                     inputFormatter: [
                       FilteringTextInputFormatter.digitsOnly,
-                      LengthLimitingTextInputFormatter(10),
+                      LengthLimitingTextInputFormatter(8),
                     ],
                   ),
                 ),
@@ -113,16 +113,8 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
             child: MainTextFormFiled(
               readOnly: true,
               controller: controller,
-              onPressedSuffixIcon: () async {
-                DateTime? selectedDate = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2000),
-                  lastDate: DateTime(2100),
-                );
-                if (selectedDate != null) {
-                  controller.text = selectedDate.toString().substring(0, 10);
-                }
+              onTap: () async {
+                await selecteDate(context, controller);
               },
               suffixIcon: Icons.calendar_month_outlined,
               hintText: AppWordManger.birthDay,
@@ -180,7 +172,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
             horizontalPadding: 80.w,
           ),
           SizedBox(height: 20.h),
-          //? button for login :
+          //? button for Create Account  :
           MainElevatedButton(
             text: AppWordManger.createAccount,
             backgroundColor: AppColorManger.primaryColor,
@@ -188,7 +180,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
             onPreesed: () {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                RouteNamedScreens.homeScreenNameRoute,
+                RouteNamedScreens.loginScreenNameRoute,
                 (route) => false,
               );
             },
@@ -211,5 +203,19 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+//? Select Date :
+  Future<void> selecteDate(
+      BuildContext context, TextEditingController controller) async {
+    DateTime? selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (selectedDate != null) {
+      controller.text = selectedDate.toString().substring(0, 10);
+    }
   }
 }

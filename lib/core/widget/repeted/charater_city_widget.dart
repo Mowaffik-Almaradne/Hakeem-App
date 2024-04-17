@@ -6,16 +6,22 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class CharacterCityWidget extends StatelessWidget {
-  const CharacterCityWidget({super.key});
+  const CharacterCityWidget({
+    super.key,
+    this.paddingbottome,
+    this.paddingTop,
+  });
+  final double? paddingbottome;
+  final double? paddingTop;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: 16.h,
-        bottom: 12.h,
-        left: 13.w,
-        right: 13.w,
+        top: paddingTop ?? 16.h,
+        bottom: paddingbottome ?? 13.h,
+        left: 22.w,
+        right: 22.w,
       ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -27,6 +33,7 @@ class CharacterCityWidget extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontSize: 15.sp,
               fontWeight: AppFontWeightManger.fontWeightBold,
+              
             ),
       ),
     );

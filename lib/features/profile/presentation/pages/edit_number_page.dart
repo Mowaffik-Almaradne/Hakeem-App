@@ -91,11 +91,14 @@ class EditNumberPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const CharacterCityWidget(),
+                CharacterCityWidget(
+                  paddingTop: 20.h,
+                  paddingbottome: 20.h,
+                ),
                 MainTextFormFiled(
                   inputFormatter: [
                     FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(10),
+                    LengthLimitingTextInputFormatter(8),
                   ],
                   hintText: AppWordManger.pleaseWritePhoneNumber,
                   filedWidth: 260.w,
@@ -104,8 +107,10 @@ class EditNumberPage extends StatelessWidget {
                   fillColor: AppColorManger.white,
                   borderColor: AppColorManger.borderColor,
                   borderWidht: 1.3.w,
-                  contentPaddingVertical: 13.5.h,
+                  contentPaddingVertical: 19.h,
                   contentPaddingHorizontal: 16.w,
+                  hintTextColor: AppColorManger.black.withOpacity(0.5),
+                  fontSize: 15.sp,
                 ),
               ],
             ),

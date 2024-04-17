@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
@@ -19,6 +20,7 @@ class InfoProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
     return MainBackGround(
       //? Back Groung Profile And Image :
       mainBody: SingleChildScrollView(
@@ -85,7 +87,7 @@ class InfoProfilePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 45.w,
+                horizontal: 43.w,
                 vertical: 9.h,
               ),
               child: Row(
@@ -95,9 +97,13 @@ class InfoProfilePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 9.w),
                     child: MainTextFormFiled(
+                      inputFormatter: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(8),
+                      ],
                       filedWidth: 200.w,
                       onChange: (value) {},
-                      textInputType: TextInputType.name,
+                      textInputType: TextInputType.number,
                       fillColor: AppColorManger.white,
                       borderColor: AppColorManger.borderColor,
                       borderWidht: 1.3.w,
@@ -108,27 +114,7 @@ class InfoProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            //? password form filed :
-            const LabelTextFormFiled(
-              text: AppWordManger.password,
-              paddingTop: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 45.w,
-                vertical: 9.h,
-              ),
-              child: MainTextFormFiled(
-                obscureText: true,
-                onChange: (value) {},
-                textInputType: TextInputType.name,
-                fillColor: AppColorManger.white,
-                borderColor: AppColorManger.borderColor,
-                borderWidht: 1.3.w,
-                contentPaddingVertical: 15.h,
-                contentPaddingHorizontal: 27.w,
-              ),
-            ),
+
             //? birh day  form filed :
             const LabelTextFormFiled(
               text: AppWordManger.birthDay,
@@ -140,7 +126,6 @@ class InfoProfilePage extends StatelessWidget {
                 vertical: 9.h,
               ),
               child: MainTextFormFiled(
-                obscureText: true,
                 onChange: (value) {},
                 textInputType: TextInputType.name,
                 fillColor: AppColorManger.white,
@@ -148,6 +133,12 @@ class InfoProfilePage extends StatelessWidget {
                 borderWidht: 1.3.w,
                 contentPaddingVertical: 15.h,
                 contentPaddingHorizontal: 27.w,
+                readOnly: true,
+                controller: controller,
+                suffixIcon: Icons.calendar_month_outlined,
+                onTap: () async {
+                  await selectDate(context, controller);
+                },
               ),
             ),
             //? choose gender :
@@ -180,5 +171,19 @@ class InfoProfilePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+//? Select Date :
+  Future<void> selectDate(
+      BuildContext context, TextEditingController controller) async {
+    DateTime? selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+    if (selectedDate != null) {
+      controller.text = selectedDate.toString().substring(0, 10);
+    }
   }
 }

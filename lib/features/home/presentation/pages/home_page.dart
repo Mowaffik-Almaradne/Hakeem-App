@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
       mainBody: SingleChildScrollView(
         child: Column(
           children: [
-            //?api : 
+            //?api :
             ClipPath(
               clipper: ClippingClass(),
               child: Container(
@@ -84,7 +84,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            
             //? button reservation Now :
             const ReservationNowButtonWidget(
               text: AppWordManger.reservationNow,
@@ -107,12 +106,15 @@ class HomePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 18.h),
+            //? Services :
             const CaptionTextWidget(
               text: AppWordManger.services,
             ),
             //? api this is :
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+              padding: EdgeInsets.symmetric(
+                horizontal: 25.w,
+              ),
               child: const InfoServicesWidget(),
             ),
             //?

@@ -28,6 +28,13 @@ class InfoServicesWidget extends StatelessWidget {
                       EdgeInsets.symmetric(vertical: 9.5.h, horizontal: 15.w),
                   margin: EdgeInsets.only(bottom: 8.h),
                   decoration: ShapeDecoration(
+                    shadows: [
+                      BoxShadow(
+                        blurRadius: 4,
+                        offset: const Offset(0, 4),
+                        color: AppColorManger.black.withOpacity(0.25),
+                      )
+                    ],
                     color: AppColorManger.white,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class ButtonShowDeailog extends StatelessWidget {
@@ -19,12 +20,11 @@ class ButtonShowDeailog extends StatelessWidget {
         Navigator.pop(context);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 45.w,
-          vertical: 13.h,
-        ),
+        alignment: Alignment.center,
+        width: 110.w,
+        height: 50.h,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4.r),
+          borderRadius: BorderRadius.circular(8.r),
           color: buttonColor,
         ),
         child: TextUtiels(
@@ -32,6 +32,7 @@ class ButtonShowDeailog extends StatelessWidget {
           style: Theme.of(context).textTheme.displayLarge?.copyWith(
                 fontSize: 16.sp,
                 color: textColor,
+                fontFamily: AppFontFamily.extraBold,
               ),
         ),
       ),
