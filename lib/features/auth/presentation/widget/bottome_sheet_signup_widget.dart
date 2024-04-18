@@ -25,28 +25,26 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
     TextEditingController controller = TextEditingController();
     return Container(
       width: double.infinity,
-      height: 500.h,
+      height: 520.h,
       decoration: BoxDecoration(
         color: AppColorManger.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30.r),
-          topRight: Radius.circular(30.r),
+          topLeft: Radius.circular(50.r),
+          topRight: Radius.circular(50.r),
         ),
       ),
       child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 35.w),
+        padding: EdgeInsets.symmetric(
+          horizontal: 35.w,
+          vertical: 12.h,
+        ),
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: 28.h,
-            ),
-            child: SvgPicture.asset(
-              width: 72.w,
-              height: 5.h,
-              AppSvgManger.rowBottomeSheet,
-            ),
+          SvgPicture.asset(
+            width: 20.w,
+            height: 4.h,
+            AppSvgManger.rowBottomeSheet,
           ),
-          SizedBox(height: 28.h),
+          SizedBox(height: 20.h),
           //? full name filed  :
           Padding(
             padding: EdgeInsets.symmetric(
@@ -140,7 +138,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                 ),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(horizontal: 25.w, vertical: 25.h),
+                      EdgeInsets.symmetric(horizontal: 25.w, vertical: 22.h),
                   decoration: BoxDecoration(
                     color: AppColorManger.fillColor,
                     borderRadius: BorderRadius.circular(20.r),

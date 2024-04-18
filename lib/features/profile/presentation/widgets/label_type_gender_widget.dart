@@ -12,7 +12,7 @@ class LabelTypeGenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(horizontal: 25.5.w, vertical: 18.h),
+      padding: EdgeInsets.symmetric(horizontal: 25.5.w, vertical: 16.h),
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColorManger.grayNavButton,

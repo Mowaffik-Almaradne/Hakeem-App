@@ -3,7 +3,7 @@ import 'package:hosptel_app/features/auth/presentation/pages/forget_password_pag
 import 'package:hosptel_app/features/auth/presentation/pages/login_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/signup_page.dart';
-import 'package:hosptel_app/features/health/presentation/pages/health_page.dart';
+import 'package:hosptel_app/features/auth/health/presentation/pages/health_page.dart';
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
 import 'package:hosptel_app/features/intro/presentation/page/intro_page.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';

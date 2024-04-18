@@ -41,19 +41,19 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
             controller: _pageController,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) => SizedBox(width: 0.w),
-            itemCount: 5,
+            itemCount: 4,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 15.w,
+                  horizontal: 30.w,
                 ),
                 child: Stack(
                   clipBehavior: Clip.none,
                   alignment: Alignment.centerRight,
                   children: [
                     Container(
-                      width: 225.w,
                       height: 170.h,
+                      width: 235.w,
                       decoration: BoxDecoration(
                         color: AppColorManger.fillColorCard,
                         borderRadius: BorderRadius.circular(15),
@@ -75,6 +75,7 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                       child: Column(
                         children: [
                           TextUtiels(
+                            paddingRight: 30.w,
                             text: 'بعد حقن الفيلر',
                             fontFamily: AppFontFamily.tajawalBold,
                             color: AppColorManger.primaryColor,
@@ -82,10 +83,9 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                             height: 3.h,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               TextUtiels(
-                                paddingLeft: 25.w,
+                                paddingLeft: 30.w,
                                 text: AppWordManger.textVisibale,
                                 fontFamily: AppFontFamily.tajawalRegular,
                                 color: AppColorManger.textColor1,
@@ -97,11 +97,13 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                         ],
                       ),
                     ),
+                    //? Icon :
                     Positioned(
-                      right: -10.w,
+                      right: -12.w,
+                      top: 38.h,
                       child: SvgPicture.asset(
-                        width: 88.w,
-                        height: 88.h,
+                        width: 80.w,
+                        height: 80.h,
                         AppSvgManger.iconLight,
                       ),
                     )
@@ -124,7 +126,7 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
           },
           effect: JumpingDotEffect(
             spacing: 8,
-            dotWidth: 45.w,
+            dotWidth: 50.w,
             dotHeight: 3.h,
             paintStyle: PaintingStyle.stroke,
             strokeWidth: 1.5,

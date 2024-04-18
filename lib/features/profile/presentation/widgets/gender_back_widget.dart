@@ -36,7 +36,7 @@ class _GenderBackWidgetState extends State<GenderBackWidget> {
             });
           },
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 18.h),
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 15.h),
             margin: EdgeInsets.only(
               left: widget.marginleft ?? 0.0,
               right: widget.marginRight ?? 0.0,

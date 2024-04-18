@@ -25,9 +25,10 @@ class MainShowDialog {
             width: 30.w,
             height: 30.h,
           ),
-          content: SizedBox(
-            width: 313.w,
+          content: Container(
+            // width: 313.w,
             height: 170.h,
+            padding: EdgeInsets.symmetric(horizontal: 22.w),
             child: Column(
               children: [
                 TextUtiels(

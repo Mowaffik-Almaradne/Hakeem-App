@@ -35,8 +35,8 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                 vertical: 28.h,
               ),
               child: SvgPicture.asset(
-                width: 72.w,
-                height: 5.h,
+                width: 20.w,
+                height: 4.h,
                 AppSvgManger.rowBottomeSheet,
               ),
             ),

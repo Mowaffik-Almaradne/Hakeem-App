@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hosptel_app/core/class/clipping_path_class.dart';
-import 'package:hosptel_app/core/resources/color_manger.dart';
-import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
 import 'package:hosptel_app/core/widget/show_dialog/main_show_dialog_widget.dart';
-import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/profile/presentation/widgets/bacground_profile.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/card_main_profile.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
@@ -17,6 +13,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //? Button For Back :
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
@@ -30,30 +27,11 @@ class ProfilePage extends StatelessWidget {
         mainBody: SingleChildScrollView(
           child: Column(
             children: [
-              ClipPath(
-                clipper: ClippingClass(),
-                //? Back Ground Profile Page :
-                child: Container(
-                  width: double.infinity,
-                  height: 170.h,
-                  color: AppColorManger.backGroundClipper,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 14.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextUtiels(
-                          text: AppWordManger.profile,
-                          fontFamily: AppFontFamily.tajawalBold,
-                          color: AppColorManger.white,
-                          fontSize: AppFontSizeManger.s20,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              //? Back Ground Profile :
+              const BackGroundProfile(
+                textBackGround: AppWordManger.profile,
+                visibleIcon: false,
               ),
-              SizedBox(height: 25.h),
               //? Info Account :
               CardMainProfile(
                 text: AppWordManger.infoAccount,
