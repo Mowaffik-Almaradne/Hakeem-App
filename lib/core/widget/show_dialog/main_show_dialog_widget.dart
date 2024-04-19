@@ -19,11 +19,16 @@ class MainShowDialog {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0).r,
           ), //
-          title: SvgPicture.asset(
-            alignment: Alignment.centerLeft,
-            AppSvgManger.iconArrow,
-            width: 30.w,
-            height: 30.h,
+          title: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: SvgPicture.asset(
+              alignment: Alignment.centerLeft,
+              AppSvgManger.iconArrow,
+              width: 30.w,
+              height: 30.h,
+            ),
           ),
           content: Container(
             // width: 313.w,

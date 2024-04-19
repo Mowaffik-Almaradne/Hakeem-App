@@ -32,6 +32,7 @@ dependencies:
   curved_labeled_navigation_bar: ^2.0.2 
   stroke_text: any
   logger: ^2.2.0
+  double_back_to_exit: ^1.0.0
 
 
 dev_dependencies:

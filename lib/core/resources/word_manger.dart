@@ -68,5 +68,6 @@ class AppWordManger {
   static const sure = 'تأكيد';
   static const aCodeisSentViaTextMessageTo = 'تم إرسال رمز برسالة نصية إلى';
   static const codeNumber = 'تأكيد الرمز';
+  static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
   //?
 }

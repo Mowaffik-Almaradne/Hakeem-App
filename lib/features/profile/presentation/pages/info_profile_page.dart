@@ -143,7 +143,7 @@ class InfoProfilePage extends StatelessWidget {
             ),
             //? choose gender :
             Padding(
-              padding: EdgeInsets.only(right: 10.w, top: 10.h),
+              padding: EdgeInsets.only(right: 10.w, top: 10.h, left: 10.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -28,7 +28,7 @@ class MainButtonNavigation extends StatelessWidget {
           backgroundColor: Colors.transparent,
           buttonBackgroundColor: AppColorManger.primaryColor,
           color: AppColorManger.grayNavButton,
-          iconPadding: 17.w,
+          iconPadding: 13.w,
           height: 70.h,
           items: [
             CurvedNavigationBarItem(
