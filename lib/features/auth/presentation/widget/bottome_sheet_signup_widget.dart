@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hosptel_app/core/function/deate_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
@@ -145,10 +146,11 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                   ),
                   child: TextUtiels(
                     text: AppWordManger.gander,
-                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                          fontSize: 13.sp,
-                          fontFamily: AppFontFamily.tajawalBold,
-                        ),
+                    style:
+                        Theme.of(context).textTheme.displayMedium?.copyWith(
+                              fontSize: 13.sp,
+                              fontFamily: AppFontFamily.tajawalBold,
+                            ),
                   ),
                 ),
               ],
@@ -194,26 +196,12 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
             },
             primaryText: AppWordManger.dontHaveAnAccountAlreadyPlease,
           ),
-
+    
           SizedBox(
             height: 50.h,
           ),
         ],
       ),
     );
-  }
-
-//? Select Date :
-  Future<void> selecteDate(
-      BuildContext context, TextEditingController controller) async {
-    DateTime? selectedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-    if (selectedDate != null) {
-      controller.text = selectedDate.toString().substring(0, 10);
-    }
   }
 }

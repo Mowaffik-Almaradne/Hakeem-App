@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
+import 'package:hosptel_app/core/function/deate_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
@@ -137,7 +138,7 @@ class InfoProfilePage extends StatelessWidget {
                 controller: controller,
                 suffixIcon: Icons.calendar_month_outlined,
                 onTap: () async {
-                  await selectDate(context, controller);
+                  await selecteDate(context, controller);
                 },
               ),
             ),
@@ -171,19 +172,5 @@ class InfoProfilePage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-//? Select Date :
-  Future<void> selectDate(
-      BuildContext context, TextEditingController controller) async {
-    DateTime? selectedDate = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-    if (selectedDate != null) {
-      controller.text = selectedDate.toString().substring(0, 10);
-    }
   }
 }

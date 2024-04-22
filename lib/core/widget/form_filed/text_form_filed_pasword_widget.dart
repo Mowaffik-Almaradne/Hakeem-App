@@ -86,7 +86,7 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
                   });
                 },
                 icon: Icon(
-                  showPassword ? Icons.visibility_off : Icons.visibility,
+                  showPassword ? Icons.visibility : Icons.visibility_off,
                   color: widget.suffixIconColor ?? AppColorManger.primaryColor,
                 ),
               ),
@@ -105,6 +105,7 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
                       AppFontWeightManger.fontWeightSemiBold,
                   color: widget.colorHintText ?? AppColorManger.black,
                 ),
+            //? Border :
             enabledBorder: outlineInputBorder(
               circular: 13.r,
               width: widget.borderWidht ?? 0,

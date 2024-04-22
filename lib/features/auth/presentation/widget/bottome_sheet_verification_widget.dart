@@ -13,124 +13,107 @@ import 'package:hosptel_app/router/app_router.dart';
 
 class BottomeSheetVerifivcationWidget extends StatelessWidget {
   const BottomeSheetVerifivcationWidget({
-    super.key,
+    Key? key,
     required this.subText,
     required this.fontSizeSubText,
     required this.fontColorSubText,
     required this.fontFamailySubText,
-  });
+  }) : super(key: key);
+
   final String subText;
   final double fontSizeSubText;
   final Color fontColorSubText;
   final String fontFamailySubText;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        width: double.infinity,
-        constraints: BoxConstraints(
-          minHeight: 390.h,
-        ),
-        decoration: BoxDecoration(
-          color: AppColorManger.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.r),
-            topRight: Radius.circular(30.r),
-          ),
-        ),
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 28.h,
-              ),
-              child: SvgPicture.asset(
-                width: 20.w,
-                height: 4.h,
-                AppSvgManger.rowBottomeSheet,
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 28.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                //? icon back page :
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 18.w),
-                    child: SvgPicture.asset(
-                      width: 30.w,
-                      height: 30.h,
-                      AppSvgManger.iconArrow,
-                    ),
+            child: SvgPicture.asset(
+              width: 20.w,
+              height: 4.h,
+              AppSvgManger.rowBottomeSheet,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(left: 18.w),
+                  child: SvgPicture.asset(
+                    width: 30.w,
+                    height: 30.h,
+                    AppSvgManger.iconArrow,
                   ),
                 ),
-                //? text for number :
-                TextUtiels(
-                  text: AppWordManger.writeNumber,
-                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                        fontSize: AppFontSizeManger.s24,
-                      ),
-                  paddingRight: 18.w,
-                ),
-              ],
-            ),
-            //? Number from Api :
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextUtiels(
-                text: subText,
-                color: fontColorSubText,
-                fontSize: fontSizeSubText,
-                fontFamily: fontFamailySubText,
-                paddingTop: 39.h,
-                paddingRight: 18.w,
-                paddingBottome: 10.h,
               ),
+              TextUtiels(
+                text: AppWordManger.writeNumber,
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      fontSize: AppFontSizeManger.s24,
+                    ),
+                paddingRight: 18.w,
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextUtiels(
+              text: subText,
+              color: fontColorSubText,
+              fontSize: fontSizeSubText,
+              fontFamily: fontFamailySubText,
+              paddingTop: 39.h,
+              paddingRight: 18.w,
+              paddingBottome: 10.h,
             ),
-            //? Inputs for verificaton code :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                )
-              ],
-            ),
-            SizedBox(height: 52.h),
-            //? button for send verification code :
-            MainElevatedButton(
-              horizontalPadding: 110.w,
-              text: AppWordManger.doneVerification,
-              backgroundColor: AppColorManger.primaryColor,
-              textColor: AppColorManger.white,
-              onPreesed: () {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  RouteNamedScreens.homeScreenNameRoute,
-                  (route) => false,
-                );
-              },
-            ),
-            //? text dont get number :build/app/outputs/flutter-apk/app-release.apk
-            MovPageText(
-              movPageText: AppWordManger.resendMessage,
-              onTap: () {},
-              primaryText: AppWordManger.dontGetVerificationCode,
-            ),
-          ],
-        ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              TextFormFiledVerficationCodeWidget(
+                onChanged: (value) {},
+              ),
+              TextFormFiledVerficationCodeWidget(
+                onChanged: (value) {},
+              ),
+              TextFormFiledVerficationCodeWidget(
+                onChanged: (value) {},
+              ),
+              TextFormFiledVerficationCodeWidget(
+                onChanged: (value) {},
+              )
+            ],
+          ),
+          SizedBox(height: 52.h),
+          MainElevatedButton(
+            horizontalPadding: 110.w,
+            text: AppWordManger.doneVerification,
+            backgroundColor: AppColorManger.primaryColor,
+            textColor: AppColorManger.white,
+            onPreesed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                RouteNamedScreens.homeScreenNameRoute,
+                (route) => false,
+              );
+            },
+          ),
+          MovPageText(
+            movPageText: AppWordManger.resendMessage,
+            onTap: () {},
+            primaryText: AppWordManger.dontGetVerificationCode,
+          ),
+        ],
       ),
     );
   }
