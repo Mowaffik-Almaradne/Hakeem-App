@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
-import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/card_reservation_widget.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/pop_up_cancle_reservation.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/tab_bar_widget.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/title_reservation.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class ReservationPage extends StatelessWidget {
@@ -28,92 +28,30 @@ class ReservationPage extends StatelessWidget {
         child: MainBackGround(
           mainBody: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 59.h),
-                //? Arrow And Text :
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          RouteNamedScreens.homeScreenNameRoute,
-                        );
-                        context
-                            .read<ButtonNavCubit>()
-                            .changeIndexButtonNav(2, context);
-                      },
-                      child: SvgPicture.asset(
-                        AppSvgManger.iconArrow,
-                        width: 30.w,
-                        height: 30.h,
-                      ),
-                    ),
-                    TextUtiels(
-                      paddingRight: 16.w,
-                      text: 'حجوزاتي',
-                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                            fontSize: 20.sp,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Container(
-                  height: 55.h,
-                  decoration: BoxDecoration(
-                    color: const Color(0xffF2F6FA),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: TabBar(
-                    automaticIndicatorColorAdjustment: true,
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    unselectedLabelColor: const Color(0xff888888),
-                    labelColor: AppColorManger.primaryColor,
-                    indicatorColor: Colors.white,
-                    indicatorWeight: 2,
-                    indicator: BoxDecoration(
-                      color: const Color(0xffE6F3FC),
-                      borderRadius: BorderRadius.circular(5.r),
-                    ),
-                    labelStyle:
-                        Theme.of(context).textTheme.displayLarge?.copyWith(
-                              fontSize: 16.sp,
-                            ),
-                    tabs: const [
-                      Tab(
-                        text: 'منتهي',
-                      ),
-                      Tab(
-                        text: 'قيد الانتظار',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Expanded(
+              //? Title Reservation :
+              const TitleReservation(),
+              //? Tab Bar Widget  :
+              const TabBarWidget(),
+              Expanded(
+                flex: 1,
                 child: TabBarView(
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextUtiels(
-                          text: 'Test1',
-                          color: Colors.black,
-                        ),
-                      ],
+                    //? Resevation Finished :
+                    const CardReservationWidget(
+                      iconCardReservatio: AppSvgManger.iconFinishedResevation,
+                      showButtonCancleResvation: false,
+                      showDivider: false,
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextUtiels(
-                          text: 'Test1',
-                          color: Colors.black,
-                        ),
-                      ],
+                    //? Resevation As Soon As Wating  :
+                    CardReservationWidget(
+                      iconCardReservatio: AppSvgManger.iconReservation,
+                      showButtonCancleResvation: true,
+                      showDivider: true,
+                      onTapCancleReservation: () {
+                        MainShowDialogCansleResevation.customShowDialog(
+                          context,
+                        );
+                      },
                     ),
                   ],
                 ),

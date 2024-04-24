@@ -16,4 +16,7 @@ class AppSvgManger {
   static const iconArrow = 'assets/image/svg/arrowIcon.svg';
   static const iconArrowProfile = 'assets/image/svg/arrowProfile.svg';
   static const iconCircularProfile = 'assets/image/svg/circular.svg';
+  static const iconReservation = 'assets/image/svg/iconReservation.svg';
+  static const iconFinishedResevation =
+      'assets/image/svg/iconFinisedResevation.svg';
 }

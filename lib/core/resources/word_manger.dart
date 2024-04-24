@@ -39,6 +39,17 @@ class AppWordManger {
   static const textVisibale =
       "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
 
+//? Resevation : ?
+  static const myReservation = 'حجوزاتي';
+  static const finshied = 'منتهي';
+  static const watting = 'قيد الانتظار';
+  static const cansleResevation = 'إلغاء الحجز';
+  static const dataReservation = 'تاريخ الحجز';
+  static const numberResevation = ': رقم الحجز';
+  static const notFoundResevationinThisYet = 'لايوجدحجوزات حتى الآن.';
+  static const sorryToCancelTheReservationPlease = 'عذرا ! لإلغاء الحجز يرجى ';
+  static const contactUsWithAVoiceCall = 'التواصل معنا بمكالكة صوتية';
+  static const thanks = 'شكرا لك .';
 //? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';
