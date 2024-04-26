@@ -1,14 +1,50 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
+import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
+import 'package:hosptel_app/core/widget/repeted/titel_pages_widget.dart';
+import 'package:hosptel_app/features/notification/presentation/widgets/info_notification.dart';
+import 'package:hosptel_app/router/app_router.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MainBackGround(
-      mainBody: Center(
-        child: Text('ssssss'),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        Navigator.pushReplacementNamed(
+          context,
+          RouteNamedScreens.homeScreenNameRoute,
+        );
+        context.read<ButtonNavCubit>().changeIndexButtonNav(2, context);
+      },
+      child: MainBackGround(
+        mainBody: Column(
+          children: [
+            //? Title Page Notifacation :
+            const TitlePageWidget(
+              titleText: AppWordManger.notifications,
+            ),
+            //? List From Api Notifications :
+            Expanded(
+              child: ListView.separated(
+                physics: const ScrollPhysics(parent: null),
+                padding: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 50.h),
+                itemBuilder: (context, index) {
+                  return const InfoNotificationWidget();
+                },
+                separatorBuilder: (context, index) => SizedBox(height: 20.h),
+                itemCount: 6,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

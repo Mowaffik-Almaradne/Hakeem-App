@@ -81,4 +81,13 @@ class AppWordManger {
   static const codeNumber = 'تأكيد الرمز';
   static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
   //?
+
+//? Notifications :
+  static const notifications = 'الاشعارات';
+  //? Health :
+  static const myhealth = 'صحتي';
+  static const myVisited = 'زياراتي';
+  static const myFiles = 'ملفاتي';
+  static const medicalDescraption = 'الوصفة الطبية';
+  static const finisialAccount = 'الحساب المالي';
 }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hosptel_app/features/auth/health/presentation/pages/medical_description_page.dart';
+import 'package:hosptel_app/features/auth/health/presentation/pages/mony_account.dart';
+import 'package:hosptel_app/features/auth/health/presentation/pages/my_file_page.dart';
+import 'package:hosptel_app/features/auth/health/presentation/pages/my_visited_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/forget_password_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/login_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.dart';
@@ -119,6 +123,7 @@ class AppRouter {
             );
           },
         ); //? End Home Screen:
+      //! Start Feature HeaLth :
       //? Start Health Screen:
       case RouteNamedScreens.healthNameRoute:
         return PageRouteBuilder(
@@ -137,6 +142,81 @@ class AppRouter {
             );
           },
         ); //? End Health Screen
+      //? Start My Visit Page :
+      case RouteNamedScreens.myVisitNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const MyVistsPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        );
+      //? End My Visit Page :
+      //? Start My File Page :
+      case RouteNamedScreens.myFileNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const MyFilePage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End My File Page :
+
+      //? Start MidicalDesciption Page :
+      case RouteNamedScreens.midicalDesciptionNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const MidicalDesciptionPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End MidicalDesciption Page :
+      //? Start Mony Account Page :
+      case RouteNamedScreens.monyAccountNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const MonyAccountPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Mony Account Page :
+      //! End Feature Health
       //? Start Notification Screen:
       case RouteNamedScreens.notificationNameRoute:
         return PageRouteBuilder(
@@ -283,9 +363,13 @@ class RouteNamedScreens {
       '/verification-number-screen';
   //? End Auth Feature :
   static const homeScreenNameRoute = '/home-screen';
-
+  //? Start Health Feature :
   static const healthNameRoute = '/health-screen';
-
+  static const myVisitNameRoute = '/myVisit-screen';
+  static const myFileNameRoute = '/myFile-screen';
+  static const midicalDesciptionNameRoute = '/medical-description-screen';
+  static const monyAccountNameRoute = '/mony-account-screen';
+  //? End Health Feature :
   static const notificationNameRoute = '/notification-screen';
 
   static const reservationNameRoute = '/reservation-screen';
