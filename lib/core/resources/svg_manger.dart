@@ -19,4 +19,9 @@ class AppSvgManger {
   static const iconReservation = 'assets/image/svg/iconReservation.svg';
   static const iconFinishedResevation =
       'assets/image/svg/iconFinisedResevation.svg';
+  static const iconMyVisit = 'assets/image/svg/iconMyVisit.svg';
+  static const notFoundMyVisit = 'assets/image/svg/notFoundMyVisit.svg';
+  static const iconDowanload = 'assets/image/svg/Download.svg';
+  static const iconFile = 'assets/image/svg/dowanlodFile.svg';
+  static const emptyIconFile = 'assets/image/svg/emptyMyFile.svg';
 }

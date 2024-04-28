@@ -90,4 +90,10 @@ class AppWordManger {
   static const myFiles = 'ملفاتي';
   static const medicalDescraption = 'الوصفة الطبية';
   static const finisialAccount = 'الحساب المالي';
+  static const dontAnyVisitInThisYet = 'ليس لديك أي زيارات بعد.';
+  static const notFoundFile = 'لايوجد ملفات';
+  static const documentsSentSecurelyFrom =
+      'ستظهر هنا المستندات المرسلة بشكل آمن من ';
+  static const byYourServiceOrSupportProvider =
+      'قبل مزود الخدمة أو الدعم الخاص بك';
 }

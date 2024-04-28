@@ -24,16 +24,24 @@ final appTheme = ThemeData(
       fontFamily: AppFontFamily.tajawalRegular,
       color: AppColorManger.primaryColor,
     ),
-    displayMedium: TextStyle(
-      fontFamily: AppFontFamily.tajawalLight,
-      color: AppColorManger.black,
-    ),
     displayLarge: TextStyle(
       fontFamily: AppFontFamily.tajawalBold,
       color: AppColorManger.primaryColor,
     ),
+    displayMedium: TextStyle(
+      fontFamily: AppFontFamily.tajawalLight,
+      color: AppColorManger.black,
+    ),
+    displaySmall: TextStyle(
+      fontFamily: AppFontFamily.tajawalRegular,
+      color: AppColorManger.black,
+    ),
     labelLarge: TextStyle(
       fontFamily: AppFontFamily.tajawalBold,
+      color: AppColorManger.black,
+    ),
+    labelMedium: TextStyle(
+      fontFamily: AppFontFamily.tajawalMedium,
       color: AppColorManger.black,
     ),
     labelSmall: TextStyle(

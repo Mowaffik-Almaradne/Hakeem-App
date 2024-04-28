@@ -8,24 +8,35 @@ import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class TitlePageWidget extends StatelessWidget {
-  const TitlePageWidget({super.key, required this.titleText});
+  const TitlePageWidget(
+      {super.key, required this.titleText, this.onTap, this.paddingBottome});
   final String titleText;
+  final void Function()? onTap;
+  final double? paddingBottome;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 59.h),
+      padding: EdgeInsets.only(
+        left: 14.w,
+        right: 14.w,
+        top: 56.h,
+        bottom: paddingBottome ?? 56.h,
+      ),
       //? Arrow And Text :
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-            onTap: () {
-              Navigator.pushReplacementNamed(
-                context,
-                RouteNamedScreens.homeScreenNameRoute,
-              );
-              context.read<ButtonNavCubit>().changeIndexButtonNav(2, context);
-            },
+            onTap: onTap ??
+                () {
+                  Navigator.pushReplacementNamed(
+                    context,
+                    RouteNamedScreens.homeScreenNameRoute,
+                  );
+                  context
+                      .read<ButtonNavCubit>()
+                      .changeIndexButtonNav(2, context);
+                },
             child: SvgPicture.asset(
               AppSvgManger.iconArrow,
               width: 30.w,
