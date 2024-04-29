@@ -27,4 +27,7 @@ class AppColorManger {
   static Color colorShowDailogButton = const Color(0xff888888);
   static Color gray = const Color(0xff555555);
   static Color lightColor = const Color(0xff909090);
+  static Color lightText = const Color(0xffADADAD);
+  static Color textGray = const Color(0xff5C5C5C);
+  static Color shadowColorGray = const Color(0xff646464);
 }

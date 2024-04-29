@@ -78,8 +78,8 @@ class InfoMyFileWidget extends StatelessWidget {
             horizontal: 10.w,
           ),
           child: SvgPicture.asset(
-            width: 71.w,
-            height: 71.h,
+            width: 75.spMin,
+            height: 75.spMin,
             AppSvgManger.iconFile,
           ),
         ),

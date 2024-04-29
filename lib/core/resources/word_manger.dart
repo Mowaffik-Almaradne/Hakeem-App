@@ -96,4 +96,8 @@ class AppWordManger {
       'ستظهر هنا المستندات المرسلة بشكل آمن من ';
   static const byYourServiceOrSupportProvider =
       'قبل مزود الخدمة أو الدعم الخاص بك';
+  static const donePymant = 'تم الدفع';
+  static const details = 'التفاصيل';
+  static const fullCost = 'الكلفة الكلية';
+  static const notFoundInformation = 'لاتوجد معلومات .';
 }
