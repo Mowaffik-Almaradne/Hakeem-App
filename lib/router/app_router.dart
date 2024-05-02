@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:hosptel_app/features/health/presentation/pages/medical_description_page.dart';
+import 'package:hosptel_app/features/auth/presentation/pages/verification_forget_password_page.dart';
+import 'package:hosptel_app/features/health/presentation/pages/medical_description/medical_description_main_page.dart';
+import 'package:hosptel_app/features/health/presentation/pages/medical_description/medical_description_table.dart';
 import 'package:hosptel_app/features/health/presentation/pages/mony_account.dart';
 import 'package:hosptel_app/features/health/presentation/pages/my_file_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/my_visited_page.dart';
-import 'package:hosptel_app/features/auth/presentation/pages/forget_password_page.dart';
+import 'package:hosptel_app/features/auth/presentation/pages/forget_password.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/login_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/signup_page.dart';
@@ -66,11 +68,30 @@ class AppRouter {
             );
           },
         ); //? End SignUp Screen:
-      //? Start Forget Password Screen:
-      case RouteNamedScreens.forgetPasswordScreenNameRoute:
+
+      //? Start Forget Password  Screen:
+      case RouteNamedScreens.forgetPasswordPage:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const ForgetPasswordPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Forget Password Screen:
+      //? Start Forget Password Verification Code  Screen:
+      case RouteNamedScreens.forgetPasswordVerificationCodeScreenNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const VerificationForgetPasswordPage();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(-1, 0);
@@ -198,6 +219,25 @@ class AppRouter {
             );
           },
         ); //? End MidicalDesciption Page :
+      //? Start Midical Desciption Table Page :
+      case RouteNamedScreens.midicalDesciptionTableNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const MedicalDescriptionTablePage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End MidicalDesciption Table Page :
+
       //? Start Mony Account Page :
       case RouteNamedScreens.monyAccountNameRoute:
         return PageRouteBuilder(
@@ -358,7 +398,9 @@ class RouteNamedScreens {
   //? Start Auth Feature :
   static const loginScreenNameRoute = '/login-screen';
   static const signUpScreenNameRoute = '/signUp-screen';
-  static const forgetPasswordScreenNameRoute = '/forget-password-screen';
+  static const forgetPasswordVerificationCodeScreenNameRoute =
+      '/forget-password-verification-screen';
+  static const forgetPasswordPage = '/forget-password-screen';
   static const reciveNumberVerificationPageScreenNameRoute =
       '/verification-number-screen';
   //? End Auth Feature :
@@ -368,6 +410,9 @@ class RouteNamedScreens {
   static const myVisitNameRoute = '/myVisit-screen';
   static const myFileNameRoute = '/myFile-screen';
   static const midicalDesciptionNameRoute = '/medical-description-screen';
+  static const midicalDesciptionTableNameRoute =
+      '/medical-description-table-screen';
+
   static const monyAccountNameRoute = '/mony-account-screen';
   //? End Health Feature :
   static const notificationNameRoute = '/notification-screen';

@@ -6,8 +6,8 @@ import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/bottome_sheet_verification_widget.dart';
 
-class ForgetPasswordPage extends StatelessWidget {
-  const ForgetPasswordPage({super.key});
+class VerificationForgetPasswordPage extends StatelessWidget {
+  const VerificationForgetPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {

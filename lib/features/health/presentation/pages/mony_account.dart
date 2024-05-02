@@ -20,7 +20,7 @@ class MonyAccountPage extends StatelessWidget {
         child: Column(
           children: [
             TitlePageWidget(
-              titleText: 'الحساب المالي',
+              titleText: AppWordManger.finisialAccount,
               onTap: () => Navigator.pop(context),
               paddingBottome: 15.h,
             ),

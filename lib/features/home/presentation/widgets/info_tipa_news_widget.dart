@@ -36,16 +36,16 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
     return Column(
       children: [
         SizedBox(
-          height: 170.h,
-          child: ListView.separated(
+          height: 150.h,
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
             controller: _pageController,
             scrollDirection: Axis.horizontal,
-            separatorBuilder: (context, index) => SizedBox(width: 0.w),
             itemCount: 4,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 30.w,
+                  horizontal: 10.w,
                 ),
                 child: Stack(
                   clipBehavior: Clip.none,
@@ -53,7 +53,7 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
                   children: [
                     Container(
                       height: 170.h,
-                      width: 235.w,
+                      width: 230.w,
                       decoration: BoxDecoration(
                         color: AppColorManger.fillColorCard,
                         borderRadius: BorderRadius.circular(15),
@@ -114,6 +114,8 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
           ),
         ),
         SizedBox(height: 30.h),
+
+        //? Scroll Smooth :
         SmoothPageIndicator(
           controller: _pageController,
           count: 4,
@@ -127,7 +129,7 @@ class InfoTipasNewsWidgetState extends State<InfoTipasNewsWidget> {
           effect: JumpingDotEffect(
             spacing: 8,
             dotWidth: 50.w,
-            dotHeight: 3.h,
+            dotHeight: 5.h,
             paintStyle: PaintingStyle.stroke,
             strokeWidth: 1.5,
             activeDotColor: AppColorManger.primaryColor,

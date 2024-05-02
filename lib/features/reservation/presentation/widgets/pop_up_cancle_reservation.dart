@@ -37,7 +37,7 @@ class MainShowDialogCansleResevation {
               child: Column(
                 children: [
                   TextUtiels(
-                    text: AppWordManger.notFoundResevationinThisYet,
+                    text: AppWordManger.sorryToCancelTheReservationPlease,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           fontSize: 16.sp,
                           color: AppColorManger.backGroundColorShowDialog,

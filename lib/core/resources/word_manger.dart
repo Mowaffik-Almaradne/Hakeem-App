@@ -23,6 +23,9 @@ class AppWordManger {
   static const dontGetVerificationCode = 'لم تحصل على الرمز ؟';
   static const useTheCodeSentToYouToVerifyAndAccessYourAccount =
       'استخدم الرمز المرسل لك للتحقق والوصول إلى حسابك';
+  static const forgetPassword = 'نسيت كلمة المرور';
+  static const sendCodeForEnsure = 'إرسال رمز التأكيد';
+  static const accountAlradyFind = 'إذا كان لديك حساب مسبقا يرجى ';
   //?
   static const health = 'صحتي';
   static const notification = 'الاشعارات';
@@ -100,4 +103,10 @@ class AppWordManger {
   static const details = 'التفاصيل';
   static const fullCost = 'الكلفة الكلية';
   static const notFoundInformation = 'لاتوجد معلومات .';
+  static const medicalDescription = 'الوصفة الطبية';
+  static const nameMedicine = 'اسم الدواء';
+  static const periodOfUse = 'فترة الاستخدام';
+  static const timeOfUse = 'مرات الاستخدام';
+  static const afterFood = 'قبل الطعام';
+  static const dontAnyDescriptionMedcal = 'ليس لديك أي وصفة بعد.';
 }

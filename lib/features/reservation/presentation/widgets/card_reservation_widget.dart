@@ -21,15 +21,12 @@ class CardReservationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 20.w,
-        vertical: 32.h,
-      ),
+      padding:
+          const EdgeInsets.only(left: 20, right: 20, top: 32, bottom: 175).r,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 11.5.h),
         width: 320.w,
         height: 250.h,
-        margin: EdgeInsets.only(bottom: 138.h),
         decoration: BoxDecoration(
           color: AppColorManger.fillColorCard,
           border: Border.all(

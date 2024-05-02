@@ -30,4 +30,5 @@ class AppColorManger {
   static Color lightText = const Color(0xffADADAD);
   static Color textGray = const Color(0xff5C5C5C);
   static Color shadowColorGray = const Color(0xff646464);
+  static Color lineDividerColor = const Color(0xffBFD7ED);
 }
