@@ -70,7 +70,14 @@ class ProfilePage extends StatelessWidget {
                 paddingLeft: 160,
                 text: AppWordManger.deleteAccount,
                 onTap: () {
-                  MainShowDialog.customShowDialog(context);
+                  MainShowDialog.customShowDialog(
+                    context,
+                    firstButtonText: AppWordManger.yes,
+                    secoundButtonText: AppWordManger.no,
+                    textPopUp: AppWordManger.areYoueSureDeletedAccount,
+                    onTapFirst: () => Navigator.pop(context),
+                    onTapSecound: () => Navigator.pop(context),
+                  );
                 },
               ),
             ],

@@ -5,9 +5,9 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
 import 'package:hosptel_app/core/widget/repeted/titel_pages_widget.dart';
-import 'package:hosptel_app/features/reservation/presentation/widgets/card_reservation_widget.dart';
-import 'package:hosptel_app/features/reservation/presentation/widgets/pop_up_cancle_reservation.dart';
-import 'package:hosptel_app/features/reservation/presentation/widgets/tab_bar_widget.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/card_reservation_widget.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/pop_up_cancle_reservation.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/tab_bar_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class ReservationPage extends StatelessWidget {

@@ -24,7 +24,7 @@ void routingNamePage(int index, BuildContext context) {
     case 2:
       Navigator.pushNamedAndRemoveUntil(
         context,
-        RouteNamedScreens.homeScreenNameRoute,
+        RouteNamedScreens.homeSecoundryScreenNameRoute,
         (route) => false,
       );
       break;

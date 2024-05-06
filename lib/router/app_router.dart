@@ -11,6 +11,7 @@ import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.
 import 'package:hosptel_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/health_page.dart';
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
+import 'package:hosptel_app/features/home/presentation/pages/home_secoundry.dart';
 import 'package:hosptel_app/features/intro/presentation/page/intro_page.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/change_password_page.dart';
@@ -18,7 +19,9 @@ import 'package:hosptel_app/features/profile/presentation/pages/edit_number_page
 import 'package:hosptel_app/features/profile/presentation/pages/info_profile_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/main_profile_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/verification_edit_number.dart';
-import 'package:hosptel_app/features/reservation/presentation/pages/reservation_page.dart';
+import 'package:hosptel_app/features/reservation/presentation/pages/my_reservation/reservation_page.dart';
+import 'package:hosptel_app/features/reservation/presentation/pages/reservation_now/details_reservation_page.dart';
+import 'package:hosptel_app/features/reservation/presentation/pages/reservation_now/summary_reservation.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
@@ -131,6 +134,23 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const HomePage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Home Screen:
+      case RouteNamedScreens.homeSecoundryScreenNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const HomeSecoundryPage();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(-1, 0);
@@ -275,6 +295,7 @@ class AppRouter {
             );
           },
         ); //? End Notification Screen
+      //! Start Feature Reservation :
       //? Start Reservation Page :
       case RouteNamedScreens.reservationNameRoute:
         return PageRouteBuilder(
@@ -293,7 +314,43 @@ class AppRouter {
             );
           },
         ); //? End Reservation Screen
-
+      //? Start Reservation Details :
+      case RouteNamedScreens.reservationDetailsNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const DetailesReservationPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Reservation Details Screen
+      //? Start Reservation Summary Screen
+      case RouteNamedScreens.reservationSummaryNameRoute:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const SummaryReservationPage();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(-1, 0);
+            const end = Offset.zero;
+            const curve = Curves.ease;
+            var tween =
+                Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+        ); //? End Reservation Summary Screen
+      //! End Feature Reservation
       //? Start  Profile Page :
       case RouteNamedScreens.profileNameRoute:
         return PageRouteBuilder(
@@ -404,7 +461,10 @@ class RouteNamedScreens {
   static const reciveNumberVerificationPageScreenNameRoute =
       '/verification-number-screen';
   //? End Auth Feature :
+  //? Strart Home Feature :
   static const homeScreenNameRoute = '/home-screen';
+  static const homeSecoundryScreenNameRoute = '/home-secoundry-screen';
+  //? End Home Feature :
   //? Start Health Feature :
   static const healthNameRoute = '/health-screen';
   static const myVisitNameRoute = '/myVisit-screen';
@@ -412,12 +472,16 @@ class RouteNamedScreens {
   static const midicalDesciptionNameRoute = '/medical-description-screen';
   static const midicalDesciptionTableNameRoute =
       '/medical-description-table-screen';
-
   static const monyAccountNameRoute = '/mony-account-screen';
   //? End Health Feature :
+
   static const notificationNameRoute = '/notification-screen';
 
+  //? Start Feature Reservation :
   static const reservationNameRoute = '/reservation-screen';
+  static const reservationDetailsNameRoute = '/reservation-reservation-screen';
+  static const reservationSummaryNameRoute = '/reservation-summary-screen';
+  //? End Feature Reservation
 
   //? Start Profile Feature :
   static const profileNameRoute = '/profile-screen';

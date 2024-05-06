@@ -53,6 +53,18 @@ class AppWordManger {
   static const sorryToCancelTheReservationPlease = 'عذرا ! لإلغاء الحجز يرجى ';
   static const contactUsWithAVoiceCall = 'التواصل معنا بمكالكة صوتية';
   static const thanks = 'شكرا لك .';
+  static const workHours = 'ساعات العمل';
+  static const bookingReservation = 'حجز موعد';
+  static const day = 'يوم';
+  static const time = 'الوقت';
+  static const reservationConfarmation = 'تأكيد الحجز';
+  static const detailsReservatio = 'تغاصيل الحجز';
+  static const whaAreTheTheSymptomsYouAreShowing =
+      'ماهي الأعراض التي تظهر عليك؟';
+  static const done = 'موافق';
+  static const cancle = 'إلغاء';
+  static const doneReservationSucces = '!تم حجز موعدك بنجاح';
+  static const continueReservation = 'استمر';
 //? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';

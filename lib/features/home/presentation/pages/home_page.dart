@@ -1,5 +1,6 @@
 import 'package:double_back_to_exit/non_web_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
@@ -8,11 +9,12 @@ import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/caption_text_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/info_doctor_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/info_services_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/info_tipa_news_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/reservation_now_button_widget.dart';
+import 'package:hosptel_app/features/home/presentation/widgets/home_primary/caption_text_widget.dart';
+import 'package:hosptel_app/features/home/presentation/widgets/home_primary/info_doctor_widget.dart';
+import 'package:hosptel_app/features/home/presentation/widgets/home_primary/info_services_widget.dart';
+import 'package:hosptel_app/features/home/presentation/widgets/home_primary/info_tipa_news_widget.dart';
+import 'package:hosptel_app/features/home/presentation/widgets/home_primary/reservation_now_button_widget.dart';
+import 'package:hosptel_app/router/app_router.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class HomePage extends StatelessWidget {
@@ -94,8 +96,16 @@ class HomePage extends StatelessWidget {
               ),
 
               //? button reservation Now :
-              const ReservationNowButtonWidget(
-                text: AppWordManger.reservationNow,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    RouteNamedScreens.reservationDetailsNameRoute,
+                  );
+                },
+                child: const ReservationNowButtonWidget(
+                  text: AppWordManger.reservationNow,
+                ),
               ),
               SizedBox(height: 15.h),
               //? about doctor label :

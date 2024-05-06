@@ -9,16 +9,16 @@ class ButtonShowDeailog extends StatelessWidget {
     required this.textButton,
     required this.textColor,
     required this.buttonColor,
+    required this.onTap,
   });
   final String textButton;
   final Color textColor;
   final Color buttonColor;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.pop(context);
-      },
+    return GestureDetector(
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         width: 110.w,

@@ -27,4 +27,5 @@ class AppSvgManger {
   static const emptyIconMonyAccount = 'assets/image/svg/emptyMonyAccount.svg';
   static const emptyIconDesciptionMedical =
       'assets/image/svg/emptyMedicalDesciption.svg';
+  static const iconDropDowan = 'assets/image/svg/arrowDropDowan.svg';
 }
