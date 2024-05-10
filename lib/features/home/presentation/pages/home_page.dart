@@ -1,6 +1,5 @@
 import 'package:double_back_to_exit/non_web_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
@@ -110,6 +109,8 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 15.h),
               //? about doctor label :
               const CaptionTextWidget(
+                text: AppWordManger.aboutDoctor,
+              ),  const CaptionTextWidget(
                 text: AppWordManger.aboutDoctor,
               ),
               SizedBox(height: 18.h),
