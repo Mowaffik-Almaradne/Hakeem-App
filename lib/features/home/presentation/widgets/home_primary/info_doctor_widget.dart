@@ -16,8 +16,8 @@ class InfoDoctor extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
-          horizontal: 10.w,
-          vertical: 10.h,
+          horizontal: 8.w,
+          vertical: 12.h,
         ),
         width: 120.w,
         height: 42.h,

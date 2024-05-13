@@ -37,6 +37,7 @@ class _SummaryReservationPageState extends State<SummaryReservationPage> {
   Widget build(BuildContext context) {
     return MainBackGround(
       mainBody: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             TitlePageWidget(
@@ -57,12 +58,12 @@ class _SummaryReservationPageState extends State<SummaryReservationPage> {
             Visibility(
               visible: visible,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 27.h),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
                     width: 200.w,
-                    height: 230.h,
+                    height: 200.h,
                     decoration: BoxDecoration(
                       color: AppColorManger.whiteColorCard,
                       border: Border.all(
@@ -123,9 +124,10 @@ class _SummaryReservationPageState extends State<SummaryReservationPage> {
                 ),
               ),
             ),
+
             //? Button For Continuse Resrvation :
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 27.h),
+              padding: EdgeInsets.symmetric(vertical: !visible ? 200.h : 0),
               child: MainElevatedButton(
                 text: AppWordManger.continueReservation,
                 backgroundColor: AppColorManger.primaryColor,
@@ -135,7 +137,8 @@ class _SummaryReservationPageState extends State<SummaryReservationPage> {
                   MainShowDialog.customShowDialog(context,
                       firstButtonText: AppWordManger.home,
                       secoundButtonText: AppWordManger.myReservation,
-                      textPopUp: AppWordManger.doneReservationSucces,
+                      textPopUp:
+                          '${AppWordManger.doneReservationSucces}\n في \n 2:15   2023/8/25',
                       onTapFirst: () {
                     Navigator.pushReplacementNamed(
                       context,

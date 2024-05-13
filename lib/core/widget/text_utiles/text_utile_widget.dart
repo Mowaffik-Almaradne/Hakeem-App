@@ -56,28 +56,9 @@ class TextUtiels extends StatelessWidget {
               fontWeight: fontWeight ?? FontWeight.w400,
             ),
         overflow: TextOverflow.visible,
+      
       ),
     );
   }
 }
 
-
-/*
-  TextStyle(
-          fontFamily: fontFamily,
-          fontSize: fontSize,
-          color: color,
-          shadows: shadows,
-          height: height,
-          fontWeight: fontWeight,
-        ),
-*/
-
-//  TextUtiels(
-//                   fontFamily: 'TajawalRegular',
-//                   text: AppWordManger
-//                       .bookYourAppointmentNowAndEnjoyAUniqueExperience,
-//                   color: Colors.white,
-//                   fontSize: 16.sp,
-//                   fontWeight: FontWeight.w400,
-//                 )

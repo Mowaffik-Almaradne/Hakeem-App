@@ -53,7 +53,7 @@ class AppWordManger {
   static const sorryToCancelTheReservationPlease = 'عذرا ! لإلغاء الحجز يرجى ';
   static const contactUsWithAVoiceCall = 'التواصل معنا بمكالكة صوتية';
   static const thanks = 'شكرا لك .';
-  static const workHours = 'ساعات العمل';
+  static const reservationAvilable = 'الحجوزات المتاحة';
   static const bookingReservation = 'حجز موعد';
   static const day = 'يوم';
   static const time = 'الوقت';
@@ -118,7 +118,7 @@ class AppWordManger {
   static const medicalDescription = 'الوصفة الطبية';
   static const nameMedicine = 'اسم الدواء';
   static const periodOfUse = 'فترة الاستخدام';
-  static const timeOfUse = 'مرات الاستخدام';
+  static const timeOfUse = 'الاستخدام اليومي';
   static const afterFood = 'قبل الطعام';
   static const dontAnyDescriptionMedcal = 'ليس لديك أي وصفة بعد.';
 }

@@ -38,7 +38,7 @@ class MainShowDialog {
           ),
           content: Container(
             // width: 313.w,
-            height: 170.h,
+            height: 200.h,
             padding: EdgeInsets.symmetric(horizontal: 22.w),
             child: Column(
               children: [

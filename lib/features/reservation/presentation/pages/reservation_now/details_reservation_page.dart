@@ -11,6 +11,7 @@ import 'package:hosptel_app/features/reservation/presentation/widgets/my_reserva
 import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/reservation_details/label_text_time_day_widget.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/reservation_details/label_text_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
+
 class DetailesReservationPage extends StatelessWidget {
   const DetailesReservationPage({super.key});
   @override
@@ -26,7 +27,7 @@ class DetailesReservationPage extends StatelessWidget {
               paddingRight: 20.w,
               paddingTop: 24.h,
               paddingBottome: 12.h,
-              text: AppWordManger.workHours,
+              text: AppWordManger.reservationAvilable,
             ),
             //? Info Fo Day And Time :
             const InfoDaysAndTimesWidget(),
@@ -51,7 +52,7 @@ class DetailesReservationPage extends StatelessWidget {
 
             //? Button Ensure Resevation :
             Padding(
-              padding: EdgeInsets.only(bottom: 50.h),
+              padding: EdgeInsets.only(top: 20.h, bottom: 40.h),
               child: MainElevatedButton(
                 text: AppWordManger.reservationConfarmation,
                 backgroundColor: AppColorManger.primaryColor,

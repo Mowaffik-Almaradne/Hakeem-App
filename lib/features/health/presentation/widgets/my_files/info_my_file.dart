@@ -15,7 +15,7 @@ class InfoMyFileWidget extends StatelessWidget {
         //? Dowanload Icon :
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 10.w,
+            horizontal: 15.w,
           ),
           child: SvgPicture.asset(
             width: 41.w,
@@ -25,7 +25,7 @@ class InfoMyFileWidget extends StatelessWidget {
         ),
         //? Ifno File :
         Padding(
-          padding: const EdgeInsets.only(left: 60),
+          padding: EdgeInsets.only(left: 30.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -73,15 +73,10 @@ class InfoMyFileWidget extends StatelessWidget {
           ),
         ),
         //? Icon File Or Image :
-        Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 10.w,
-          ),
-          child: SvgPicture.asset(
-            width: 75.spMin,
-            height: 75.spMin,
-            AppSvgManger.iconFile,
-          ),
+        SvgPicture.asset(
+          width: 70.w,
+          height: 70.h,
+          AppSvgManger.iconFile,
         ),
       ],
     );

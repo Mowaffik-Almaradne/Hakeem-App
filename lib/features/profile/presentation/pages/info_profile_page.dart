@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/function/deate_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
+import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
@@ -34,9 +36,23 @@ class InfoProfilePage extends StatelessWidget {
                 ClipPath(
                   clipper: ClippingClass(),
                   child: Container(
+                    alignment: Alignment.centerLeft,
                     width: double.infinity,
                     height: 170.h,
                     color: AppColorManger.backGroundClipper,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10.w),
+                        child: SvgPicture.asset(
+                          AppSvgManger.iconArrow,
+                          width: 30.w,
+                          height: 30.h,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 Positioned(

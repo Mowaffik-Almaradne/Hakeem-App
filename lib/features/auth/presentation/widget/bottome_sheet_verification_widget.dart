@@ -103,7 +103,7 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
             onPreesed: () {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                RouteNamedScreens.homeSecoundryScreenNameRoute,
+                RouteNamedScreens.homeScreenNameRoute,
                 (route) => false,
               );
             },

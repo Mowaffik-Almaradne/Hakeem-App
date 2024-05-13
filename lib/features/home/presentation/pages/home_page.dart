@@ -110,8 +110,6 @@ class HomePage extends StatelessWidget {
               //? about doctor label :
               const CaptionTextWidget(
                 text: AppWordManger.aboutDoctor,
-              ),  const CaptionTextWidget(
-                text: AppWordManger.aboutDoctor,
               ),
               SizedBox(height: 18.h),
               //? about doctor text <Api>:

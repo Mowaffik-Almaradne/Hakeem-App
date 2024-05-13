@@ -17,7 +17,7 @@ class InfoDayWidget extends StatelessWidget {
         height: 63.h,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          reverse: false,
+          reverse: true,
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           itemCount: 10,
           separatorBuilder: (context, index) => SizedBox(width: 11.w),

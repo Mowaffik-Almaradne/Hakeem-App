@@ -33,11 +33,11 @@ class IntroPage extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment(-0.06.w, 1.10.h),
-                end: Alignment(0.06.w, -1.5.h),
+                end: Alignment(0.5.w, -2.8.h),
                 colors: [
                   AppColorManger.black.withOpacity(0.6000000238418579),
                   AppColorManger.black.withOpacity(0.039000000804662704),
-                  AppColorManger.black.withOpacity(0)
+                  AppColorManger.black.withOpacity(0.0),
                 ],
               ),
             ),
@@ -48,21 +48,52 @@ class IntroPage extends StatelessWidget {
                 TextUtiels(
                   text: AppWordManger.easyBookingExperience,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: 24.sp,
+                    fontSize: 24.sp,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 4,
+                        color: AppColorManger.black.withOpacity(0.25),
+                        offset: const Offset(4, 0),
                       ),
+                      Shadow(
+                        blurRadius: 4,
+                        color: AppColorManger.black.withOpacity(0.25),
+                        offset: const Offset(4, 0),
+                      ),
+                    ],
+                  ),
                 ),
 
                 TextUtiels(
                   text: AppWordManger.medicalAppointments,
                   paddingBottome: 17.5.h,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: 24.sp,
+                    fontSize: 24.sp,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 4,
+                        color: AppColorManger.black.withOpacity(0.25),
+                        offset: const Offset(4, 0),
                       ),
+                      Shadow(
+                        blurRadius: 4,
+                        color: AppColorManger.black.withOpacity(0.25),
+                        offset: const Offset(4, 0),
+                      ),
+                    ],
+                  ),
                 ),
 
-                const TextUtiels(
+                TextUtiels(
                   text: AppWordManger
                       .bookYourAppointmentNowAndEnjoyAUniqueExperience,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5,
+                      color: AppColorManger.black.withOpacity(0.25),
+                      offset: const Offset(7, 0),
+                    ),
+                  ],
                 ),
 
                 TextUtiels(

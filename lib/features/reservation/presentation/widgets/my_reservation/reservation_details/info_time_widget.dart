@@ -10,11 +10,13 @@ class InfoTimesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 40.h),
+      padding: EdgeInsets.only(
+        bottom: 20.h,
+      ),
       child: SizedBox(
         height: 50.h,
         child: ListView.separated(
-          reverse: false,
+          reverse: true,
           scrollDirection: Axis.horizontal,
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           itemCount: 10,
