@@ -20,8 +20,8 @@ class CharacterCityWidget extends StatelessWidget {
       padding: EdgeInsets.only(
         top: paddingTop ?? 16.h,
         bottom: paddingbottome ?? 13.h,
-        left: 22.w,
-        right: 22.w,
+        left: 16.w,
+        right: 16.w,
       ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -33,7 +33,6 @@ class CharacterCityWidget extends StatelessWidget {
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontSize: 15.sp,
               fontWeight: AppFontWeightManger.fontWeightBold,
-              
             ),
       ),
     );

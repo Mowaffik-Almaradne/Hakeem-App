@@ -14,8 +14,12 @@ class MainShowDialog {
     required String firstButtonText,
     required String secoundButtonText,
     required String textPopUp,
+    double? hieght,
+    bool? barrierDismissible,
+    required void Function() onTapBack,
   }) {
     showDialog(
+      barrierDismissible: barrierDismissible ?? true,
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -26,9 +30,7 @@ class MainShowDialog {
             borderRadius: BorderRadius.circular(12.0).r,
           ), //
           title: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
+            onTap: onTapBack,
             child: SvgPicture.asset(
               alignment: Alignment.centerLeft,
               AppSvgManger.iconArrow,
@@ -38,7 +40,7 @@ class MainShowDialog {
           ),
           content: Container(
             // width: 313.w,
-            height: 200.h,
+            height: hieght ?? 200.h,
             padding: EdgeInsets.symmetric(horizontal: 22.w),
             child: Column(
               children: [

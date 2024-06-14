@@ -71,6 +71,9 @@ class ProfilePage extends StatelessWidget {
                 text: AppWordManger.deleteAccount,
                 onTap: () {
                   MainShowDialog.customShowDialog(
+                    onTapBack: () {
+                      Navigator.pop(context);
+                    },
                     context,
                     firstButtonText: AppWordManger.yes,
                     secoundButtonText: AppWordManger.no,

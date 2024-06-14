@@ -9,7 +9,7 @@ class AppWordManger {
 
   //? auth :
   static const andSpecial = 'ومميزة';
-  static const characterCity = '09';
+  static const characterCity = '+963';
   static const pleaseEnterYourPhoneNumber = 'يرجى إدخال رقم هاتفك';
   static const password = 'كلمة السر';
   static const forgotYourPassword = 'هل نسيت كلمة السر؟';
@@ -65,6 +65,8 @@ class AppWordManger {
   static const cancle = 'إلغاء';
   static const doneReservationSucces = '!تم حجز موعدك بنجاح';
   static const continueReservation = 'استمر';
+  static const pleaseLoginForGetFeatureMoreAndBetter =
+      'يرجى تسجيل الدخول للحصول على مميزات أفضل وأكثر';
 //? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';
@@ -121,4 +123,8 @@ class AppWordManger {
   static const timeOfUse = 'الاستخدام اليومي';
   static const afterFood = 'قبل الطعام';
   static const dontAnyDescriptionMedcal = 'ليس لديك أي وصفة بعد.';
+
+  //? Share :
+  static const notUntil = 'ليس الآن';
+  static const loginMustFirst = 'يجب تسجيل الدخول أولا';
 }

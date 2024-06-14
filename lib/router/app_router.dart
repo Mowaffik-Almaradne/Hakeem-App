@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hosptel_app/features/auth/presentation/pages/verification_forget_password_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/confirm_account/confirm_account_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/create_Account/create_account_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/pages/confirm_forget_password_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/medical_description/medical_description_main_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/medical_description/medical_description_table.dart';
 import 'package:hosptel_app/features/health/presentation/pages/mony_account.dart';
@@ -7,7 +10,7 @@ import 'package:hosptel_app/features/health/presentation/pages/my_file_page.dart
 import 'package:hosptel_app/features/health/presentation/pages/my_visited_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/forget_password.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/login_page.dart';
-import 'package:hosptel_app/features/auth/presentation/pages/recive_number_page.dart';
+import 'package:hosptel_app/features/auth/presentation/pages/confrim_number_page.dart';
 import 'package:hosptel_app/features/auth/presentation/pages/signup_page.dart';
 import 'package:hosptel_app/features/health/presentation/pages/health_page.dart';
 import 'package:hosptel_app/features/home/presentation/pages/home_page.dart';
@@ -22,9 +25,11 @@ import 'package:hosptel_app/features/profile/presentation/pages/verification_edi
 import 'package:hosptel_app/features/reservation/presentation/pages/my_reservation/reservation_page.dart';
 import 'package:hosptel_app/features/reservation/presentation/pages/reservation_now/details_reservation_page.dart';
 import 'package:hosptel_app/features/reservation/presentation/pages/reservation_now/summary_reservation.dart';
+import 'package:hosptel_app/injection/injection_container.dart' as di;
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
+    final arguments = settings.arguments;
     switch (settings.name) {
       //! Start Feature Intro //! :
       //? Start Intro Page :
@@ -57,7 +62,10 @@ class AppRouter {
       case RouteNamedScreens.signUpScreenNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const SignUpPage();
+            return BlocProvider(
+              create: (context) => di.sl<CreateAccountCubit>(),
+              child: const SignUpPage(),
+            );
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(-1, 0);
@@ -94,7 +102,7 @@ class AppRouter {
       case RouteNamedScreens.forgetPasswordVerificationCodeScreenNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const VerificationForgetPasswordPage();
+            return const ConfirmFrogetPassword();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(-1, 0);
@@ -109,11 +117,17 @@ class AppRouter {
           },
         ); //? End Forget Password Screen:
 
-      //? Start Forget Password Screen:
+      //? Start Verificatio for Number :
       case RouteNamedScreens.reciveNumberVerificationPageScreenNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const ReciveNumberVerificationPage();
+            final phoneNumber = arguments as String;
+            return BlocProvider(
+              create: (context) => di.sl<ConfirmAccountCubit>(),
+              child: ConfirmPhoneNumberPage(
+                phoneNumber: phoneNumber,
+              ),
+            );
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = Offset(-1, 0);
@@ -126,7 +140,7 @@ class AppRouter {
               child: child,
             );
           },
-        ); //? End Forget Password Screen:
+        ); //? End Forget Verificatio for Number:
 
       //! End Feature Auth //! :
       //? Start Home Screen:

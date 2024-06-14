@@ -1,4 +1,4 @@
-//! this is key word for key sheard prefrances : 
+//! this is key word for key sheard prefrances :
 class AppKeysManger {
-  static String accTOKEN = "access_token";
+  static String token = "access_token";
 }

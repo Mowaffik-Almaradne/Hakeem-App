@@ -4,7 +4,6 @@ import 'package:hosptel_app/features/auth/presentation/widget/bottome_sheet_logi
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -135,21 +135,25 @@ class _SummaryReservationPageState extends State<SummaryReservationPage> {
                 horizontalPadding: 110.w,
                 onPreesed: () {
                   MainShowDialog.customShowDialog(context,
+                      onTapBack: () {
+                        Navigator.pop(context);
+                      },
                       firstButtonText: AppWordManger.home,
                       secoundButtonText: AppWordManger.myReservation,
                       textPopUp:
                           '${AppWordManger.doneReservationSucces}\n في \n 2:15   2023/8/25',
                       onTapFirst: () {
-                    Navigator.pushReplacementNamed(
-                      context,
-                      RouteNamedScreens.homeScreenNameRoute,
-                    );
-                  }, onTapSecound: () {
-                    Navigator.pushReplacementNamed(
-                      context,
-                      RouteNamedScreens.reservationNameRoute,
-                    );
-                  });
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RouteNamedScreens.homeScreenNameRoute,
+                        );
+                      },
+                      onTapSecound: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RouteNamedScreens.reservationNameRoute,
+                        );
+                      });
                 },
               ),
             )

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return BlocProvider(
-           create: (context) => ButtonNavCubit(),
+          create: (context) => ButtonNavCubit(),
           child: MaterialApp(
             onGenerateRoute: appRouter.onGenerateRoute,
             debugShowCheckedModeBanner: false,

@@ -1,49 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-class TextFormFiledVerficationCodeWidget extends StatelessWidget {
-  const TextFormFiledVerficationCodeWidget({
+class PinCodeFiledWidget extends StatelessWidget {
+  const PinCodeFiledWidget({
     super.key,
-    required this.onChanged,
+    this.onChange,
+    this.onCompleted,
   });
-  final void Function(String)? onChanged;
+  final Function(String)? onChange;
+  final void Function(String)? onCompleted;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      textAlign: TextAlign.center,
-      textInputAction: TextInputAction.next,
-      keyboardType: TextInputType.number,
-      style: TextStyle(
-        fontSize: 24.sp,
-        fontWeight: FontWeight.w800,
-        color: AppColorManger.black,
-      ),
-      inputFormatters: [
-        LengthLimitingTextInputFormatter(1),
-        FilteringTextInputFormatter.digitsOnly,
-      ],
-      cursorHeight: 30.h,
-      decoration: InputDecoration(
-        constraints: BoxConstraints(maxWidth: 55.w),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 1,
+    return Padding(
+      padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 40.h),
+      child: PinCodeTextField(
+        appContext: context,
+        length: 4,
+        obscureText: false,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        animationType: AnimationType.fade,
+        textStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+              fontWeight: AppFontWeightManger.fontWeightBold,
+              fontSize: 24.sp,
+            ),
+        pinTheme: PinTheme(
+          activeFillColor: AppColorManger.black,
+          fieldWidth: 47.83.w,
+          inactiveColor: AppColorManger.pinColorFiled,
+          selectedColor: AppColorManger.primaryColor,
+          activeColor: AppColorManger.primaryColor,
+          shape: PinCodeFieldShape.underline,
         ),
+        animationDuration: const Duration(milliseconds: 300),
+        onChanged: onChange,
+        onCompleted: onCompleted,
       ),
-      onChanged: (value) {
-        if (value.length == 1) {
-          nextFilledFun(value, context);
-        }
-        onChanged;
-      },
     );
-  }
-}
-
-void nextFilledFun(String value, BuildContext context) {
-  if (value.length == 1) {
-    FocusScope.of(context).nextFocus();
   }
 }

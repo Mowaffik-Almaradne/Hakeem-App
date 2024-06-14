@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/auth/domin/entities/req/create_account_request_entite.dart';
 
 class GenderBackWidget extends StatefulWidget {
   const GenderBackWidget({
@@ -10,11 +11,13 @@ class GenderBackWidget extends StatefulWidget {
     required this.texts,
     this.marginleft,
     this.marginRight,
+    this.requestEntite,
   }) : super(key: key);
 
   final List<String> texts;
   final double? marginleft;
   final double? marginRight;
+  final CreateAccoutRequestEntite? requestEntite;
 
   @override
   State<GenderBackWidget> createState() => _GenderBackWidgetState();
@@ -33,6 +36,7 @@ class _GenderBackWidgetState extends State<GenderBackWidget> {
           onTap: () {
             setState(() {
               selectIndex = index;
+              widget.requestEntite?.gender = selectIndex;
             });
           },
           child: Container(

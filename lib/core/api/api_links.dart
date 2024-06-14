@@ -5,7 +5,12 @@ class ApiGet {}
 //?
 
 //? Api POST
-class ApiPost {}
+class ApiPost {
+  //? Auth
+  static const createAccount = 'Account/RegisterPatient';
+  static const login = 'TokenAuth/AuthenticatePatien';
+  static const confirmPatientAccount = 'Account/ConfirmPatientAccount';
+}
 //
 
 //? Api PUT

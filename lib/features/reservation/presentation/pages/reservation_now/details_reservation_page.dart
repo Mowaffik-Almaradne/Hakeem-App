@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
+import 'package:hosptel_app/core/widget/show_dialog/main_show_dialog_widget.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/reservation_details/info_day_weak_widget.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/reservation_details/app_bar_widget.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/my_reservation/reservation_details/info_day_widget.dart';
@@ -58,10 +60,30 @@ class DetailesReservationPage extends StatelessWidget {
                 backgroundColor: AppColorManger.primaryColor,
                 textColor: AppColorManger.white,
                 onPreesed: () {
-                  Navigator.pushNamed(
-                    context,
-                    RouteNamedScreens.reservationSummaryNameRoute,
-                  );
+                  if (AppSharedPreferences.getToken().isNotEmpty) {
+                    Navigator.pushNamed(
+                      context,
+                      RouteNamedScreens.reservationSummaryNameRoute,
+                    );
+                  } else {
+                    MainShowDialog.customShowDialog(
+                      onTapBack: () {
+                        Navigator.pop(context);
+                      },
+                      hieght: 150.h,
+                      context,
+                      onTapFirst: () {
+                        Navigator.pop(context);
+                      },
+                      onTapSecound: () {
+                        Navigator.pushReplacementNamed(
+                            context, RouteNamedScreens.loginScreenNameRoute);
+                      },
+                      firstButtonText: AppWordManger.notUntil,
+                      secoundButtonText: AppWordManger.login,
+                      textPopUp: AppWordManger.loginMustFirst,
+                    );
+                  }
                 },
               ),
             ),

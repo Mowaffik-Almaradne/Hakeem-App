@@ -5,6 +5,8 @@ import 'package:hosptel_app/core/class/clipping_path_class.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
+import 'package:hosptel_app/core/resources/word_manger.dart';
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class AppBarReservationDetailsWidget extends StatelessWidget {
@@ -38,31 +40,41 @@ class AppBarReservationDetailsWidget extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: Row(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextUtiels(
-                        text: 'لمى الطويل',
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              fontSize: 13.sp,
-                            ),
-                      ),
-                      TextUtiels(
-                        text: 'أهلا بك',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontSize: 15.sp,
-                            ),
-                      ),
-                    ],
-                  ),
-                  Image.asset(
-                    width: 40.w,
-                    height: 40.h,
-                    AppPngManger.imageProfile,
-                  ),
-                ],
+              //? If Not Use Is GUST :
+              child: Visibility(
+                visible: AppSharedPreferences.getToken().isNotEmpty,
+                replacement: TextUtiels(
+                  text: AppWordManger.pleaseLoginForGetFeatureMoreAndBetter,
+                  fontSize: 11.7.sp,
+                ),
+                child: Row(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextUtiels(
+                          text: 'لمى الطويل',
+                          style:
+                              Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                    fontSize: 13.sp,
+                                  ),
+                        ),
+                        TextUtiels(
+                          text: 'أهلا بك',
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    fontSize: 15.sp,
+                                  ),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      width: 40.w,
+                      height: 40.h,
+                      AppPngManger.imageProfile,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

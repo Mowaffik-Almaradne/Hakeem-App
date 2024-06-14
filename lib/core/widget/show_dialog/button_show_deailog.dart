@@ -21,8 +21,8 @@ class ButtonShowDeailog extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        width: 110.w,
-        height: 50.h,
+        width: 111.w,
+        height: 55.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
           color: buttonColor,

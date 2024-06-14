@@ -61,72 +61,80 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
   bool showIconFiled = false;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.filedWidth?.w,
-      height: widget.filedHeight?.h,
-      child: Directionality(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: TextFormField(
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.sp,
+              color: AppColorManger.black,
+            ),
+        obscureText: !showPassword,
         textDirection: TextDirection.rtl,
-        child: TextFormField(
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontSize: 16.sp,
-                color: AppColorManger.black,
+        textInputAction: TextInputAction.next,
+        inputFormatters: widget.inputFormatter,
+        keyboardType: widget.textInputType,
+        decoration: InputDecoration(
+          suffixIcon: Padding(
+            padding: EdgeInsets.only(left: 5.w),
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  showPassword = !showPassword;
+                });
+              },
+              icon: Icon(
+                showPassword ? Icons.visibility : Icons.visibility_off,
+                color: widget.suffixIconColor ?? AppColorManger.primaryColor,
               ),
-          obscureText: !showPassword,
-          textDirection: TextDirection.rtl,
-          textInputAction: TextInputAction.next,
-          inputFormatters: widget.inputFormatter,
-          keyboardType: widget.textInputType,
-          decoration: InputDecoration(
-            suffixIcon: Padding(
-              padding: EdgeInsets.only(left: 5.w),
-              child: IconButton(
-                onPressed: () {
-                  setState(() {
-                    showPassword = !showPassword;
-                  });
-                },
-                icon: Icon(
-                  showPassword ? Icons.visibility : Icons.visibility_off,
-                  color: widget.suffixIconColor ?? AppColorManger.primaryColor,
-                ),
-              ),
-            ),
-            filled: widget.filled ?? true,
-            fillColor: widget.fillColor ?? AppColorManger.fillColor,
-            hintText: widget.hintText,
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: widget.contentPaddingHorizontal ?? 27.w,
-              vertical: widget.contenetPaddingvertical ?? 13.h,
-            ),
-            hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  fontFamily: AppFontFamily.tajawalRegular,
-                  fontSize: widget.fontSizeHintText ?? 13.sp,
-                  fontWeight: widget.fontWeightHintText ??
-                      AppFontWeightManger.fontWeightSemiBold,
-                  color: widget.colorHintText ?? AppColorManger.black,
-                ),
-            //? Border :
-            enabledBorder: outlineInputBorder(
-              circular: 13.r,
-              width: widget.borderWidht ?? 0,
-              color: widget.borderColor ?? Colors.transparent,
-            ),
-            focusedBorder: outlineInputBorder(
-              width: widget.borderWidht ?? 0,
-              color: widget.borderColor ?? Colors.transparent,
-              circular: 13.r,
-            ),
-            errorBorder: outlineInputBorder(
-              circular: 13.r,
-              width: widget.borderWidht ?? 0,
-              color: widget.borderColor ?? Colors.transparent,
             ),
           ),
-          onChanged: widget.onChange,
-          validator: widget.validator,
-          onFieldSubmitted: widget.onFieldSubmitted,
-          onTap: widget.onTap,
+          filled: widget.filled ?? true,
+          fillColor: widget.fillColor ?? AppColorManger.fillColor,
+          hintText: widget.hintText,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: widget.contentPaddingHorizontal ?? 27.w,
+            vertical: widget.contenetPaddingvertical ?? 13.h,
+          ),
+          hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                fontFamily: AppFontFamily.tajawalRegular,
+                fontSize: widget.fontSizeHintText ?? 13.sp,
+                fontWeight: widget.fontWeightHintText ??
+                    AppFontWeightManger.fontWeightSemiBold,
+                color: widget.colorHintText ?? AppColorManger.black,
+              ),
+          errorStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                fontFamily: AppFontFamily.tajawalRegular,
+                fontSize: 12.sp,
+                fontWeight: AppFontWeightManger.fontWeightSemiBold,
+                color: AppColorManger.primaryColor,
+                height: 1,
+              ),
+          //? Border :
+          enabledBorder: outlineInputBorder(
+            circular: 13.r,
+            width: widget.borderWidht ?? 0,
+            color: widget.borderColor ?? Colors.transparent,
+          ),
+          focusedBorder: outlineInputBorder(
+            width: widget.borderWidht ?? 0,
+            color: widget.borderColor ?? Colors.transparent,
+            circular: 13.r,
+          ),
+          errorBorder: outlineInputBorder(
+            circular: 13,
+            width: widget.borderWidht ?? 0,
+            color: Colors.transparent,
+          ),
+          focusedErrorBorder: outlineInputBorder(
+            circular: 13,
+            width: widget.borderWidht ?? 0,
+            color: Colors.transparent,
+          ),
         ),
+        onChanged: widget.onChange,
+        validator: widget.validator,
+        onFieldSubmitted: widget.onFieldSubmitted,
+        onTap: widget.onTap,
       ),
     );
   }

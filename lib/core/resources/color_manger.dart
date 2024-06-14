@@ -35,4 +35,6 @@ class AppColorManger {
   static Color colorBorder = const Color(0xffD0D0D0);
   static Color balckCheck = const Color(0xff2F2F2F);
   static Color colorGrayLight = const Color(0xff8E8E8E);
+  static Color redColor = const Color(0xFFBE0000);
+  static Color pinColorFiled = const Color(0xffABA1A1);
 }

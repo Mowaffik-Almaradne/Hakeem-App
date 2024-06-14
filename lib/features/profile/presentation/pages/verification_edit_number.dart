@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
-import 'package:hosptel_app/core/widget/form_filed/text_form_filed_verification_code.dart';
 import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
@@ -79,23 +78,23 @@ class VerficationEditNumber extends StatelessWidget {
               ),
             ),
             //? Filed For Verfication Code :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                ),
-                TextFormFiledVerficationCodeWidget(
-                  onChanged: (value) {},
-                )
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: <Widget>[
+            //     PinFiledWidget(
+            //       onChanged: (value) {},
+            //     ),
+            //     PinFiledWidget(
+            //       onChanged: (value) {},
+            //     ),
+            //     PinFiledWidget(
+            //       onChanged: (value) {},
+            //     ),
+            //     PinFiledWidget(
+            //       onChanged: (value) {},
+            //     )
+            //   ],
+            // ),
             SizedBox(height: 59.h),
             //? Button For sure character :
             MainElevatedButton(

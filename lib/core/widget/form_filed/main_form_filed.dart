@@ -55,67 +55,75 @@ class MainTextFormFiled extends StatelessWidget {
   final double? fontSize;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: filedWidth,
-      height: filedHeight,
-      child: Directionality(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: TextFormField(
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              fontSize: 16.sp,
+              color: AppColorManger.black,
+            ),
+        controller: controller,
+        readOnly: readOnly ?? false,
+        obscureText: obscureText ?? false,
         textDirection: TextDirection.rtl,
-        child: TextFormField(
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontSize: 16.sp,
-                color: AppColorManger.black,
-              ),
-          controller: controller,
-          readOnly: readOnly ?? false,
-          obscureText: obscureText ?? false,
-          textDirection: TextDirection.rtl,
-          textInputAction: TextInputAction.next,
-          inputFormatters: inputFormatter,
-          keyboardType: textInputType,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: fillColor ?? AppColorManger.fillColor,
-            hintText: hintText,
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: contentPaddingHorizontal ?? 12.w,
-              vertical: contentPaddingVertical ?? 12.h,
-            ),
-            suffixIcon: IconButton(
-              onPressed: onPressedSuffixIcon,
-              icon: Icon(
-                suffixIcon,
-                color: AppColorManger.primaryColor,
-              ),
-            ),
-            hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  fontFamily: AppFontFamily.tajawalRegular,
-                  fontSize: fontSize ?? 13.sp,
-                  fontWeight: AppFontWeightManger.fontWeightSemiBold,
-                  color: hintTextColor,
-                ),
-            //? border :
-            enabledBorder: outlineInputBorder(
-              circular: 13.r,
-              width: borderWidht ?? 0,
-              color: borderColor ?? Colors.transparent,
-            ),
-            focusedBorder: outlineInputBorder(
-              circular: 13,
-              width: borderWidht ?? 0,
-              color: borderColor ?? Colors.transparent,
-            ),
-            errorBorder: outlineInputBorder(
-              circular: 13,
-              width: borderWidht ?? 0,
-              color: borderColor ?? Colors.transparent,
+        textInputAction: TextInputAction.next,
+        inputFormatters: inputFormatter,
+        keyboardType: textInputType,
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: fillColor ?? AppColorManger.fillColor,
+          hintText: hintText,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: contentPaddingHorizontal ?? 12.w,
+            vertical: contentPaddingVertical ?? 12.h,
+          ),
+          suffixIcon: IconButton(
+            onPressed: onPressedSuffixIcon,
+            icon: Icon(
+              suffixIcon,
+              color: AppColorManger.primaryColor,
             ),
           ),
-          //? Function Event :
-          onChanged: onChange,
-          validator: validator,
-          onFieldSubmitted: onFieldSubmitted,
-          onTap: onTap,
+          hintStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                fontFamily: AppFontFamily.tajawalRegular,
+                fontSize: fontSize ?? 13.sp,
+                fontWeight: AppFontWeightManger.fontWeightSemiBold,
+                color: hintTextColor,
+              ),
+          errorStyle: Theme.of(context).textTheme.displayMedium?.copyWith(
+                fontFamily: AppFontFamily.tajawalRegular,
+                fontSize: fontSize ?? 12.sp,
+                fontWeight: AppFontWeightManger.fontWeightSemiBold,
+                color: AppColorManger.primaryColor,
+                height: 1,
+              ),
+          //? border :
+          enabledBorder: outlineInputBorder(
+            circular: 13.r,
+            width: borderWidht ?? 0,
+            color: borderColor ?? Colors.transparent,
+          ),
+          focusedBorder: outlineInputBorder(
+            circular: 13,
+            width: borderWidht ?? 0,
+            color: borderColor ?? Colors.transparent,
+          ),
+          errorBorder: outlineInputBorder(
+            circular: 13,
+            width: borderWidht ?? 0,
+            color: Colors.transparent,
+          ),
+          focusedErrorBorder: outlineInputBorder(
+            circular: 13,
+            width: borderWidht ?? 0,
+            color: Colors.transparent,
+          ),
         ),
+        //? Function Event :
+        onChanged: onChange,
+        validator: validator,
+        onFieldSubmitted: onFieldSubmitted,
+        onTap: onTap,
       ),
     );
   }

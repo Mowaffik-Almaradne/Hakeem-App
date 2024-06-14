@@ -6,8 +6,8 @@ import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/bottome_sheet_verification_widget.dart';
 
-class VerificationForgetPasswordPage extends StatelessWidget {
-  const VerificationForgetPasswordPage({super.key});
+class ConfirmFrogetPassword extends StatelessWidget {
+  const ConfirmFrogetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,8 @@ class VerificationForgetPasswordPage extends StatelessWidget {
         ),
       ),
       bottomSheet: BottomeSheetVerifivcationWidget(
-        subText: AppWordManger.useTheCodeSentToYouToVerifyAndAccessYourAccount,
+        numberPhone:
+            AppWordManger.useTheCodeSentToYouToVerifyAndAccessYourAccount,
         fontColorSubText: AppColorManger.textColor2,
         fontFamailySubText: AppFontFamily.tajawalRegular,
         fontSizeSubText: 12.sp,
