@@ -9,14 +9,19 @@ class PinCodeFiledWidget extends StatelessWidget {
     super.key,
     this.onChange,
     this.onCompleted,
+    this.inActiveColor,
+    this.selectColor,
   });
   final Function(String)? onChange;
   final void Function(String)? onCompleted;
+  final Color? inActiveColor;
+  final Color? selectColor;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 40.h),
       child: PinCodeTextField(
+        keyboardType: TextInputType.number,
         appContext: context,
         length: 4,
         obscureText: false,
@@ -29,10 +34,11 @@ class PinCodeFiledWidget extends StatelessWidget {
         pinTheme: PinTheme(
           activeFillColor: AppColorManger.black,
           fieldWidth: 47.83.w,
-          inactiveColor: AppColorManger.pinColorFiled,
-          selectedColor: AppColorManger.primaryColor,
+          inactiveColor: inActiveColor ?? AppColorManger.pinColorFiled,
+          selectedColor: selectColor ?? AppColorManger.primaryColor,
           activeColor: AppColorManger.primaryColor,
           shape: PinCodeFieldShape.underline,
+          errorBorderColor: AppColorManger.redColor,
         ),
         animationDuration: const Duration(milliseconds: 300),
         onChanged: onChange,

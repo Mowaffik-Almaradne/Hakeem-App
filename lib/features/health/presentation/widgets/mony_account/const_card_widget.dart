@@ -4,10 +4,11 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/health/domain/entities/res/accounts_for_patient_entities.dart';
 
 class CostCardWidget extends StatelessWidget {
-  const CostCardWidget({super.key});
-
+  const CostCardWidget({super.key, required this.entity});
+  final AccountsForPatientResult entity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +38,7 @@ class CostCardWidget extends StatelessWidget {
                       ),
                 ),
                 TextUtiels(
-                  text: '50,000',
+                  text: entity.pushTotalAmount.toString(),
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         fontFamily: AppFontFamily.extraBold,
                         fontSize: 20.sp,

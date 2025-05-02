@@ -20,8 +20,9 @@ class FiledDescriptionMedical extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(bottom: 18.h),
+      margin: EdgeInsets.only(bottom: 5.h),
       height: 50.h,
+      padding: EdgeInsets.symmetric(horizontal: 5.w),
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColorManger.secoundryColor,
@@ -33,14 +34,14 @@ class FiledDescriptionMedical extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           TextUtiels(
-            paddingRight: 20.w,
             text: nameMedicine,
             style: Theme.of(context).textTheme.displayLarge?.copyWith(
                   fontSize: 14.sp,
                 ),
           ),
+          const Spacer(),
           TextUtiels(
-            paddingRight: 11.w,
+            paddingRight: 10.w,
             text: periodOfUse,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontSize: 10.sp,
@@ -55,7 +56,7 @@ class FiledDescriptionMedical extends StatelessWidget {
               color: AppColorManger.secoundryColor,
             ),
             child: TextUtiels(
-              paddingRight: 5.w,
+              paddingRight: 10.w,
               text: AppWordManger.afterFood,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     fontSize: 10.sp,

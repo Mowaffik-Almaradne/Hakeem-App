@@ -4,14 +4,16 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/health/domain/entities/res/accounts_for_patient_entities.dart';
 
 class CardPymantWidget extends StatelessWidget {
-  const CardPymantWidget({super.key});
-
+  const CardPymantWidget({super.key, required this.entity, this.margin});
+  final AccountsForPatientResult entity;
+  final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 14.h),
+      margin: margin ?? EdgeInsets.only(top: 14.h),
       width: 318.w,
       height: 78.h,
       decoration: BoxDecoration(
@@ -45,7 +47,7 @@ class CardPymantWidget extends StatelessWidget {
                       ),
                 ),
                 TextUtiels(
-                  text: '50,000',
+                  text: entity.deptTotalAmount.toString(),
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         fontFamily: AppFontFamily.extraBold,
                         fontSize: 20.sp,

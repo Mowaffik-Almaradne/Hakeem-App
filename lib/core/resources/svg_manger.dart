@@ -19,6 +19,7 @@ class AppSvgManger {
   static const iconReservation = 'assets/image/svg/iconReservation.svg';
   static const iconFinishedResevation =
       'assets/image/svg/iconFinisedResevation.svg';
+  static const iconImageForDowanload = 'assets/image/svg/iconImage.svg';
   static const iconMyVisit = 'assets/image/svg/iconMyVisit.svg';
   static const notFoundMyVisit = 'assets/image/svg/notFoundMyVisit.svg';
   static const iconDowanload = 'assets/image/svg/Download.svg';
@@ -28,4 +29,5 @@ class AppSvgManger {
   static const emptyIconDesciptionMedical =
       'assets/image/svg/emptyMedicalDesciption.svg';
   static const iconDropDowan = 'assets/image/svg/arrowDropDowan.svg';
+  static const iconMap = 'assets/image/svg/icon_map.svg';
 }

@@ -20,6 +20,8 @@ class TextUtiels extends StatelessWidget {
     this.paddingTop,
     this.paddingLeft,
     this.style,
+    this.maxLines,
+    this.textOverflow,
   });
   final String text;
   final String? fontFamily;
@@ -34,6 +36,8 @@ class TextUtiels extends StatelessWidget {
   final double? paddingTop;
   final double? paddingBottome;
   final TextStyle? style;
+  final int? maxLines;
+  final TextOverflow? textOverflow;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,6 +48,8 @@ class TextUtiels extends StatelessWidget {
         top: paddingTop ?? 0,
       ),
       child: Text(
+        maxLines: maxLines,
+        softWrap: true,
         textAlign: textAlign ?? TextAlign.end,
         text,
         style: style ??
@@ -55,10 +61,8 @@ class TextUtiels extends StatelessWidget {
               height: height,
               fontWeight: fontWeight ?? FontWeight.w400,
             ),
-        overflow: TextOverflow.visible,
-      
+        overflow: textOverflow ?? TextOverflow.visible,
       ),
     );
   }
 }
-

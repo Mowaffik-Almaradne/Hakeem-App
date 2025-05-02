@@ -5,10 +5,10 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
-import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
+import 'package:hosptel_app/core/widget/main/main_app_bar/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/advertisement/presentation/widgets/lis_item_advertasment.dart';
 import 'package:hosptel_app/features/home/presentation/widgets/home_primary/caption_text_widget.dart';
-import 'package:hosptel_app/features/home/presentation/widgets/home_primary/info_tipa_news_widget.dart';
 import 'package:hosptel_app/features/home/presentation/widgets/home_secoundry/button_reservation_now_widget.dart';
 import 'package:hosptel_app/features/home/presentation/widgets/home_secoundry/card_luncher.dart';
 import 'package:hosptel_app/features/home/presentation/widgets/home_secoundry/info_doctor_widget.dart';
@@ -91,7 +91,7 @@ class HomeSecoundryPage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-              child: const InfoTipasNewsWidget(),
+              child: const ListIteamAdvertisementWidget(),
             ),
             SizedBox(height: 60.h)
           ],

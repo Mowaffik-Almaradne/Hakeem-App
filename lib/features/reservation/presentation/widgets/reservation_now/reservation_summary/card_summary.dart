@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
+import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/reservation/domain/entities/req/create_appoinment_request.dart';
 
 class CardSummaryWidget extends StatelessWidget {
-  const CardSummaryWidget({super.key});
-
+  const CardSummaryWidget({super.key, required this.request});
+  final CreateAppoinmentRequest request;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +33,7 @@ class CardSummaryWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
+              //TODO FRON TOKE
               //? Card Summary :
               TextUtiels(
                 paddingRight: 10.w,
@@ -48,7 +52,16 @@ class CardSummaryWidget extends StatelessWidget {
                   TextUtiels(
                     paddingRight: 5.w,
                     paddingTop: 12.h,
-                    text: '2:15 2023/8/25',
+                    text: getTimePeriodForReservation(request.startTime),
+                    color: AppColorManger.colorShowDailogButton,
+                    fontSize: 16.sp,
+                    fontFamily: AppFontFamily.tajawalMedium,
+                  ),
+                  TextUtiels(
+                    paddingRight: 5.w,
+                    paddingTop: 12.h,
+                    text: formatDate(request.appointmentDate,
+                        slasheFormate: true),
                     color: AppColorManger.colorShowDailogButton,
                     fontSize: 16.sp,
                     fontFamily: AppFontFamily.tajawalMedium,
@@ -56,7 +69,7 @@ class CardSummaryWidget extends StatelessWidget {
                   TextUtiels(
                     paddingRight: 10.w,
                     paddingTop: 10,
-                    text: ': تاريخ الحجز',
+                    text: AppWordManger.bookingDate,
                     color: AppColorManger.colorShowDailogButton,
                     fontSize: 16.sp,
                     fontFamily: AppFontFamily.tajawalMedium,

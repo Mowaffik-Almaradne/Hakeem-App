@@ -26,6 +26,12 @@ class AppWordManger {
   static const forgetPassword = 'نسيت كلمة المرور';
   static const sendCodeForEnsure = 'إرسال رمز التأكيد';
   static const accountAlradyFind = 'إذا كان لديك حساب مسبقا يرجى ';
+  static const aCodeHasBeenSentViaTextMessageTo =
+      'تم إرسال رمز برسالة نصية إلى ';
+  static const resetPassword = 'إعادة تعيين كلمة المرور';
+  static const newPassword = 'كلمة السر  الجديدة';
+  static const currentPassword = 'كلمة المرور الحالية';
+  static const confirmNewPassword = 'تأكيد كلمة السر  الجديدة';
   //?
   static const health = 'صحتي';
   static const notification = 'الاشعارات';
@@ -43,7 +49,13 @@ class AppWordManger {
       "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
 
 //? Resevation : ?
+  static const noExpiredReservationsAvailable = "لا يتوفر حجوزات منتهية";
+  static const noPendingReservationsAvailable = "لا يتوفر حجوزات قيد الانتظار";
+  static const yourLoginHasExpired = 'انتهت صلاحية تسجيل الدخول';
+  static const continueAsGuest = 'استمر كضيف';
+  static const bookingDate = ': تاريخ الحجز';
   static const myReservation = 'حجوزاتي';
+  static const workHoursForDoctor = "ساعات العمل";
   static const finshied = 'منتهي';
   static const watting = 'قيد الانتظار';
   static const cansleResevation = 'إلغاء الحجز';
@@ -55,19 +67,21 @@ class AppWordManger {
   static const thanks = 'شكرا لك .';
   static const reservationAvilable = 'الحجوزات المتاحة';
   static const bookingReservation = 'حجز موعد';
-  static const day = 'يوم';
+  static const day = 'اليوم';
   static const time = 'الوقت';
+  static const prescrition = 'وصفة طبية';
   static const reservationConfarmation = 'تأكيد الحجز';
   static const detailsReservatio = 'تغاصيل الحجز';
   static const whaAreTheTheSymptomsYouAreShowing =
       'ماهي الأعراض التي تظهر عليك؟';
   static const done = 'موافق';
   static const cancle = 'إلغاء';
-  static const doneReservationSucces = '!تم حجز موعدك بنجاح';
+  static const doneReservationSucces = 'تم حجز موعدك بنجاح';
   static const continueReservation = 'استمر';
   static const pleaseLoginForGetFeatureMoreAndBetter =
       'يرجى تسجيل الدخول للحصول على مميزات أفضل وأكثر';
-//? profile :
+  static const pleaseSelectTheDayAndTimeToMakeTheReservation =
+      "من فضلك يجب اختيار اليوم والوقت لاجراء عملية الحجز"; //? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';
   static const phoneNumber = 'رقم هاتفك';
@@ -84,7 +98,6 @@ class AppWordManger {
   static const yes = 'نعم';
   static const no = 'لا';
   static const pleaseWriteSomeThingYouRemember = 'يرجى كتابة شيئ تتذكره';
-  static const newPassword = 'كلمة السر الجديدة';
   static const mustbeSavenNumbers = 'يجب أن يكون 7 ارقام';
   static const confirmTheNewPassword = 'تأكيد كلمة السر الجديدة';
   static const reEnterPassword = 'إعادة كتابة كلمة السر';
@@ -97,13 +110,19 @@ class AppWordManger {
   static const aCodeisSentViaTextMessageTo = 'تم إرسال رمز برسالة نصية إلى';
   static const codeNumber = 'تأكيد الرمز';
   static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
+  static const logout = 'تسجيل الخروج';
+  static const areYoueSureLogout = 'هل أنت متأكد من تسجيل الخروج؟';
   //?
 
 //? Notifications :
   static const notifications = 'الاشعارات';
+  static const thereAreNoNotificationsYet = 'لايوجد اشعارات حتى الآن';
   //? Health :
+  static const noDetailsAccountMony = 'لا يوجد تفاصيل للحساب المالي';
   static const myhealth = 'صحتي';
   static const myVisited = 'زياراتي';
+  static const visit = 'الزيارة';
+  static const hour = 'الساعة';
   static const myFiles = 'ملفاتي';
   static const medicalDescraption = 'الوصفة الطبية';
   static const finisialAccount = 'الحساب المالي';
@@ -120,11 +139,22 @@ class AppWordManger {
   static const medicalDescription = 'الوصفة الطبية';
   static const nameMedicine = 'اسم الدواء';
   static const periodOfUse = 'فترة الاستخدام';
-  static const timeOfUse = 'الاستخدام اليومي';
+  static const timeOfUse = 'مرات الاستخدام';
   static const afterFood = 'قبل الطعام';
   static const dontAnyDescriptionMedcal = 'ليس لديك أي وصفة بعد.';
-
+  //? Services :
+  static const noServicesAvailableAtThisTime =
+      'لا يتوفر خدمات في الوقت الحالي ';
+  static const noSymptomsAvailableAtThisTime =
+      'لا يتوفر اعراض في الوقت الحالي ';
+  static const noAdvAvailableAtThisTime = 'لا يتوفر اعلاناات في الوقت الحالي ';
   //? Share :
   static const notUntil = 'ليس الآن';
   static const loginMustFirst = 'يجب تسجيل الدخول أولا';
+
+  //? Message Eror :
+  static const accountIsNotConfirm = "patientAccountIsNotConfirmed";
+  //? Doctor :
+  static const notFoundeWorkHoursAvialibale =
+      "لم يتم العثور على ساعات العمل المتاحة";
 }

@@ -3,9 +3,11 @@ import 'package:hosptel_app/core/resources/failure_manger.dart';
 
 class FailureMessage {
   final String message;
+  final String? details;
   final int statusCode;
 
-  FailureMessage({required this.message, required this.statusCode});
+  FailureMessage(
+      {required this.message, required this.statusCode, this.details});
 }
 
 FailureMessage mapFailureToMessage({
@@ -18,12 +20,13 @@ FailureMessage mapFailureToMessage({
         {
           switch (serverFailure.response.error.code) {
             case 503:
-              return FailureMessage(
+              return FailureMessage(                
                 statusCode: serverFailure.response.error.code ?? 0,
                 message: FaluireManger.pleaseTryLater,
               );
             case 500:
               return FailureMessage(
+                details: serverFailure.response.error.details,
                 statusCode: serverFailure.response.error.code ?? 0,
                 message: serverFailure.response.error.message ?? "",
               );
@@ -41,7 +44,7 @@ FailureMessage mapFailureToMessage({
             case 400:
               return FailureMessage(
                 statusCode: serverFailure.response.error.code ?? 0,
-                message: FaluireManger.connectionError,
+                message: serverFailure.response.error.message ?? "",
               );
 
             case -1:

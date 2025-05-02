@@ -9,8 +9,6 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.fitWidth,
@@ -21,6 +19,8 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
       ),
+      resizeToAvoidBottomInset: false,
+      
       bottomSheet: const BottomeSheetSignUpWidget(),
     );
   }

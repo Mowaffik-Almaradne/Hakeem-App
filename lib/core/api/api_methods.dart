@@ -1,6 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:logger/logger.dart';
@@ -11,7 +14,7 @@ class ApiMethods {
     return {
       'Content-Type': contentType,
       "Accept": "application/json",
-      // "Authorization": "Bearer ${AppSharedPreferences.getToken()}"
+      "Authorization": "Bearer ${AppSharedPreferences.getToken()}"
     };
   }
 
@@ -29,7 +32,8 @@ class ApiMethods {
           // Colorful log messages
           printEmojis: false,
           // Print an emoji for each log message
-          printTime: false // Should each log print contain a timestamp
+          printTime: false
+          // Should each log print contain a timestamp
           ),
     );
   }

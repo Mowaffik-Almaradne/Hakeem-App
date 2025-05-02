@@ -15,8 +15,8 @@ class SnackBarUtil {
         backgroundColor: AppColorManger.white,
         content: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: 10.sp,
-            vertical: 10.sp,
+            horizontal: 20.w,
+            vertical: 10.h,
           ),
           //! Text Snack Bar
           child: Align(

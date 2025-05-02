@@ -1,70 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:hosptel_app/core/function/helper_function.dart';
+import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/svg_manger.dart';
+import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/health/domain/entities/res/medical_session_entites.dart';
+import 'package:hosptel_app/features/health/presentation/widgets/my_visits/item_row_vist.dart';
 
-class InfoMyVisit extends StatelessWidget {
-  const InfoMyVisit({super.key});
-
+class InfoMyVisitItem extends StatelessWidget {
+  const InfoMyVisitItem(
+      {super.key, required this.item, required this.numberVists});
+  final MedicalSessionItem item;
+  final int numberVists;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        TextUtiels(
-          paddingLeft: 50.w,
-          paddingBottome: 10.h,
-          paddingTop: 20.h,
-          text: 'الزيارة 1',
-          style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                fontSize: 20.sp,
+    return Container(
+      width: 320.w,
+      decoration: BoxDecoration(
+        color: AppColorManger.fillColorCard,
+        border: Border.all(
+          color: AppColorManger.primaryColor,
+          width: 1.5.w,
+        ),
+        borderRadius: BorderRadius.circular(5.r),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 30.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgPicture.asset(
+            width: 75.w,
+            height: 75.h,
+            AppSvgManger.iconMyVisit,
+          ),
+
+          //? Day :
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextUtiels(
+                paddingBottome: 12.h,
+                text: '$numberVists ${AppWordManger.visit}',
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      fontSize: 20.sp,
+                    ),
               ),
-        ),
-        //? Day :
-        Row(
-          children: [
-            TextUtiels(
-              paddingRight: 7.w,
-              text: '30/9/2023',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 11.sp,
-                  ),
-            ),
-            SizedBox(width: 29.w),
-            TextUtiels(
-              text: 'الثلاثاء',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 11.sp,
-                  ),
-            ),
-          ],
-        ),
-        //? hour :
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            TextUtiels(
-              text: 'صباحا',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 11.sp,
-                  ),
-            ),
-            TextUtiels(
-              text: '09:00 ',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 11.sp,
-                  ),
-            ),
-            SizedBox(width: 29.w),
-            TextUtiels(
-              text: ':الساعة',
-              paddingRight: 8.w,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 11.sp,
-                  ),
-            ),
-          ],
-        ),
-      ],
+              //? day :
+              RowItemVist(
+                primatyText: AppWordManger.day,
+                secoundryText:
+                    formatDate(slasheFormate: true, item.creationTime),
+              ),
+              //? Hour :
+              RowItemVist(
+                  paddingForText: 25.w,
+                  primatyText: AppWordManger.hour,
+                  secoundryText: item.appointmentStartTime.isNotEmpty
+                      ? getTimePeriod(item.appointmentStartTime.substring(0, 5))
+                      : ''),
+            ],
+          ),
+          //? hour :
+        ],
+      ),
     );
   }
 }

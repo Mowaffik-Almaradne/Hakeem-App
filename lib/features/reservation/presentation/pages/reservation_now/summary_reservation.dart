@@ -1,163 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
-import 'package:hosptel_app/core/resources/font_manger.dart';
+import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
-import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
-import 'package:hosptel_app/core/widget/main/back_ground_main/back_ground_main.dart';
-import 'package:hosptel_app/core/widget/repeted/titel_pages_widget.dart';
-import 'package:hosptel_app/core/widget/show_dialog/main_show_dialog_widget.dart';
-import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/core/widget/loading/main_loading.dart';
+import 'package:hosptel_app/core/widget/main/main_app_bar/back_ground_main/back_ground_main.dart';
+import 'package:hosptel_app/core/widget/main/nav_button_main/repeted/titel_pages_widget.dart';
+import 'package:hosptel_app/features/reservation/domain/entities/req/create_appoinment_request.dart';
+import 'package:hosptel_app/features/reservation/presentation/widgets/reservation_now/reservation_summary/button_reservation.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/reservation_now/reservation_summary/card_summary.dart';
 import 'package:hosptel_app/features/reservation/presentation/widgets/reservation_now/reservation_summary/card_symptoms.dart';
-import 'package:hosptel_app/features/reservation/presentation/widgets/reservation_now/reservation_summary/choose_type_symptoms.dart';
-import 'package:hosptel_app/router/app_router.dart';
+import 'package:hosptel_app/features/symptom/presentation/cubit/diagnosis_cubit.dart';
+import 'package:hosptel_app/features/symptom/presentation/widgets/list_symptom_widget.dart';
 
-class SummaryReservationPage extends StatefulWidget {
-  const SummaryReservationPage({super.key});
-
-  @override
-  State<SummaryReservationPage> createState() => _SummaryReservationPageState();
-}
-
-bool visible = false;
-bool cancleButton = false;
-List<bool> check = List.generate(6, (_) => false);
-List<String> seek = [
-  'الزكام',
-  'الدوار',
-  'الحمى',
-  'وجع المعدة',
-  'وجع الرأس',
-  'غير ذلك'
-];
-
-class _SummaryReservationPageState extends State<SummaryReservationPage> {
+class SummaryReservationPage extends StatelessWidget {
+  const SummaryReservationPage({super.key, required this.request});
+  final CreateAppoinmentRequest request;
   @override
   Widget build(BuildContext context) {
     return MainBackGround(
       mainBody: SingleChildScrollView(
         physics: const NeverScrollableScrollPhysics(),
-        child: Column(
-          children: [
-            TitlePageWidget(
-              titleText: AppWordManger.detailsReservatio,
-              onTap: () => Navigator.pop(context),
-              paddingBottome: 35.h,
-            ),
-            //? Card Summary :
-            const CardSummaryWidget(),
-            CardSymptomsWidget(
-              onTap: () {
-                setState(() {
-                  visible = !visible;
-                });
-              },
-            ),
-            //? Chose Tyoe Symptoms
-            Visibility(
-              visible: visible,
-              child: Padding(
-                padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 27.h),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Container(
-                    width: 200.w,
-                    height: 200.h,
-                    decoration: BoxDecoration(
-                      color: AppColorManger.whiteColorCard,
-                      border: Border.all(
-                        color: AppColorManger.colorBorder,
-                        width: 2.w,
-                      ),
-                      borderRadius: BorderRadius.circular(5.r),
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColorManger.balckCheck.withOpacity(0.25),
-                          offset: const Offset(4, 4),
-                          blurRadius: 4,
-                        )
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: 6,
-                            itemBuilder: (context, index) {
-                              return Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  TextUtiels(
-                                    text: seek[index],
-                                    fontFamily: AppFontFamily.tajawalMedium,
-                                    fontSize: 14.sp,
-                                    color: check[index]
-                                        ? AppColorManger.primaryColor
-                                        : AppColorManger.colorGrayLight,
-                                  ),
-                                  Checkbox(
-                                    value: check[index],
-                                    onChanged: (value) {
-                                      setState(() {
-                                        check[index] = value!;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
+        child: BlocBuilder<GetAllSymptomCubit, GetAllSymptomState>(
+          builder: (context, state) {
+            if (state.status == DeafultBlocStatus.loading &&
+                state.itemsList.isEmpty) {
+              return Padding(
+                padding: EdgeInsets.only(top: 300.h),
+                child: const MainLoadignWidget(),
+              );
+            }
+
+            return Column(
+              children: [
+                TitlePageWidget(
+                  titleText: AppWordManger.detailsReservatio,
+                  onTap: () => Navigator.pop(context),
+                  paddingBottome: 20.h,
+                ),
+                //? Card Summary :
+                CardSummaryWidget(
+                  request: request,
+                ),
+                CardSymptomsWidget(
+                  onTap: () {
+                    context.read<GetAllSymptomCubit>().visibile();
+                  },
+                ),
+
+                //? Chose Tyoe Symptoms
+                Visibility(
+                  visible: state.visible,
+                  child: Padding(
+                    padding:
+                        EdgeInsets.only(left: 25.w, right: 25.w, bottom: 27.h),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        height: 200.h,
+                        decoration: BoxDecoration(
+                          color: AppColorManger.whiteColorCard,
+                          border: Border.all(
+                            color: AppColorManger.colorBorder,
+                            width: 2.w,
                           ),
+                          borderRadius: BorderRadius.circular(5.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  AppColorManger.balckCheck.withOpacity(0.25),
+                              offset: const Offset(4, 4),
+                              blurRadius: 4,
+                            )
+                          ],
                         ),
-                        //? button done Or cancle :
-                        ButtonDoneAndCancle(
-                          onTap: () {
-                            setState(() {
-                              visible = false;
-                            });
-                          },
-                        )
-                      ],
+                        child: SymptomLitsItem(
+                          request: request,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-
-            //? Button For Continuse Resrvation :
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: !visible ? 200.h : 0),
-              child: MainElevatedButton(
-                text: AppWordManger.continueReservation,
-                backgroundColor: AppColorManger.primaryColor,
-                textColor: AppColorManger.textColor1,
-                horizontalPadding: 110.w,
-                onPreesed: () {
-                  MainShowDialog.customShowDialog(context,
-                      onTapBack: () {
-                        Navigator.pop(context);
-                      },
-                      firstButtonText: AppWordManger.home,
-                      secoundButtonText: AppWordManger.myReservation,
-                      textPopUp:
-                          '${AppWordManger.doneReservationSucces}\n في \n 2:15   2023/8/25',
-                      onTapFirst: () {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          RouteNamedScreens.homeScreenNameRoute,
-                        );
-                      },
-                      onTapSecound: () {
-                        Navigator.pushReplacementNamed(
-                          context,
-                          RouteNamedScreens.reservationNameRoute,
-                        );
-                      });
-                },
-              ),
-            )
-          ],
+                //? Button For Continuse Resrvation :
+                ButtonReservation(
+                  request: request,
+                  visible: state.visible,
+                )
+              ],
+            );
+          },
         ),
       ),
     );

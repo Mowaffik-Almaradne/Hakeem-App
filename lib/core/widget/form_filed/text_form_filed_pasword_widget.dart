@@ -123,7 +123,7 @@ class _TextFormFiledPasswordState extends State<TextFormFiledPassword> {
           errorBorder: outlineInputBorder(
             circular: 13,
             width: widget.borderWidht ?? 0,
-            color: Colors.transparent,
+            color: AppColorManger.primaryColor,
           ),
           focusedErrorBorder: outlineInputBorder(
             circular: 13,

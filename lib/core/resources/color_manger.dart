@@ -13,6 +13,7 @@ class AppColorManger {
   static Color grayNavButton = const Color(0xffD9D9D9);
   static Color colorLinear = const Color(0xffE3E3E3);
   static Color textColor1 = const Color(0xff404040);
+  static Color textServices = const Color(0xff1C1B1F);
   static Color fillColorCard = const Color(0xFFF2F6FA);
   static Color shadowColor = const Color(0x3F000000);
   static Color textColor2 = const Color(0xff4D4D4D);
@@ -37,4 +38,5 @@ class AppColorManger {
   static Color colorGrayLight = const Color(0xff8E8E8E);
   static Color redColor = const Color(0xFFBE0000);
   static Color pinColorFiled = const Color(0xffABA1A1);
+  static Color colorTransparnt = Colors.transparent;
 }

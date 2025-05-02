@@ -4,6 +4,7 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/auth/domin/entities/req/create_account_request_entite.dart';
+import 'package:hosptel_app/features/profile/domain/entities/res/patient_profile_entitiey.dart';
 
 class GenderBackWidget extends StatefulWidget {
   const GenderBackWidget({
@@ -12,31 +13,41 @@ class GenderBackWidget extends StatefulWidget {
     this.marginleft,
     this.marginRight,
     this.requestEntite,
+    this.requestProfile,
+    this.selectIndex = 1,
   }) : super(key: key);
 
   final List<String> texts;
   final double? marginleft;
   final double? marginRight;
   final CreateAccoutRequestEntite? requestEntite;
+  final MainPatientProfile? requestProfile;
+  final int selectIndex; // Remove the '?' since it's non-nullable now
 
   @override
   State<GenderBackWidget> createState() => _GenderBackWidgetState();
 }
 
-int selectIndex = 1;
-
 class _GenderBackWidgetState extends State<GenderBackWidget> {
+  late int _selectedIndex; // Declare a mutable field in the state
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectIndex; // Initialize with widget's selectIndex
+  }
+
   @override
   Widget build(BuildContext context) {
     return Wrap(
       direction: Axis.horizontal,
-      //? list for choose gender :
       children: List.generate(widget.texts.length, (index) {
         return GestureDetector(
           onTap: () {
             setState(() {
-              selectIndex = index;
-              widget.requestEntite?.gender = selectIndex;
+              _selectedIndex = index;
+              widget.requestEntite?.gender = _selectedIndex;
+              widget.requestProfile?.gender = _selectedIndex;
             });
           },
           child: Container(
@@ -47,12 +58,11 @@ class _GenderBackWidgetState extends State<GenderBackWidget> {
             ),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: selectIndex == index
+              color: _selectedIndex == index
                   ? AppColorManger.primaryColor
                   : AppColorManger.backGroundColorGender,
               borderRadius: BorderRadius.circular(18.r),
             ),
-            //? pass text gender :
             child: TextUtiels(
               fontFamily: AppFontFamily.tajawalBold,
               text: widget.texts[index],

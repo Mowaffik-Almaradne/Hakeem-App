@@ -10,16 +10,14 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_verification_code.dart';
 import 'package:hosptel_app/core/widget/loading/main_loading.dart';
-import 'package:hosptel_app/core/widget/sanck_bar/main_snack_bar.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/confirm_account/confirm_account_cubit.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/confirm_account/confirm_account_state.dart';
-import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
-import 'package:hosptel_app/router/app_router.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/resend_code_cubit/resend_code_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/logic/auth_logic.dart';
+import 'package:hosptel_app/features/auth/presentation/widget/resend_code_widget.dart';
 
-String code = '';
-
-class BottomeSheetVerifivcationWidget extends StatelessWidget {
+class BottomeSheetVerifivcationWidget extends StatefulWidget {
   const BottomeSheetVerifivcationWidget({
     Key? key,
     required this.numberPhone,
@@ -33,6 +31,16 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
   final Color fontColorSubText;
   final String fontFamailySubText;
 
+  @override
+  State<BottomeSheetVerifivcationWidget> createState() =>
+      _BottomeSheetVerifivcationWidgetState();
+}
+
+class _BottomeSheetVerifivcationWidgetState
+    extends State<BottomeSheetVerifivcationWidget> {
+  String code = '';
+  Color inActiveColor = AppColorManger.pinColorFiled;
+  Color selectColor = AppColorManger.primaryColor;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -80,40 +88,29 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
           TextUtiels(
             paddingRight: 19.w,
             paddingTop: 10.h,
-            text: 'تم إرسال رمز برسالة نصية إلى ',
+            text: AppWordManger.aCodeHasBeenSentViaTextMessageTo,
             color: AppColorManger.lightColor,
             fontSize: 17.sp,
           ),
           TextUtiels(
-            text: numberPhone,
-            color: fontColorSubText,
-            fontSize: fontSizeSubText,
-            fontFamily: fontFamailySubText,
+            text: '+963 ${widget.numberPhone}',
+            color: widget.fontColorSubText,
+            fontSize: widget.fontSizeSubText,
+            fontFamily: widget.fontFamailySubText,
             paddingTop: 10.h,
             paddingRight: 18.w,
-            // paddingBottome: 10.h,
           ),
           //? Confirm Code
           PinCodeFiledWidget(
-            onChange: (value) {},
+            inActiveColor: inActiveColor,
+            selectColor: selectColor,
             onCompleted: (vale) {
               code = vale;
             },
           ),
           BlocConsumer<ConfirmAccountCubit, ConfirmAccountState>(
             listener: (context, state) {
-              if (state.status == DeafultBlocStatus.error) {
-                SnackBarUtil.showSnackBar(
-                  message: state.failureMessage.message,
-                  context: context,
-                );
-              } else if (state.status == DeafultBlocStatus.done) {
-                Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  RouteNamedScreens.loginScreenNameRoute,
-                  (route) => false,
-                );
-              }
+              AuthLogic().listenerConfirmCode(state, context);
             },
             builder: (context, state) {
               if (state.status == DeafultBlocStatus.loading) {
@@ -126,22 +123,31 @@ class BottomeSheetVerifivcationWidget extends StatelessWidget {
                   backgroundColor: AppColorManger.primaryColor,
                   textColor: AppColorManger.white,
                   onPreesed: () {
-                    context.read<ConfirmAccountCubit>().confirmAccount(
-                          phoneNumber: numberPhone.split(' ')[1],
-                          code: code,
-                        );
+                    setState(() {
+                      if (code.isEmpty || code.length < 4) {
+                        inActiveColor = AppColorManger.redColor;
+                        selectColor = AppColorManger.redColor;
+                      }
+                    });
+                    if (code.isNotEmpty && code.length < 5) {
+                      context.read<ConfirmAccountCubit>().confirmAccount(
+                            phoneNumber: widget.numberPhone,
+                            code: code,
+                          );
+                    }
                   },
                 ),
               );
             },
           ),
-          MovPageText(
-            movPageText: AppWordManger.resendMessage,
+          //? Resend Code :
+          ResendCodeWidget(
             onTap: () {
-              print(numberPhone.split(' ')[1]);
+              context
+                  .read<ResendCodeCubit>()
+                  .resendCode(phoneNumber: widget.numberPhone);
             },
-            primaryText: AppWordManger.dontGetVerificationCode,
-          ),
+          )
         ],
       ),
     );

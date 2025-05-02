@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
+import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
+import 'package:hosptel_app/features/health/domain/entities/res/prescription_get_all_entities.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class CardMedicalDescription extends StatelessWidget {
-  const CardMedicalDescription({super.key});
-
+  const CardMedicalDescription({super.key, required this.item});
+  final PrescriptionItem item;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,6 +19,7 @@ class CardMedicalDescription extends StatelessWidget {
         Navigator.pushNamed(
           context,
           RouteNamedScreens.midicalDesciptionTableNameRoute,
+          arguments: item,
         );
       },
       child: Padding(
@@ -43,34 +47,40 @@ class CardMedicalDescription extends StatelessWidget {
                 ),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   TextUtiels(
                     paddingRight: 16.w,
-                    text: 'وصفة طبية ',
+                    text: AppWordManger.prescrition,
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
                           fontSize: 14.sp,
                         ),
                   ),
-                  Row(
-                    children: [
-                      TextUtiels(
-                        paddingRight: 16.w,
-                        text: '2:15م',
-                        style:
-                            Theme.of(context).textTheme.displaySmall?.copyWith(
-                                  fontSize: 11.sp,
-                                ),
-                      ),
-                      TextUtiels(
-                        paddingRight: 16.w,
-                        text: '2023/8/25',
-                        style:
-                            Theme.of(context).textTheme.displaySmall?.copyWith(
-                                  fontSize: 11.sp,
-                                ),
-                      ),
-                    ],
+                  Padding(
+                    padding: EdgeInsets.only(right: 10.w),
+                    child: Row(
+                      children: [
+                        TextUtiels(
+                          text: formatTimeTo12Hour(item.creationTime),
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall
+                              ?.copyWith(
+                                fontSize: 11.sp,
+                              ),
+                        ),
+                        TextUtiels(
+                          paddingLeft: 10.w,
+                          text: formatDate(item.creationTime),
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall
+                              ?.copyWith(
+                                fontSize: 11.sp,
+                              ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

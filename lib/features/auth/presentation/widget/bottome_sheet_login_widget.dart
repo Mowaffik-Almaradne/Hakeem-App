@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hosptel_app/core/function/validation_funcation.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
+import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
-import 'package:hosptel_app/core/widget/repeted/charater_city_widget.dart';
+import 'package:hosptel_app/core/widget/loading/main_loading.dart';
+import 'package:hosptel_app/core/widget/main/nav_button_main/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/login_cubit/login_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/logic/auth_logic.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
 class BottomeSheetLoginWidget extends StatelessWidget {
   const BottomeSheetLoginWidget({super.key});
-
   @override
   Widget build(BuildContext context) {
-    // String phoneNumber = '';
-    // String password = '';
+    String phoneNumber = '';
+    String password = '';
     final GlobalKey<FormState> formKeyLogin = GlobalKey();
     return SingleChildScrollView(
       child: Container(
@@ -69,7 +73,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                               VilidationApp().validator(value!),
                           hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                           onChange: (value) {
-                            // phoneNumber = value;
+                            phoneNumber = value;
                           },
                           textInputType: TextInputType.phone,
                           contentPaddingVertical: 13.h,
@@ -91,10 +95,10 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                   child: TextFormFiledPassword(
                     hintText: AppWordManger.password,
                     onChange: (value) {
-                      // password = value;
+                      password = value;
                     },
                     validator: (value) =>
-                        VilidationApp().validatorPassword(value!, context),
+                        VilidationApp().validatorPassword(value: value ?? ''),
                     textInputType: TextInputType.visiblePassword,
                     filedWidth: 275,
                     filedHeight: 60,
@@ -108,7 +112,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(
                         context,
-                        RouteNamedScreens.forgetPasswordPage,
+                        RouteNamedScreens.forgetPasswordPhonePage,
                       );
                     },
                     child: TextUtiels(
@@ -121,16 +125,30 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                 ),
 
                 //? button for login :
-                MainElevatedButton(
-                  text: AppWordManger.login,
-                  backgroundColor: AppColorManger.primaryColor,
-                  textColor: AppColorManger.white,
-                  onPreesed: () {
-                    if (formKeyLogin.currentState!.validate()) {
-                      // context.read<LoginCubit>().login(
-                      //       phoneNumber: phoneNumber,
-                      //       password: password,
-                      //     );
+                BlocConsumer<LoginCubit, LoginState>(
+                  listener: (context, state) {
+                    AuthLogic().listenerForLogin(state, context, phoneNumber);
+                  },
+                  builder: (context, state) {
+                    switch (state.status) {
+                      case DeafultBlocStatus.loading:
+                        return const MainLoadignWidget();
+                      default:
+                        {
+                          return MainElevatedButton(
+                            text: AppWordManger.login,
+                            backgroundColor: AppColorManger.primaryColor,
+                            textColor: AppColorManger.white,
+                            onPreesed: () {
+                              if (formKeyLogin.currentState!.validate()) {
+                                context.read<LoginCubit>().login(
+                                      phoneNumber: phoneNumber,
+                                      password: password,
+                                    );
+                              }
+                            },
+                          );
+                        }
                     }
                   },
                 ),
@@ -157,19 +175,3 @@ class BottomeSheetLoginWidget extends StatelessWidget {
     );
   }
 }
-
-
-/*
-if (state.status == DeafultBlocStatus.error) {
-                      SnackBarUtil.showSnackBar(
-                        message: state.failureMessage.message,
-                        context: context,
-                      );
-                    } else if (state.status == DeafultBlocStatus.done) {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        RouteNamedScreens.homeScreenNameRoute,
-                        (route) => false,
-                      );
-                    }
-*/

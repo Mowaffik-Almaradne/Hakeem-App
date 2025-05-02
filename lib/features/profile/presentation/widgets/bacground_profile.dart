@@ -12,9 +12,11 @@ class BackGroundProfile extends StatelessWidget {
     super.key,
     required this.textBackGround,
     this.visibleIcon,
+    this.phoneNumber = '',
   });
   final String textBackGround;
   final bool? visibleIcon;
+  final String phoneNumber;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +34,7 @@ class BackGroundProfile extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context, phoneNumber);
                   },
                   child: Visibility(
                     visible: visibleIcon ?? true,

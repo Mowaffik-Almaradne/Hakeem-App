@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "851376431079",
+    "project_id": "doctor-management-2c2c3",
+    "storage_bucket": "doctor-management-2c2c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851376431079:android:a7fdae20915bd0a0702742",
+        "android_client_info": {
+          "package_name": "com.example.PatientApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkhGNp_64nFjOGeA7f4N00X8LS5JlKB_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851376431079:android:905bcb36875686d3702742",
+        "android_client_info": {
+          "package_name": "com.example.hosptel_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkhGNp_64nFjOGeA7f4N00X8LS5JlKB_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

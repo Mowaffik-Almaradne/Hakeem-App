@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:hosptel_app/core/resources/validation_manger.dart';
 
 class RagularExpression {
@@ -28,7 +27,7 @@ class VilidationApp {
   }
 
 //? validation to password
-  String? validatorPassword(String value, BuildContext context) {
+  String? validatorPassword({required String value}) {
     if (value.isEmpty) {
       return ValidationWords.requiredField;
     } else if (value.length < 6) {
@@ -45,6 +44,20 @@ class VilidationApp {
       return ValidationWords.requiredField;
     } else if (!RagularExpression.phoneRegex.hasMatch(value)) {
       return ValidationWords.phoneNumber;
+    }
+    return null;
+  }
+
+  //? vilidation for Renetr Password
+  String? validatorRenEnterPassword(String value, String newPassword) {
+    if (value.isEmpty) {
+      return ValidationWords.requiredField;
+    } else if (value.length < 6) {
+      return ValidationWords.passwordLength;
+    } else if (!RagularExpression.passwordPattern.hasMatch(value)) {
+      return ValidationWords.ensurePasssword;
+    } else if (newPassword != value) {
+      return ValidationWords.reenterPasswoprd;
     }
     return null;
   }

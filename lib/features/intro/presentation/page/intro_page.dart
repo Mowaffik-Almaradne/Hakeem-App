@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,6 +6,7 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/intro/presentation/widget/go_login_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
@@ -106,30 +108,20 @@ class IntroPage extends StatelessWidget {
                   children: [
                     GoLoginImageWidget(
                       onTap: () {
-                        //? navigation to login screen :
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          RouteNamedScreens.loginScreenNameRoute,
-                          (route) => false,
-                        );
-                        //? animation to show BottomSheet :
-                        // AnimationController controller = AnimationController(
-                        //   vsync: Navigator.of(context),
-                        //   duration: const Duration(
-                        //     seconds: 2,
-                        //   ),
-                        // );
-
-                        // showModalBottomSheet(
-                        //   isDismissible: false,
-                        //   enableDrag: true,
-                        //   transitionAnimationController: controller,
-                        //   isScrollControlled: false,
-                        //   context: context,
-                        //   builder: (context) {
-                        //     return const BottomeSheetWidget();
-                        //   },
-                        // );
+                        if (AppSharedPreferences.getToken().isNotEmpty) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            RouteNamedScreens.homeScreenNameRoute,
+                            (route) => false,
+                          );
+                        } else {
+                          //? navigation to login screen :
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            RouteNamedScreens.loginScreenNameRoute,
+                            (route) => false,
+                          );
+                        }
                       },
                     ),
                     Padding(
@@ -152,4 +144,13 @@ class IntroPage extends StatelessWidget {
       ),
     );
   }
+}
+
+void printFullText(String text) {
+  final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
+  pattern.allMatches(text).forEach((match) {
+    if (kDebugMode) {
+      print(match.group(0));
+    }
+  });
 }

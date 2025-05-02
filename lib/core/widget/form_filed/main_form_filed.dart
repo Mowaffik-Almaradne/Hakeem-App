@@ -9,7 +9,7 @@ class MainTextFormFiled extends StatelessWidget {
   const MainTextFormFiled({
     super.key,
     this.hintText,
-    required this.onChange,
+    this.onChange,
     required this.textInputType,
     this.filedWidth,
     this.filedHeight,
@@ -30,10 +30,11 @@ class MainTextFormFiled extends StatelessWidget {
     this.controller,
     this.hintTextColor,
     this.fontSize,
+    this.initialValue,
   });
   final String? hintText;
   final TextInputType textInputType;
-  final Function(String) onChange;
+  final Function(String)? onChange;
   final String? Function(String?)? validator;
   final List<TextInputFormatter>? inputFormatter;
   final void Function()? onTap;
@@ -53,11 +54,13 @@ class MainTextFormFiled extends StatelessWidget {
   final TextEditingController? controller;
   final Color? hintTextColor;
   final double? fontSize;
+  final String? initialValue;
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextFormField(
+        initialValue: initialValue,
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontSize: 16.sp,
               color: AppColorManger.black,
@@ -109,10 +112,9 @@ class MainTextFormFiled extends StatelessWidget {
             color: borderColor ?? Colors.transparent,
           ),
           errorBorder: outlineInputBorder(
-            circular: 13,
-            width: borderWidht ?? 0,
-            color: Colors.transparent,
-          ),
+              circular: 13,
+              width: borderWidht ?? 0,
+              color: AppColorManger.primaryColor),
           focusedErrorBorder: outlineInputBorder(
             circular: 13,
             width: borderWidht ?? 0,
