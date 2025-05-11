@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
       _handleMessageClick(message);
     });
 
-  
     RemoteMessage? initialMessage = await _messaging.getInitialMessage();
     if (initialMessage != null) {
       _handleMessageClick(initialMessage);
