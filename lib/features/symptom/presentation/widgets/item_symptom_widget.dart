@@ -13,15 +13,18 @@ class SymptomItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextUtiels(
-          text: item.name,
-          fontFamily: AppFontFamily.tajawalMedium,
-          fontSize: 14.sp,
-          color: item.select
-              ? AppColorManger.primaryColor
-              : AppColorManger.colorGrayLight,
+        SizedBox(
+          width: 250.w,
+          child: TextUtiels(
+            text: item.name,
+            fontFamily: AppFontFamily.tajawalMedium,
+            fontSize: 14.sp,
+            color: item.select
+                ? AppColorManger.primaryColor
+                : AppColorManger.colorGrayLight,
+          ),
         ),
         Checkbox(
           value: item.select,

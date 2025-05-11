@@ -29,7 +29,6 @@ class InfoDaysAndTimesWidget extends StatelessWidget {
           child: SizedBox(
             height: 120.h,
             child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
               itemCount: state.entitie.result.length,
               separatorBuilder: (context, index) => SizedBox(height: 9.h),
               itemBuilder: (context, index) {

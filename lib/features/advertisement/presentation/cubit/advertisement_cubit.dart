@@ -22,6 +22,8 @@ class GetAllAdvertisementCubit extends Cubit<GetAllAdvertisementState> {
       state.itemsList.clear();
       emit(state.copyWith(
         status: DeafultBlocStatus.loading,
+        isRefresh: false,
+        haseReachedMax: false,
       ));
     }
 

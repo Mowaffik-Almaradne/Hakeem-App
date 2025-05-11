@@ -3,11 +3,11 @@ import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/loading/main_loading.dart';
 import 'package:hosptel_app/core/widget/sanck_bar/main_snack_bar.dart';
-import 'package:hosptel_app/features/profile/presentation/cubit/change_number_cubit/change_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/confirm_edit_phone_number_cubit/confirm_edit_phone_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/delete_account_cubit/delete_account_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/logout_cubit/logout_cubit.dart';
+import 'package:hosptel_app/features/profile/presentation/cubit/send_confirmation_code_for_edit_number_cubit/send_confirmation_code_for_edit_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/updata_patient_profile_cubit/updata_patient_profile_cubit.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
@@ -25,7 +25,7 @@ class ProfileLogic {
 
   //? For Change Passwprd  :
   void listenerEditPhoneNumber({
-    required EditPhoneNumberState state,
+    required SendConfirmationCodeForEditNumberState state,
     required BuildContext context,
     required String phoneNumber,
   }) async {

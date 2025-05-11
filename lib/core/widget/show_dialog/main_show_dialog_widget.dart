@@ -14,7 +14,7 @@ class MainShowDialog {
     required String firstButtonText,
     required String secoundButtonText,
     required String textPopUp,
-    double? hieght,
+    bool isRow = true,
     EdgeInsets? insetPadding,
     bool? barrierDismissible,
   }) {
@@ -23,13 +23,8 @@ class MainShowDialog {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          insetPadding: insetPadding ??
-              EdgeInsets.symmetric(
-                vertical: 230.h,
-              ),
           elevation: 0,
           backgroundColor: AppColorManger.white,
-
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0).r,
           ), //
@@ -40,46 +35,71 @@ class MainShowDialog {
             child: SvgPicture.asset(
               alignment: Alignment.centerLeft,
               AppSvgManger.iconArrow,
-              width: 30.w,
-              height: 30.h,
+              width: 25.w,
+              height: 25.h,
             ),
           ),
-          content: Column(
-            children: [
-              TextUtiels(
-                paddingLeft: 3.w,
-                paddingRight: 3.w,
-                paddingTop: 20.h,
-                paddingBottome: 30.h,
-                text: textPopUp,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontSize: 16.sp,
-                      color: AppColorManger.backGroundColorShowDialog,
-                    ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  //? Yes :
-                  ButtonShowDeailog(
-                    onTap: onTapFirst,
-                    buttonColor: AppColorManger.fillColorCard,
-                    textButton: firstButtonText,
-                    textColor: AppColorManger.colorShowDailogButton,
+          actions: [
+            Column(
+              children: [
+                TextUtiels(
+                  paddingLeft: 3.w,
+                  paddingRight: 3.w,
+                  paddingBottome: 22.5.h,
+                  text: textPopUp,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 16.sp,
+                        color: AppColorManger.backGroundColorShowDialog,
+                      ),
+                ),
+                Visibility(
+                  visible: isRow,
+                  replacement: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //? Yes :
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 7.h),
+                        child: ButtonShowDeailog(
+                          onTap: onTapFirst,
+                          buttonColor: AppColorManger.fillColorCard,
+                          textButton: firstButtonText,
+                          textColor: AppColorManger.colorShowDailogButton,
+                        ),
+                      ),
+                      //? Cansle :
+                      ButtonShowDeailog(
+                        onTap: onTapSecound,
+                        buttonColor: AppColorManger.colorButtonShowDailog,
+                        textButton: "$secoundButtonText ",
+                        textColor: AppColorManger.primaryColor,
+                      ),
+                    ],
                   ),
-                  //? Cansle :
-
-                  ButtonShowDeailog(
-                    onTap: onTapSecound,
-                    buttonColor: AppColorManger.colorButtonShowDailog,
-                    textButton: secoundButtonText,
-                    textColor: AppColorManger.primaryColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //? Yes :
+                      ButtonShowDeailog(
+                        onTap: onTapFirst,
+                        buttonColor: AppColorManger.fillColorCard,
+                        textButton: firstButtonText,
+                        textColor: AppColorManger.colorShowDailogButton,
+                      ),
+                      //? Cansle :
+                      ButtonShowDeailog(
+                        onTap: onTapSecound,
+                        buttonColor: AppColorManger.colorButtonShowDailog,
+                        textButton: "$secoundButtonText ",
+                        textColor: AppColorManger.primaryColor,
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         );
       },
     );

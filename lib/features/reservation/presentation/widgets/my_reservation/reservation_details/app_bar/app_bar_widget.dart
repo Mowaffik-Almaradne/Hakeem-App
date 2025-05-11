@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
+import 'package:hosptel_app/core/entity/decode_token_entity.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
@@ -34,6 +35,8 @@ class AppBarReservationDetailsWidget extends StatelessWidget {
                 child: SvgPicture.asset(
                   width: 25.w,
                   height: 25.h,
+                  colorFilter:
+                      ColorFilter.mode(AppColorManger.white, BlendMode.srcIn),
                   AppSvgManger.iconArrow,
                 ),
               ),
@@ -51,16 +54,17 @@ class AppBarReservationDetailsWidget extends StatelessWidget {
                   children: [
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         TextUtiels(
-                          text: 'لمى الطويل',
+                          text: DecodeTokenEntity.getData().name,
                           style:
                               Theme.of(context).textTheme.bodyLarge?.copyWith(
                                     fontSize: 13.sp,
                                   ),
                         ),
                         TextUtiels(
-                          text: 'أهلا بك',
+                          text: AppWordManger.welcomBack,
                           style:
                               Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     fontSize: 15.sp,
@@ -68,10 +72,23 @@ class AppBarReservationDetailsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Image.asset(
+                    Container(
                       width: 40.w,
                       height: 40.h,
-                      AppPngManger.imageProfile,
+                      margin: EdgeInsetsDirectional.only(start: 8.w),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 6,
+                            color: AppColorManger.balckCheck.withOpacity(0.09),
+                            offset: const Offset(0, 2),
+                          )
+                        ],
+                        image: const DecorationImage(
+                          image: AssetImage(AppPngManger.iconApp),
+                        ),
+                      ),
                     ),
                   ],
                 ),

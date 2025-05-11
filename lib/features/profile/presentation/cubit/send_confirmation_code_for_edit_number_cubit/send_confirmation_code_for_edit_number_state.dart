@@ -1,15 +1,15 @@
-part of 'change_number_cubit.dart';
+part of 'send_confirmation_code_for_edit_number_cubit.dart';
 
-class EditPhoneNumberState extends Equatable {
+class SendConfirmationCodeForEditNumberState extends Equatable {
   final DeafultBlocStatus status;
   final FailureMessage failureMessage;
-  const EditPhoneNumberState({
+  const SendConfirmationCodeForEditNumberState({
     required this.failureMessage,
     required this.status,
   });
 
-  factory EditPhoneNumberState.intial() {
-    return EditPhoneNumberState(
+  factory SendConfirmationCodeForEditNumberState.intial() {
+    return SendConfirmationCodeForEditNumberState(
       failureMessage: FailureMessage(message: '', statusCode: 0),
       status: DeafultBlocStatus.initial,
     );
@@ -17,11 +17,11 @@ class EditPhoneNumberState extends Equatable {
   @override
   List<Object?> get props => [failureMessage, status];
 
-  EditPhoneNumberState copyWith({
+  SendConfirmationCodeForEditNumberState copyWith({
     FailureMessage? failureMessage,
     DeafultBlocStatus? status,
   }) {
-    return EditPhoneNumberState(
+    return SendConfirmationCodeForEditNumberState(
       failureMessage: failureMessage ?? this.failureMessage,
       status: status ?? this.status,
     );

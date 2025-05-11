@@ -8,6 +8,7 @@ import 'package:hosptel_app/features/services/domain/entities/res/get_all_servic
 class InfoServices extends StatelessWidget {
   const InfoServices({super.key, required this.services});
   final ItemListServices services;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,14 +17,13 @@ class InfoServices extends StatelessWidget {
       children: [
         //? Image :
         Container(
-          padding: EdgeInsets.symmetric(vertical: 9.5.h, horizontal: 15.w),
           margin: EdgeInsets.only(bottom: 8.h),
           decoration: ShapeDecoration(
             shadows: [
               BoxShadow(
                 blurRadius: 4,
-                offset: const Offset(0, 4),
-                color: AppColorManger.black.withOpacity(0.25),
+                offset: const Offset(0, 2),
+                color: AppColorManger.black.withOpacity(0.12),
               )
             ],
             color: AppColorManger.white,
@@ -36,22 +36,29 @@ class InfoServices extends StatelessWidget {
               borderRadius: BorderRadius.circular(9),
             ),
           ),
-          child: Image.network(
-            width: 32.w,
-            height: 40.h,
-            "http://${services.imageUrl}",
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(9),
+            child: Image.network(
+              "http://${services.imageUrl}",
+              width: 57.w,
+              height: 57.h,
+              fit: BoxFit.fill,
+            ),
           ),
         ),
         //? Name :
-        TextUtiels(
-          maxLines: 2,
-          fontFamily: AppFontFamily.tajawalLight,
-          textAlign: TextAlign.center,
-          text: services.name,
-          color: AppColorManger.textServices,
-          fontWeight: FontWeight.w700,
-          fontSize: AppFontSizeManger.s13,
-          height: 1.5.h,
+        SizedBox(
+          width: 100.w,
+          child: TextUtiels(
+            maxLines: 2,
+            fontFamily: AppFontFamily.tajawalLight,
+            textAlign: TextAlign.center,
+            text: services.name,
+            color: AppColorManger.textServices,
+            fontWeight: FontWeight.w700,
+            fontSize: AppFontSizeManger.s13,
+            height: 1.5.h,
+          ),
         )
       ],
     );

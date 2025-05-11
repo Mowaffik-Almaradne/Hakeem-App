@@ -54,8 +54,8 @@ class ApiPost {
 
   //? Profile :
   static const changePasswordUrl = "${subUrl}Patient/ChangePassword";
-  static const editPhoneNumberUrl =
-      "${subUrl}Patient/SendConfirmationCodeForEditNumber";
+  static const sendConfirmationCodeForEditNumberUrl =
+      "${subUrl}Patient/SendConfirmationCode5ForEditNumber";
   static const confirmEditPhoneNumberUrl =
       "${subUrl}Patient/ConfirmEditPhoneNumber";
   static const logoutUrl = "${subUrl}Patient/Logout";

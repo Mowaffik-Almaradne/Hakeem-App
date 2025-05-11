@@ -8,10 +8,6 @@ abstract class ProfileBaseUseCase {
     required String currentPassword,
     required String newPassword,
   });
-  //? Edit Phone Number Base Use Case :
-  Future<Either<Failure, Unit>> editPhonNumber({
-    required String phoneNumber,
-  });
   //? Confirm Edit Phone Base Use Case  :
   Future<Either<Failure, Unit>> confirmEditPhoneNumber({
     required String phoneNumber,
@@ -26,5 +22,9 @@ abstract class ProfileBaseUseCase {
   //? Update Patient Profile Base Use Case
   Future<Either<Failure, Unit>> updatePatientProfile({
     required MainPatientProfile request,
+  });
+  //? Send Confirmation Code For Edit Number Base Use Case
+  Future<Either<Failure, Unit>> sendConfirmationCodeForEditNumber({
+    required String phoneNumber,
   });
 }

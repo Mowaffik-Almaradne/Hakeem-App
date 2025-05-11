@@ -11,6 +11,7 @@ class ResendCodeCubit extends Cubit<ResendCodeState> {
   Future<void> resendCode({required String phoneNumber}) async {
     emit(state.copyWith(status: DeafultBlocStatus.loading));
     final data = await useCase.resendCode(phoneNumber: phoneNumber);
+    if (isClosed) return;
     data.fold(
       (failure) {
         emit(

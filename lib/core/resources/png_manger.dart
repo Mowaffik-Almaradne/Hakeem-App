@@ -8,4 +8,5 @@ class AppPngManger {
 
   static const layerShadow = 'assets/image/png/shadow.png';
   static const imageProfile = 'assets/image/png/3d_avatar_21.png';
+  static const iconApp = 'assets/image/png/iconApp.png';
 }

@@ -11,7 +11,6 @@ import 'package:hosptel_app/core/widget/loading/loading_back_ground.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/doctor/presentation/cubit/about_doctor_cubit/doctor_cubit.dart';
 import 'package:hosptel_app/features/home/presentation/widgets/home_primary/info_doctor_widget.dart';
-import 'package:hosptel_app/router/app_router.dart';
 import 'package:stroke_text/stroke_text.dart';
 
 class InfoDoctorWidget extends StatelessWidget {
@@ -34,72 +33,89 @@ class InfoDoctorWidget extends StatelessWidget {
         final data = state.entitie.result;
         return ClipPath(
           clipper: ClippingClass(),
-          child: Container(
-            height: 210.h,
-            decoration: BoxDecoration(
-              color: AppColorManger.primaryColor,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                //? Info Doctor :
-                Padding(
-                  padding: EdgeInsetsDirectional.only(start: 25.w),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //? Nmae Doctor :
-                      StrokeText(
-                        text: data.doctorName,
-                        textStyle: TextStyle(
-                          fontSize: AppFontSizeManger.s24,
-                          fontFamily: AppFontFamily.extraBold,
-                          color: AppColorManger.white,
-                        ),
-                        strokeColor: AppColorManger.secoundryColor,
-                        strokeWidth: 4.2,
-                        textColor: AppColorManger.white,
-                      ),
-                      //? specialization Doctor :
-                      TextUtiels(
-                        text: data.specialization,
-                        fontFamily: AppFontFamily.tajawalRegular,
-                        color: AppColorManger.offWhite,
-                        fontSize: AppFontSizeManger.s12,
-                      ),
-                      //? Phone Mobile Doctor  :
-                      GestureDetector(
-                        onTap: () {
-                          LuncherHelper().launchPhoneDialer(data.phoneNumber);
-                        },
-                        child: InfoDoctor(
-                          icon: AppSvgManger.iconPhone,
-                          text: data.phoneNumber,
-                        ),
-                      ),
-
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context,
-                              RouteNamedScreens.postionDoctorNameRoute);
-                        },
-                        child: InfoDoctor(
-                          icon: AppSvgManger.iconLocation,
-                          text: data.address,
-                        ),
-                      ),
-                    ],
+          child: ColoredBox(
+            color: AppColorManger.primaryColor.withOpacity(0.4),
+            child: Container(
+              height: 200.h,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadiusDirectional.only(
+                  topStart: Radius.circular(20),
+                  topEnd: Radius.circular(25),
+                ),
+                color: AppColorManger.primaryColor,
+              ),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.network(
+                    errorBuilder: (context, error, stackTrace) => Icon(
+                      Icons.error_outline,
+                      color: AppColorManger.redColor,
+                    ),
+                    fit: BoxFit.fill,
+                    width: 160.w,
+                    height: 210.h,
+                    "http://${data.personalImageUrl}",
                   ),
-                ),
-                //? Image For Doctor :
-                Image.network(
-                  fit: BoxFit.cover,
-                  width: 150.w,
-                  height: 210.h,
-                  "http://${data.personalImageUrl}",
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsetsDirectional.only(start: 10.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //? Nmae Doctor :
+                        StrokeText(
+                          text: data.doctorName,
+                          textStyle: TextStyle(
+                            fontSize: AppFontSizeManger.s20,
+                            fontFamily: AppFontFamily.extraBold,
+                            color: AppColorManger.white,
+                          ),
+                          strokeColor: AppColorManger.secoundryColor,
+                          strokeWidth: 4.2,
+                          textColor: AppColorManger.primaryColor,
+                        ),
+                        //? specialization Doctor :
+                        TextUtiels(
+                          text: data.specialization,
+                          fontFamily: AppFontFamily.tajawalBold,
+                          color: AppColorManger.primaryColor,
+                          fontSize: AppFontSizeManger.s12,
+                        ),
+                        //? Phone Mobile Doctor  :
+                        Visibility(
+                          visible: data.phoneNumber.isNotEmpty,
+                          child: GestureDetector(
+                            onTap: () {
+                              LuncherHelper()
+                                  .launchPhoneDialer(data.phoneNumber);
+                            },
+                            child: InfoDoctor(
+                              icon: AppSvgManger.iconPhone,
+                              text: data.phoneNumber,
+                            ),
+                          ),
+                        ),
+
+                        Visibility(
+                          visible: data.address.isNotEmpty,
+                          child: GestureDetector(
+                            onTap: () {
+                              //TODO
+                              // Navigator.pushNamed(context,
+                              //     RouteNamedScreens.postionDoctorNameRoute);
+                            },
+                            child: InfoDoctor(
+                              icon: AppSvgManger.iconLocation,
+                              text: data.address,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

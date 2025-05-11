@@ -26,7 +26,7 @@ class InfoDoctor extends StatelessWidget {
           end: const Alignment(0.01, 1.2),
           colors: [
             AppColorManger.colorLinear,
-            AppColorManger.white.withOpacity(0)
+            AppColorManger.primaryColor.withOpacity(0.6)
           ],
         ),
         shape: RoundedRectangleBorder(
@@ -34,15 +34,15 @@ class InfoDoctor extends StatelessWidget {
         ),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextUtiels(
+            paddingLeft: 2.w,
             text: text,
             fontFamily: AppFontFamily.tajawalBold,
-            fontSize: AppFontSizeManger.s13,
+            fontSize: AppFontSizeManger.s12,
             color: AppColorManger.secoundryColor,
           ),
-          SizedBox(width: 8.w),
+          const Spacer(),
           SvgPicture.asset(
             width: 12.w,
             height: 18.h,

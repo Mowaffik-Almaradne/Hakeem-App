@@ -10,6 +10,7 @@ import 'package:hosptel_app/features/auth/presentation/cubit/confirm_forget_pass
 import 'package:hosptel_app/features/auth/presentation/cubit/create_Account_cubit/create_account_state.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/forget_password_phone_cubit/forget_password_phone_cubit.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/login_cubit/login_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/resend_code_cubit/resend_code_cubit.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/reset_password_cubit.dart/reset_password_cubit.dart';
 import 'package:hosptel_app/router/app_router.dart';
 
@@ -43,14 +44,17 @@ class AuthLogic {
         context: context,
       );
     }
-    if (state.failureMessage.details == "True") {
+    if (state.failureMessage.details == "True" &&
+        state.status == DeafultBlocStatus.error) {
+      context.read<ResendCodeCubit>().resendCode(phoneNumber: phoneNumber);
       Timer(
-        const Duration(seconds: 3),
+        const Duration(seconds: 1),
         () {
           Navigator.pushNamed(
-              arguments: phoneNumber,
-              context,
-              RouteNamedScreens.confirmAccountNameRoute);
+            arguments: phoneNumber,
+            context,
+            RouteNamedScreens.confirmAccountNameRoute,
+          );
         },
       );
     }

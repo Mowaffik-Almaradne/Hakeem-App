@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/entity/decode_token_entity.dart';
 import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
@@ -33,11 +34,11 @@ class CardSummaryWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              //TODO FRON TOKE
               //? Card Summary :
               TextUtiels(
                 paddingRight: 10.w,
-                text: 'الاسم : لمى عبدالله الطويل',
+                text:
+                    "${AppWordManger.fullName} : ${DecodeTokenEntity.getData().name}",
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
                       fontSize: 20.sp,
                       fontFamily: AppFontFamily.tajawalMedium,

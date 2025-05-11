@@ -23,7 +23,6 @@ class ReservationNowButtonWidget extends StatelessWidget {
       onTap: () {
         if (token.isEmpty) {
           MainShowDialog.customShowDialog(
-            hieght: 150.h,
             context,
             onTapFirst: () {
               Navigator.pop(context);
@@ -35,6 +34,7 @@ class ReservationNowButtonWidget extends StatelessWidget {
                 (route) => false,
               );
             },
+            isRow: false,
             firstButtonText: AppWordManger.notUntil,
             secoundButtonText: AppWordManger.login,
             textPopUp: AppWordManger.loginMustFirst,

@@ -25,6 +25,7 @@ class AppSvgManger {
   static const iconDowanload = 'assets/image/svg/Download.svg';
   static const iconFile = 'assets/image/svg/dowanlodFile.svg';
   static const emptyIconFile = 'assets/image/svg/emptyMyFile.svg';
+  static const noReservationNow = 'assets/image/svg/noResevationIcon.svg';
   static const emptyIconMonyAccount = 'assets/image/svg/emptyMonyAccount.svg';
   static const emptyIconDesciptionMedical =
       'assets/image/svg/emptyMedicalDesciption.svg';

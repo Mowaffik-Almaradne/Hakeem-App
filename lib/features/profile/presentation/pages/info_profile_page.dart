@@ -58,7 +58,7 @@ class InfoProfilePage extends StatelessWidget {
             children: [
               //? Header Profile
               const HeaderInfoProfileWidget(),
-              SizedBox(height: 2.h),
+              SizedBox(height: 8.42.h),
               TextUtiels(
                 text: data.fullName,
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -93,7 +93,27 @@ class InfoProfilePage extends StatelessWidget {
                   contentPaddingHorizontal: 27.w,
                 ),
               ),
-
+              //? Phone Number :
+              const LabelTextFormFiled(
+                text: AppWordManger.phoneNumber,
+                paddingTop: 5,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 45.w,
+                  vertical: 9.h,
+                ),
+                child: MainTextFormFiled(
+                  initialValue: data.phoneNumber,
+                  readOnly: true,
+                  textInputType: TextInputType.name,
+                  fillColor: AppColorManger.white,
+                  borderColor: AppColorManger.borderColor,
+                  borderWidht: 1.3.w,
+                  contentPaddingVertical: 15.h,
+                  contentPaddingHorizontal: 27.w,
+                ),
+              ),
               //? birh day  form filed :
               const LabelTextFormFiled(
                 text: AppWordManger.birthDay,

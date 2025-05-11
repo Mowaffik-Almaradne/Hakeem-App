@@ -32,8 +32,6 @@ class VilidationApp {
       return ValidationWords.requiredField;
     } else if (value.length < 6) {
       return ValidationWords.passwordLength;
-    } else if (!RagularExpression.passwordPattern.hasMatch(value)) {
-      return ValidationWords.ensurePasssword;
     }
     return null;
   }
@@ -54,8 +52,6 @@ class VilidationApp {
       return ValidationWords.requiredField;
     } else if (value.length < 6) {
       return ValidationWords.passwordLength;
-    } else if (!RagularExpression.passwordPattern.hasMatch(value)) {
-      return ValidationWords.ensurePasssword;
     } else if (newPassword != value) {
       return ValidationWords.reenterPasswoprd;
     }

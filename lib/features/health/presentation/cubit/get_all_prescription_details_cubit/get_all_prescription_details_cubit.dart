@@ -55,10 +55,11 @@ class GetAllPrescriptionDetailsCubit
           ),
         );
       }, (data) {
+        bool reachedMax = items.length >= data.result.totalCount;
         items.addAll(data.result.items);
         emit(state.copyWith(
           isRefresh: isRefresh ?? false,
-          haseReachedMax: items.length == data.result.totalCount,
+          haseReachedMax: reachedMax,
           status: DeafultBlocStatus.done,
           itemsList: items,
         ));

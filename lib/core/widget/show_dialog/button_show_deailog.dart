@@ -20,9 +20,9 @@ class ButtonShowDeailog extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10.w),
         alignment: Alignment.center,
-        width: 111.w,
-        height: 55.h,
+        padding: EdgeInsets.symmetric(vertical: 13.2.h, horizontal: 36.5.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
           color: buttonColor,

@@ -22,70 +22,58 @@ class CardMedicalDescription extends StatelessWidget {
           arguments: item,
         );
       },
-      child: Padding(
-        padding: EdgeInsets.only(bottom: 18.h),
-        child: Container(
-          width: 318.w,
-          height: 60.h,
-          decoration: BoxDecoration(
-            color: AppColorManger.fillColorCard,
-            border: Border.all(
-              color: AppColorManger.primaryColor,
-              width: 1.5.w,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 14.w),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.r),
+          color: AppColorManger.fillColorCard,
+          border: Border.all(
+            color: AppColorManger.primaryColor,
+            width: 1.5.w,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.asset(
+              width: 10.w,
+              height: 18.h,
+              AppSvgManger.iconArrowProfile,
             ),
-            borderRadius: BorderRadius.circular(5.r),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
-                child: SvgPicture.asset(
-                  width: 10.w,
-                  height: 22.h,
-                  AppSvgManger.iconArrowProfile,
+            Column(
+              children: [
+                TextUtiels(
+                  paddingBottome: 4.h,
+                  text: AppWordManger.prescrition,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontSize: 14.sp,
+                      ),
                 ),
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  TextUtiels(
-                    paddingRight: 16.w,
-                    text: AppWordManger.prescrition,
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          fontSize: 14.sp,
-                        ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(right: 10.w),
-                    child: Row(
-                      children: [
-                        TextUtiels(
-                          text: formatTimeTo12Hour(item.creationTime),
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall
-                              ?.copyWith(
-                                fontSize: 11.sp,
-                              ),
-                        ),
-                        TextUtiels(
-                          paddingLeft: 10.w,
-                          text: formatDate(item.creationTime),
-                          style: Theme.of(context)
-                              .textTheme
-                              .displaySmall
-                              ?.copyWith(
-                                fontSize: 11.sp,
-                              ),
-                        ),
-                      ],
+                Row(
+                  children: [
+                    TextUtiels(
+                      text: amAndPm(item.creationTime),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 11.sp,
+                          ),
                     ),
-                  )
-                ],
-              ),
-            ],
-          ),
+                    TextUtiels(
+                      text: formatTimeTo12Hour(item.creationTime),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 11.sp,
+                          ),
+                    ),
+                    TextUtiels(
+                      text: formatDate(item.creationTime),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 11.sp,
+                          ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

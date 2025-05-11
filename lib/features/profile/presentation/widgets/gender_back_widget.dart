@@ -29,7 +29,7 @@ class GenderBackWidget extends StatefulWidget {
 }
 
 class _GenderBackWidgetState extends State<GenderBackWidget> {
-  late int _selectedIndex; // Declare a mutable field in the state
+  int _selectedIndex = 0; // Declare a mutable field in the state
 
   @override
   void initState() {

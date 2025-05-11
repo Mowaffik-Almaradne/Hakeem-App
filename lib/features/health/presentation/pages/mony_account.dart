@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/entity/decode_token_entity.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
@@ -28,28 +29,54 @@ class MonyAccountPage extends StatelessWidget {
               .getAllAccountsForPatient(isRefresh: true);
         },
         child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 30.h),
           child: BlocBuilder<GetAllAccountsForPatientCubit,
               GetAllAccountsForPatientState>(
             builder: (context, state) {
+              if (state.status == DeafultBlocStatus.loading) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(vertical: 250.h),
+                  child: const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                );
+              }
               return Visibility(
                 replacement: const EmptyMonyAccountWidget(),
-                visible: state.entities.result != null,
+                visible:
+                    (state.entities.result.pagedResultDto.items.isNotEmpty) &&
+                        (state.entities.result.pushTotalAmount != 0.0 &&
+                            state.entities.result.deptTotalAmount != 0.0),
                 child: Column(
                   children: [
                     TitlePageWidget(
                       titleText: AppWordManger.finisialAccount,
                       onTap: () => Navigator.pop(context),
-                      paddingBottome: 15.h,
+                      padding: EdgeInsets.zero,
                     ),
                     //? Image Account :
-                    Image.asset(
-                      width: 100.w,
-                      height: 100.h,
-                      AppPngManger.imageProfile,
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 8.h),
+                      width: 75.w,
+                      height: 75.h,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 6,
+                            color: AppColorManger.balckCheck.withOpacity(0.09),
+                            offset: const Offset(0, 2),
+                          )
+                        ],
+                        image: const DecorationImage(
+                          image: AssetImage(AppPngManger.iconApp),
+                        ),
+                      ),
                     ),
                     //? NAME :
                     TextUtiels(
-                      text: 'لمى الطويل',
+                      text: DecodeTokenEntity.getData().name,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontSize: 20.sp,
                             color: AppColorManger.textColor2,
@@ -57,7 +84,7 @@ class MonyAccountPage extends StatelessWidget {
                     ),
                     //? Number Phone
                     TextUtiels(
-                      text: '0935059855',
+                      text: DecodeTokenEntity.getData().phoneNumber,
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                             fontSize: 20.sp,
                             color: AppColorManger.lightText,
@@ -65,8 +92,11 @@ class MonyAccountPage extends StatelessWidget {
                     ),
                     //? Carad Pymant :
                     Visibility(
-                      replacement:
-                          CardPymantWidget(entity: state.entities.result),
+                      replacement: CardPymantWidget(
+                        mainText: AppWordManger.receivables,
+                        costAccount:
+                            state.entities.result.deptTotalAmount.toString(),
+                      ),
                       visible: state.status == DeafultBlocStatus.loading,
                       child: LoadingBackGroundWidget(
                         height: 75,
@@ -96,8 +126,10 @@ class MonyAccountPage extends StatelessWidget {
                     //? Cost Full :
                     Visibility(
                       replacement: CardPymantWidget(
+                        mainText: AppWordManger.allCost,
                         margin: EdgeInsets.only(top: 20.h, bottom: 50.h),
-                        entity: state.entities.result,
+                        costAccount:
+                            state.entities.result.pushTotalAmount.toString(),
                       ),
                       visible: state.status == DeafultBlocStatus.loading,
                       child: LoadingBackGroundWidget(

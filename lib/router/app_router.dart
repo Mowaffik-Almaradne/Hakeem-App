@@ -36,12 +36,12 @@ import 'package:hosptel_app/features/map/presentation/pages/postion_doctor_page.
 import 'package:hosptel_app/features/notification/presentation/cubit/get_all_patiient_notification_cubit/get_all_patient_notification_cubit.dart';
 import 'package:hosptel_app/features/notification/presentation/cubit/set_notifications_as_readed_cubit/set_notifications_as_readed_cubit.dart';
 import 'package:hosptel_app/features/notification/presentation/pages/notification_page.dart';
-import 'package:hosptel_app/features/profile/presentation/cubit/change_number_cubit/change_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/confirm_edit_phone_number_cubit/confirm_edit_phone_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/delete_account_cubit/delete_account_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/get_Patient_Profile_cubit/get_patient_profile_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/logout_cubit/logout_cubit.dart';
+import 'package:hosptel_app/features/profile/presentation/cubit/send_confirmation_code_for_edit_number_cubit/send_confirmation_code_for_edit_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/updata_patient_profile_cubit/updata_patient_profile_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/change_password_page.dart';
 import 'package:hosptel_app/features/profile/presentation/pages/edit_number_page.dart';
@@ -77,8 +77,15 @@ class AppRouter {
       case RouteNamedScreens.loginScreenNameRoute:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return BlocProvider(
-              create: (context) => di.sl<LoginCubit>(),
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => di.sl<ResendCodeCubit>(),
+                ),
+                BlocProvider(
+                  create: (context) => di.sl<LoginCubit>(),
+                ),
+              ],
               child: const LoginScreen(),
             );
           },
@@ -145,11 +152,10 @@ class AppRouter {
             return MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (context) => di.sl<ResendCodeCubit>()
-                    ..resendCode(phoneNumber: phoneNumber),
+                  create: (context) => di.sl<ConfirmForgetPasswordCubit>(),
                 ),
                 BlocProvider(
-                  create: (context) => di.sl<ConfirmForgetPasswordCubit>(),
+                  create: (context) => di.sl<ResendCodeCubit>(),
                 )
               ],
               child: ConfirmFrogetPassword(
@@ -179,8 +185,8 @@ class AppRouter {
               providers: [
                 BlocProvider(create: (context) => di.sl<ConfirmAccountCubit>()),
                 BlocProvider(
-                    create: (context) => di.sl<ResendCodeCubit>()
-                      ..resendCode(phoneNumber: phoneNumber))
+                  create: (context) => di.sl<ResendCodeCubit>(),
+                )
               ],
               child: ConfirmPhoneNumberPage(
                 phoneNumber: phoneNumber,
@@ -607,7 +613,8 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return BlocProvider(
-              create: (context) => di.sl<EditPhoneNumberCubit>(),
+              create: (context) =>
+                  di.sl<SendConfirmationCodeForEditNumberCubit>(),
               child: const EditNumberPage(),
             );
           },
@@ -632,10 +639,11 @@ class AppRouter {
             return MultiBlocProvider(
               providers: [
                 BlocProvider(
-                    create: (context) => di.sl<ResendCodeCubit>()
-                      ..resendCode(phoneNumber: phoneNumber)),
-                BlocProvider(
                   create: (context) => di.sl<ConfirmEditPhoneNumberCubit>(),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      di.sl<SendConfirmationCodeForEditNumberCubit>(),
                 ),
               ],
               child: VerficationEditNumber(

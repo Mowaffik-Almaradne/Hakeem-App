@@ -7,9 +7,10 @@ class ButtonDoneAndCancle extends StatelessWidget {
   const ButtonDoneAndCancle({
     super.key,
     this.onTapForDone,
+    required this.isShow,
   });
   final void Function()? onTapForDone;
-
+  final bool isShow;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,14 +19,17 @@ class ButtonDoneAndCancle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //? For Done :
-          GestureDetector(
-            onTap: onTapForDone,
-            child: TextUtiels(
-              paddingRight: 27.w,
-              text: AppWordManger.done,
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontSize: 11.sp,
-                  ),
+          Visibility(
+            visible: isShow,
+            child: GestureDetector(
+              onTap: onTapForDone,
+              child: TextUtiels(
+                paddingRight: 27.w,
+                text: AppWordManger.done,
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      fontSize: 11.sp,
+                    ),
+              ),
             ),
           ),
         ],

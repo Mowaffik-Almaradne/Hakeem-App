@@ -13,10 +13,6 @@ abstract class ProfileRemote {
     required String currentPassword,
     required String newPassword,
   });
-  //? Change Password Remote :
-  Future<Unit> editPhonNumber({
-    required String phoneNumber,
-  });
   //? Confirm Edit PhoneNumber  Remote :
   Future<Unit> confirmEditPhoneNumber({
     required String phoneNumber,
@@ -31,6 +27,10 @@ abstract class ProfileRemote {
   //? Update Patient Profile Remote
   Future<Unit> updatePatientProfile({
     required MainPatientProfile request,
+  });
+  //? Send Confirmation Code For Edit Number Remote
+  Future<Unit> sendConfirmationCodeForEditNumber({
+    required String phoneNumber,
   });
 }
 
@@ -53,17 +53,6 @@ class ProfileRemoteImpl implements ProfileRemote {
     );
   }
 
-  //? Edit Phone Number Remote Impl :
-  @override
-  Future<Unit> editPhonNumber({required String phoneNumber}) async {
-    return ApiPostMethods<Unit>().post(
-      query: {
-        "phoneNumber": phoneNumber,
-      },
-      url: ApiPost.editPhoneNumberUrl,
-      data: (response) => unit,
-    );
-  }
 
   //? Confirm Edit PhoneNumber Remote Impl :
   @override
@@ -114,6 +103,16 @@ class ProfileRemoteImpl implements ProfileRemote {
     return ApiPutMethods<Unit>().put(
       body: request.toJson(),
       url: ApiPut.updatapatientProfileUrl,
+      data: (response) => unit,
+    );
+  }
+
+  @override
+  Future<Unit> sendConfirmationCodeForEditNumber(
+      {required String phoneNumber}) async {
+    return ApiPostMethods<Unit>().post(
+      query: {"phoneNumber": phoneNumber},
+      url: ApiPost.sendConfirmationCodeForEditNumberUrl,
       data: (response) => unit,
     );
   }

@@ -8,10 +8,7 @@ abstract class ProfileRepository {
     required String currentPassword,
     required String newPassword,
   });
-  //? Edit Phone Number Repository :
-  Future<Either<Failure, Unit>> editPhonNumber({
-    required String phoneNumber,
-  });
+  
   //? Confirm Edit Phone Repository :
   Future<Either<Failure, Unit>> confirmEditPhoneNumber({
     required String phoneNumber,
@@ -26,5 +23,9 @@ abstract class ProfileRepository {
   //? update Patient Profile Repository
   Future<Either<Failure, Unit>> updatePatientProfile({
     required MainPatientProfile request,
+  });
+  //? Send Confirmation Code For Edit Number Repository
+  Future<Either<Failure, Unit>> sendConfirmationCodeForEditNumber({
+    required String phoneNumber,
   });
 }

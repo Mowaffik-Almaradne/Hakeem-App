@@ -25,17 +25,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
     );
   }
 
-  //? Edit Phone Number  Impl :
-  @override
-  Future<Either<Failure, Unit>> editPhonNumber(
-      {required String phoneNumber}) async {
-    return await CheckNet<Unit>().checkNetResponse(
-      tryRight: () async {
-        final data = await remote.editPhonNumber(phoneNumber: phoneNumber);
-        return Right(data);
-      },
-    );
-  }
+  
 
   //? Confirm Edit Phone Number  Repository Impl :
   @override
@@ -91,6 +81,19 @@ class ProfileRepositoryImpl implements ProfileRepository {
     return await CheckNet<Unit>().checkNetResponse(
       tryRight: () async {
         final data = await remote.updatePatientProfile(request: request);
+        return Right(data);
+      },
+    );
+  }
+
+//? Send Confirmation Code For Edit Number Repository Impl :
+  @override
+  Future<Either<Failure, Unit>> sendConfirmationCodeForEditNumber(
+      {required String phoneNumber}) async {
+    return await CheckNet<Unit>().checkNetResponse(
+      tryRight: () async {
+        final data = await remote.sendConfirmationCodeForEditNumber(
+            phoneNumber: phoneNumber);
         return Right(data);
       },
     );

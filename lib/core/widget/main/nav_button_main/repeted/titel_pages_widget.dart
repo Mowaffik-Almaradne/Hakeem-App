@@ -9,19 +9,25 @@ import 'package:hosptel_app/router/app_router.dart';
 
 class TitlePageWidget extends StatelessWidget {
   const TitlePageWidget(
-      {super.key, required this.titleText, this.onTap, this.paddingBottome});
+      {super.key,
+      required this.titleText,
+      this.onTap,
+      this.paddingBottome,
+      this.padding});
   final String titleText;
   final void Function()? onTap;
   final double? paddingBottome;
+  final EdgeInsetsGeometry? padding;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 14.w,
-        right: 14.w,
-        top: 56.h,
-        bottom: paddingBottome ?? 56.h,
-      ),
+      padding: padding ??
+          EdgeInsets.only(
+            left: 14.w,
+            right: 14.w,
+            top: 56.h,
+            bottom: paddingBottome ?? 56.h,
+          ),
       //? Arrow And Text :
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

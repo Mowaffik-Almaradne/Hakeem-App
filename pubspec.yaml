@@ -38,7 +38,7 @@ dependencies:
   curved_labeled_navigation_bar: ^2.0.2 
   stroke_text: any
   logger: ^2.2.0
-  double_back_to_exit: ^1.0.0
+  # double_back_to_exit: ^1.0.0
   pin_code_fields: ^8.0.1
   jwt_decoder: ^2.0.1 
   shimmer: ^3.0.0

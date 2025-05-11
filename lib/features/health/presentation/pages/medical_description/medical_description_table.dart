@@ -29,7 +29,7 @@ class MedicalDescriptionTablePage extends StatelessWidget {
           ),
           Container(
             width: 350.w,
-            height: 300.h,
+            height: 380.h,
             decoration: BoxDecoration(
               border: Border.all(
                 color: AppColorManger.secoundryColor,

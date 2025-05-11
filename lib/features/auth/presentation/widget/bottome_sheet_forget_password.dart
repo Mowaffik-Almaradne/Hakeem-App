@@ -75,7 +75,8 @@ class BottomeSheetForgetPasswordWidget extends StatelessWidget {
                       height: 60.h,
                       width: 220.w,
                       child: MainTextFormFiled(
-                        validator: (value) => VilidationApp().validator(value!),
+                        validator: (value) =>
+                            VilidationApp().validatorPhone(value!),
                         hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                         onChange: (value) {
                           phoneNumber = value;

@@ -24,7 +24,7 @@ class SymptomLitsItem extends StatelessWidget {
             Visibility(
               visible: state.itemsList.isNotEmpty,
               replacement: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.w),
+                padding: EdgeInsets.symmetric(vertical: 75.h),
                 child: const EmptyTextWidget(
                   text: AppWordManger.noSymptomsAvailableAtThisTime,
                 ),
@@ -33,6 +33,7 @@ class SymptomLitsItem extends StatelessWidget {
                 child: ListViewWithPagenationWidget<SymptomItem>(
                   haseReachedMax: state.haseReachedMax,
                   item: state.itemsList,
+                  padding: EdgeInsets.symmetric(vertical: 17.h),
                   shrinkWrap: true,
                   loading: state.status == DeafultBlocStatus.loading,
                   reFrach: state.isRefresh,
@@ -53,6 +54,7 @@ class SymptomLitsItem extends StatelessWidget {
             Visibility(
               visible: state.itemsList.isNotEmpty,
               child: ButtonDoneAndCancle(
+                isShow: state.itemsList.isNotEmpty,
                 onTapForDone: () {
                   state.addSymptom.clear();
                   for (var element in state.itemsList) {

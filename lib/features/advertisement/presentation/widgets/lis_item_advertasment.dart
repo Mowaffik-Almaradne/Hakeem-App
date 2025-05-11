@@ -40,6 +40,11 @@ class InfoTipasNewsWidgetState extends State<ListIteamAdvertisementWidget> {
         if (state.status == DeafultBlocStatus.loading) {
           return const LoadingForList();
         }
+        if (state.itemsList.isEmpty) {
+          return const EmptyTextWidget(
+            text: AppWordManger.noAdvAvailableAtThisTime,
+          );
+        }
         return Column(
           children: [
             CarouselSlider.builder(
@@ -47,7 +52,7 @@ class InfoTipasNewsWidgetState extends State<ListIteamAdvertisementWidget> {
               options: CarouselOptions(
                 height: 170.h,
                 enlargeCenterPage: true,
-                autoPlay: true,
+                autoPlay: state.itemsList.length > 1 ? true : false,
                 autoPlayInterval: const Duration(seconds: 3),
                 onPageChanged: (index, reason) {
                   setState(() {
@@ -55,15 +60,10 @@ class InfoTipasNewsWidgetState extends State<ListIteamAdvertisementWidget> {
                   });
                 },
               ),
+
               carouselController: _pageController,
-              itemCount:
-                  state.itemsList.length < 5 ? state.itemsList.length : 5,
+              itemCount: state.itemsList.length,
               itemBuilder: (context, index, realIndex) {
-                if (state.itemsList.isEmpty) {
-                  return const EmptyTextWidget(
-                    text: AppWordManger.noAdvAvailableAtThisTime,
-                  );
-                }
                 return InfoAdvertisementWidget(
                   item: state.itemsList[index],
                 );
@@ -71,26 +71,29 @@ class InfoTipasNewsWidgetState extends State<ListIteamAdvertisementWidget> {
             ),
 
             //? Scroll Smooth :
-            Padding(
-              padding: EdgeInsets.only(top: 30.h),
-              child: AnimatedSmoothIndicator(
-                activeIndex: currentIndex,
-                count: state.itemsList.length,
-                effect: JumpingDotEffect(
-                  spacing: 8,
-                  dotWidth: 50.w,
-                  dotHeight: 5.h,
-                  paintStyle: PaintingStyle.stroke,
-                  strokeWidth: 1.5,
-                  activeDotColor: AppColorManger.primaryColor,
+            Visibility(
+              visible: state.itemsList.length > 1,
+              child: Padding(
+                padding: EdgeInsets.only(top: 30.h),
+                child: AnimatedSmoothIndicator(
+                  activeIndex: currentIndex,
+                  count: state.itemsList.length,
+                  effect: JumpingDotEffect(
+                    spacing: 8,
+                    dotWidth: 30.w,
+                    dotHeight: 5.h,
+                    paintStyle: PaintingStyle.stroke,
+                    strokeWidth: 1.5,
+                    activeDotColor: AppColorManger.primaryColor,
+                  ),
+                  onDotClicked: (index) {
+                    _pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                    );
+                  },
                 ),
-                onDotClicked: (index) {
-                  _pageController.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease,
-                  );
-                },
               ),
             ),
           ],

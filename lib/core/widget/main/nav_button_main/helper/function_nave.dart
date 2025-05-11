@@ -40,7 +40,7 @@ String removeLabelIconFun({
 bool forGuestUserTap(int value, BuildContext context) {
   if (AppSharedPreferences.getToken().isEmpty && value != 2) {
     MainShowDialog.customShowDialog(
-      hieght: 150.h,
+      isRow: false,
       firstButtonText: AppWordManger.notUntil,
       secoundButtonText: AppWordManger.login,
       textPopUp: AppWordManger.loginMustFirst,

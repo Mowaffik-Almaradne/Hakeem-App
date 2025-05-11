@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
-import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
-import 'package:hosptel_app/features/health/domain/entities/res/accounts_for_patient_entities.dart';
 
 class CardPymantWidget extends StatelessWidget {
-  const CardPymantWidget({super.key, required this.entity, this.margin});
-  final AccountsForPatientResult entity;
+  const CardPymantWidget({
+    super.key,
+    required this.costAccount,
+    this.margin,
+    required this.mainText,
+  });
+  final String costAccount;
+  final String mainText;
   final EdgeInsetsGeometry? margin;
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin ?? EdgeInsets.only(top: 14.h),
-      width: 318.w,
-      height: 78.h,
+      padding: EdgeInsets.symmetric(vertical: 16.42.h, horizontal: 16.w),
       decoration: BoxDecoration(
         color: AppColorManger.fillColorCard,
         border: Border.all(
@@ -27,34 +30,33 @@ class CardPymantWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          TextUtiels(
-            paddingLeft: 15.w,
-            text: AppWordManger.donePymant,
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall
-                ?.copyWith(fontSize: 16.sp, color: AppColorManger.lightText),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            child: Row(
-              children: [
-                TextUtiels(
+          Row(
+            children: [
+              Align(
+                child: TextUtiels(
                   text: 'ل.س',
                   style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         fontFamily: AppFontFamily.extraBold,
                         fontSize: 20.sp,
                       ),
                 ),
-                TextUtiels(
-                  text: entity.deptTotalAmount.toString(),
-                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                        fontFamily: AppFontFamily.extraBold,
-                        fontSize: 20.sp,
-                      ),
-                ),
-              ],
-            ),
+              ),
+              TextUtiels(
+                text: costAccount,
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      fontFamily: AppFontFamily.extraBold,
+                      fontSize: 20.sp,
+                    ),
+              ),
+            ],
+          ),
+          TextUtiels(
+            paddingLeft: 15.w,
+            text: mainText,
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                fontSize: 16.sp,
+                color: AppColorManger.textColor2,
+                fontWeight: FontWeight.w700),
           ),
         ],
       ),

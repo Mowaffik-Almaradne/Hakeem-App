@@ -17,12 +17,6 @@ class ProfileUseCaseImpl implements ProfileBaseUseCase {
         currentPassword: currentPassword, newPassword: newPassword);
   }
 
-  //? Edit Number Use Case  :
-  @override
-  Future<Either<Failure, Unit>> editPhonNumber(
-      {required String phoneNumber}) async {
-    return await repository.editPhonNumber(phoneNumber: phoneNumber);
-  }
 
   //? Confirm Edit Phone Use Case  :
   @override
@@ -60,5 +54,13 @@ class ProfileUseCaseImpl implements ProfileBaseUseCase {
     required MainPatientProfile request,
   }) async {
     return await repository.updatePatientProfile(request: request);
+  }
+
+//? Send Confirmation Code For Edit Number Use Case
+  @override
+  Future<Either<Failure, Unit>> sendConfirmationCodeForEditNumber(
+      {required String phoneNumber}) async {
+    return await repository.sendConfirmationCodeForEditNumber(
+        phoneNumber: phoneNumber);
   }
 }

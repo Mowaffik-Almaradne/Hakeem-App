@@ -20,7 +20,7 @@ class HeaderInfoProfileWidget extends StatelessWidget {
           child: Container(
             alignment: Alignment.centerLeft,
             width: double.infinity,
-            height: 170.h,
+            height: 142.73.h,
             color: AppColorManger.backGroundClipper,
             child: GestureDetector(
               onTap: () {
@@ -29,6 +29,8 @@ class HeaderInfoProfileWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(left: 10.w),
                 child: SvgPicture.asset(
+                  colorFilter:
+                      ColorFilter.mode(AppColorManger.white, BlendMode.srcIn),
                   AppSvgManger.iconArrow,
                   width: 30.w,
                   height: 30.h,
@@ -39,10 +41,22 @@ class HeaderInfoProfileWidget extends StatelessWidget {
         ),
         Positioned(
           bottom: -5.h,
-          child: Image.asset(
-            width: 100.w,
-            height: 100.h,
-            AppPngManger.imageProfile,
+          child: Container(
+            width: 75.w,
+            height: 75.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 6,
+                  color: AppColorManger.balckCheck.withOpacity(0.09),
+                  offset: const Offset(0, 2),
+                )
+              ],
+              image: const DecorationImage(
+                image: AssetImage(AppPngManger.iconApp),
+              ),
+            ),
           ),
         ),
       ],

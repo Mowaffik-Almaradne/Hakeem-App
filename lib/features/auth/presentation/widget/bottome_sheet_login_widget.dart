@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hosptel_app/core/function/validation_funcation.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/enum_manger.dart';
+import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
@@ -18,6 +19,8 @@ import 'package:hosptel_app/features/auth/presentation/cubit/login_cubit/login_c
 import 'package:hosptel_app/features/auth/presentation/logic/auth_logic.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/move_page_text_widget.dart';
 import 'package:hosptel_app/router/app_router.dart';
+
+import '../../../../core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
 
 class BottomeSheetLoginWidget extends StatelessWidget {
   const BottomeSheetLoginWidget({super.key});
@@ -69,6 +72,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                         height: 60.h,
                         width: 200.w,
                         child: MainTextFormFiled(
+                          fontSize: AppFontSizeManger.s12,
                           validator: (value) =>
                               VilidationApp().validator(value!),
                           hintText: AppWordManger.pleaseEnterYourPhoneNumber,
@@ -124,6 +128,19 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                   ),
                 ),
 
+                //? button for Gust  :
+                MainElevatedButton(
+                  text: AppWordManger.loginGust,
+                  horizontalPadding: 80.w,
+                  paddingOut: EdgeInsets.only(bottom: 10.h),
+                  backgroundColor: AppColorManger.secoundryColor,
+                  textColor: AppColorManger.white,
+                  onPreesed: () {
+                    context
+                        .read<ButtonNavCubit>()
+                        .changeIndexButtonNav(2, context);
+                  },
+                ),
                 //? button for login :
                 BlocConsumer<LoginCubit, LoginState>(
                   listener: (context, state) {
@@ -139,6 +156,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                             text: AppWordManger.login,
                             backgroundColor: AppColorManger.primaryColor,
                             textColor: AppColorManger.white,
+                            horizontalPadding: 80.w,
                             onPreesed: () {
                               if (formKeyLogin.currentState!.validate()) {
                                 context.read<LoginCubit>().login(

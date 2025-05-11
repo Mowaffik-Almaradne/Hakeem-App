@@ -47,12 +47,12 @@ import 'package:hosptel_app/features/profile/data/repositories/profile_repositor
 import 'package:hosptel_app/features/profile/domain/repositories/profile_repository.dart';
 import 'package:hosptel_app/features/profile/domain/usecases/base_use_profile.dart';
 import 'package:hosptel_app/features/profile/domain/usecases/use_case_profile.dart';
-import 'package:hosptel_app/features/profile/presentation/cubit/change_number_cubit/change_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/confirm_edit_phone_number_cubit/confirm_edit_phone_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/delete_account_cubit/delete_account_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/get_Patient_Profile_cubit/get_patient_profile_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/logout_cubit/logout_cubit.dart';
+import 'package:hosptel_app/features/profile/presentation/cubit/send_confirmation_code_for_edit_number_cubit/send_confirmation_code_for_edit_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/updata_patient_profile_cubit/updata_patient_profile_cubit.dart';
 import 'package:hosptel_app/features/reservation/data/datasources/remote/reservation_remote.dart';
 import 'package:hosptel_app/features/reservation/data/repositories/reservation_repository_impl.dart';
@@ -107,12 +107,13 @@ Future<void> init() async {
 //! Features - Auth Finished
 //! Features - Profil Start :
   sl.registerFactory(() => ChangePasswordCubit(useCase: sl()));
-  sl.registerFactory(() => EditPhoneNumberCubit(useCase: sl()));
   sl.registerFactory(() => ConfirmEditPhoneNumberCubit(useCase: sl()));
   sl.registerFactory(() => LogoutCubit(useCase: sl()));
   sl.registerFactory(() => DeleteAccountCubit(useCase: sl()));
   sl.registerFactory(() => UpdataPatientProfileCubit(useCase: sl()));
   sl.registerFactory(() => GetPatientProfileCubit(useCase: sl()));
+  sl.registerFactory(
+      () => SendConfirmationCodeForEditNumberCubit(useCase: sl()));
 
 //?
 //? Usecase

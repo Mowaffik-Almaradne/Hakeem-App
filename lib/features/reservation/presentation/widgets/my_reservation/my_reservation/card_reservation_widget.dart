@@ -35,9 +35,7 @@ class CardReservationWidget extends StatelessWidget {
         // top: 33.h,
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 11.5.h),
-        width: 320.w,
-        height: height.h,
+        padding: EdgeInsets.only(top: 12.h, bottom: !showDivider ? 40.h : 12.h),
         decoration: BoxDecoration(
           color: AppColorManger.fillColorCard,
           border: Border.all(
@@ -76,9 +74,9 @@ class CardReservationWidget extends StatelessWidget {
               color: AppColorManger.black.withOpacity(0.17),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h),
+              padding: EdgeInsetsDirectional.only(end: 10.w, top: 24.h),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
                     children: [
@@ -94,8 +92,9 @@ class CardReservationWidget extends StatelessWidget {
                       ),
                       //? Text Date Resevation From Api :
                       TextUtiels(
+                        paddingRight: 10.w,
                         text:
-                            ' ${item.startTime} ${formatDate(item.appointmentDate, slasheFormate: true)} : ${AppWordManger.dataReservation}',
+                            "${AppWordManger.dataReservation} : ${formatDate(item.appointmentDate, slasheFormate: true, isShowAmPm: true)}",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColorManger.colorShowDailogButton,
                               fontSize: 16.sp,

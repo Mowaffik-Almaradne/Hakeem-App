@@ -24,11 +24,18 @@ String findDifference({DateTime? serverDate, DateTime? localDateRating}) {
 }
 
 //? Formate Data :
-String formatDate(DateTime dateTime, {bool slasheFormate = false}) {
-  final DateFormat formatter = slasheFormate == true
-      ? DateFormat('yyy/MM/dd')
-      : DateFormat('yyyy-MM-dd');
-  return formatter.format(dateTime);
+String formatDate(DateTime dateTime,
+    {bool slasheFormate = false, bool isShowAmPm = false}) {
+  final DateFormat hourFormatter = DateFormat('HH'); // Format for hour
+  final DateFormat dateFormatter = DateFormat('yyyy/M/d'); // Format for date
+  // Get the hour in 24-hour format
+  int hour = int.parse(hourFormatter.format(dateTime));
+
+  // Determine if it's AM or PM based on the hour
+  String amPm = hour < 12 ? 'ص' : 'م'; // 'ص' for AM, 'م' for PM
+
+  // Return the formatted string
+  return '${dateFormatter.format(dateTime)} ${isShowAmPm ? hourFormatter.format(dateTime) : ""} ${isShowAmPm ? amPm : ""}';
 }
 
 //? Get Name Month
@@ -72,23 +79,33 @@ String getTimePeriodForReservation(String time) {
   int hour = int.parse(timeParts[0]); // Get the hour part
   String minute = timeParts[1]; // Get the minute part
 
-  String period = hour < 12 ? 'Am' : 'Pm';
+  String period = hour < 12 ? 'صباحًا' : 'مساءً';
 
   hour = hour % 12;
   hour = hour == 0 ? 12 : hour;
-  return '$period$hour:$minute';
+
+  return '$hour:$minute $period';
 }
 
 String formatTimeTo12Hour(DateTime time) {
   int hour = time.hour;
   String minute = time.minute.toString().padLeft(2, '0');
+  // String period = hour < 12 ? 'ص' : 'م';
 
+  hour = hour % 12;
+  hour = hour == 0 ? 12 : hour; // تحويل الساعة 0 إلى 12
+
+  return '$hour:$minute';
+}
+
+String amAndPm(DateTime time) {
+  int hour = time.hour;
   String period = hour < 12 ? 'ص' : 'م';
 
   hour = hour % 12;
   hour = hour == 0 ? 12 : hour; // تحويل الساعة 0 إلى 12
 
-  return '$hour:$minute$period';
+  return period;
 }
 
 //? Check Is Imae

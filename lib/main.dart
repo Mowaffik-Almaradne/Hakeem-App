@@ -22,7 +22,6 @@ void main() async {
       if (token.isNotEmpty && JwtDecoder.isExpired(token)) {
         AppSharedPreferences.logoutSharedPreferences();
       }
-
       runApp(MyApp());
     },
   );

@@ -12,7 +12,7 @@ import 'package:hosptel_app/core/widget/loading/main_loading.dart';
 import 'package:hosptel_app/core/widget/main/main_app_bar/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
-import 'package:hosptel_app/features/profile/presentation/cubit/change_number_cubit/change_number_cubit.dart';
+import 'package:hosptel_app/features/profile/presentation/cubit/send_confirmation_code_for_edit_number_cubit/send_confirmation_code_for_edit_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/logic/profile_logic.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/bacground_profile.dart';
 import 'package:hosptel_app/features/profile/presentation/widgets/label_text_form_filed.dart';
@@ -99,7 +99,8 @@ class EditNumberPage extends StatelessWidget {
               ),
               SizedBox(height: 59.h),
               //? Button For Sure Info :
-              BlocConsumer<EditPhoneNumberCubit, EditPhoneNumberState>(
+              BlocConsumer<SendConfirmationCodeForEditNumberCubit,
+                  SendConfirmationCodeForEditNumberState>(
                 listener: (context, state) =>
                     ProfileLogic().listenerEditPhoneNumber(
                   context: context,
@@ -119,8 +120,9 @@ class EditNumberPage extends StatelessWidget {
                     onPreesed: () {
                       if (formKeyEditNumber.currentState?.validate() ?? false) {
                         context
-                            .read<EditPhoneNumberCubit>()
-                            .editPhoneNumber(phoneNumber: phoneNumber);
+                            .read<SendConfirmationCodeForEditNumberCubit>()
+                            .sendConfirmationCodeForEditNumber(
+                                phoneNumber: phoneNumber);
                       }
                     },
                   );

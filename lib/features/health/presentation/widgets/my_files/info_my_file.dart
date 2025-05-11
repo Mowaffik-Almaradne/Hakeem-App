@@ -59,12 +59,18 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextUtiels(
-                text: widget.item.fileName,
-                paddingBottome: 3.h,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      fontSize: 16.sp,
-                    ),
+              SizedBox(
+                width: 100.w,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: TextUtiels(
+                    text: widget.item.fileName,
+                    paddingBottome: 3.h,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          fontSize: 16.sp,
+                        ),
+                  ),
+                ),
               ),
               Row(
                 children: [
@@ -119,6 +125,7 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
   }) async {
     try {
       await FileDownloader.downloadFile(
+        notificationType: NotificationType.all,
         url: url,
         onProgress: (fileName, progress) {},
         onDownloadCompleted: (path) {

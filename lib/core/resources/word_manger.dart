@@ -10,7 +10,7 @@ class AppWordManger {
   //? auth :
   static const andSpecial = 'ومميزة';
   static const characterCity = '+963';
-  static const pleaseEnterYourPhoneNumber = 'يرجى إدخال رقم هاتفك';
+  static const pleaseEnterYourPhoneNumber = 'يرجى إدخال رقم واتس اب';
   static const password = 'كلمة السر';
   static const forgotYourPassword = 'هل نسيت كلمة السر؟';
   static const login = 'تسجيل الدخول';
@@ -49,6 +49,7 @@ class AppWordManger {
       "تجنب التعرض للحرارة\n استخدام الثلج\nالشرب والتغذية الجيدة\n مراقبة العلامات غير العادية\nتجنب التمدد الزائد";
 
 //? Resevation : ?
+  static const welcomBack = "أهلا بك";
   static const noExpiredReservationsAvailable = "لا يتوفر حجوزات منتهية";
   static const noPendingReservationsAvailable = "لا يتوفر حجوزات قيد الانتظار";
   static const yourLoginHasExpired = 'انتهت صلاحية تسجيل الدخول';
@@ -81,7 +82,9 @@ class AppWordManger {
   static const pleaseLoginForGetFeatureMoreAndBetter =
       'يرجى تسجيل الدخول للحصول على مميزات أفضل وأكثر';
   static const pleaseSelectTheDayAndTimeToMakeTheReservation =
-      "من فضلك يجب اختيار اليوم والوقت لاجراء عملية الحجز"; //? profile :
+      "من فضلك يجب اختيار اليوم والوقت لاجراء عملية الحجز";
+  static const notAvailableAtTimesOnThisDay = "غير متوفر اوقات في هذا اليوم";
+  //? profile :
   static const welcome = 'مرحبا بك';
   static const fullName = 'الاسم الكامل';
   static const phoneNumber = 'رقم هاتفك';
@@ -112,6 +115,8 @@ class AppWordManger {
   static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
   static const logout = 'تسجيل الخروج';
   static const areYoueSureLogout = 'هل أنت متأكد من تسجيل الخروج؟';
+  static const allCost = 'الكلفة الكلية';
+  static const receivables = 'الذمم';
   //?
 
 //? Notifications :

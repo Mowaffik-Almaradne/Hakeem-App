@@ -15,8 +15,8 @@ class InfoNotificationWidget extends StatelessWidget {
       width: 318.w,
       padding: EdgeInsets.symmetric(vertical: 10.w, horizontal: 10.w),
       color: item.isReaded == false
-          ? AppColorManger.white
-          : AppColorManger.colorButtonShowDailog,
+          ? AppColorManger.colorButtonShowDailog
+          : AppColorManger.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

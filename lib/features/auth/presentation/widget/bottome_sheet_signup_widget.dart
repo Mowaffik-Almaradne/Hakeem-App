@@ -13,6 +13,7 @@ import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/button/main_elevated_button.dart';
 import 'package:hosptel_app/core/widget/form_filed/main_form_filed.dart';
 import 'package:hosptel_app/core/widget/loading/main_loading.dart';
+import 'package:hosptel_app/core/widget/main/nav_button_main/cubit/button_nav_cubit.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/repeted/charater_city_widget.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/core/widget/form_filed/text_form_filed_pasword_widget.dart';
@@ -194,11 +195,9 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                 backgroundColor: AppColorManger.secoundryColor,
                 textColor: AppColorManger.white,
                 onPreesed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    RouteNamedScreens.homeScreenNameRoute,
-                    (route) => false,
-                  );
+                  context
+                      .read<ButtonNavCubit>()
+                      .changeIndexButtonNav(2, context);
                 },
                 horizontalPadding: 80.w,
               ),

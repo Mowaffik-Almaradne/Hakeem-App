@@ -19,18 +19,16 @@ class MedicalDescriptionTableInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(5.r),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           //? Medicine Name :
-          SizedBox(
-            width: 120.w,
-            child: TextUtiels(
-              textOverflow: TextOverflow.ellipsis,
-              paddingLeft: 13.w,
-              text: item.medicineName,
-              style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                    fontSize: 14.sp,
-                  ),
-            ),
+          TextUtiels(
+            textOverflow: TextOverflow.ellipsis,
+            paddingLeft: 13.w,
+            text: item.medicineName,
+            style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                  fontSize: 14.sp,
+                ),
           ),
 
           SizedBox(
@@ -40,7 +38,7 @@ class MedicalDescriptionTableInfo extends StatelessWidget {
               children: [
                 //? Usage Times
                 TextUtiels(
-                  text: 'ابام ${item.usageTimes} ',
+                  text: '${item.usageTimes} ابام',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 10.sp,
                       ),
