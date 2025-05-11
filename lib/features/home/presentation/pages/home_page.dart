@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       _handleMessageClick(message);
     });
 
-    // عند فتح التطبيق لأول مرة من إشعار (وكان التطبيق مغلق تماماً)
+  
     RemoteMessage? initialMessage = await _messaging.getInitialMessage();
     if (initialMessage != null) {
       _handleMessageClick(initialMessage);
