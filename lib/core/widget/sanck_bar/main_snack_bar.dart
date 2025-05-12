@@ -9,6 +9,7 @@ class SnackBarUtil {
   static void showSnackBar({
     required String message,
     required BuildContext context,
+    Color? colorSuccess,
   }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -25,13 +26,13 @@ class SnackBarUtil {
               text: message,
               fontFamily: AppFontFamily.tajawalBold,
               fontSize: 13.sp,
-              color: AppColorManger.redColor,
+              color: colorSuccess ?? AppColorManger.redColor,
             ),
           ), //!
         ),
         shape: RoundedRectangleBorder(
           side: BorderSide(
-            color: AppColorManger.redColor,
+            color: colorSuccess ?? AppColorManger.redColor,
             width: 3,
           ),
           borderRadius: BorderRadius.circular(8),

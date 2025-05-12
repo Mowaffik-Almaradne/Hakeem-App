@@ -5,24 +5,24 @@ import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 
 class TextUtiels extends StatelessWidget {
-  const TextUtiels({
-    super.key,
-    required this.text,
-    this.color,
-    this.fontSize,
-    this.fontFamily,
-    this.textAlign,
-    this.shadows,
-    this.height,
-    this.fontWeight,
-    this.paddingRight,
-    this.paddingBottome,
-    this.paddingTop,
-    this.paddingLeft,
-    this.style,
-    this.maxLines,
-    this.textOverflow,
-  });
+  const TextUtiels(
+      {super.key,
+      required this.text,
+      this.color,
+      this.fontSize,
+      this.fontFamily,
+      this.textAlign,
+      this.shadows,
+      this.height,
+      this.fontWeight,
+      this.paddingRight,
+      this.paddingBottome,
+      this.paddingTop,
+      this.paddingLeft,
+      this.style,
+      this.maxLines,
+      this.textOverflow,
+      this.textDirection});
   final String text;
   final String? fontFamily;
   final Color? color;
@@ -38,6 +38,8 @@ class TextUtiels extends StatelessWidget {
   final TextStyle? style;
   final int? maxLines;
   final TextOverflow? textOverflow;
+  final TextDirection? textDirection;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,6 +54,7 @@ class TextUtiels extends StatelessWidget {
         softWrap: true,
         textAlign: textAlign ?? TextAlign.end,
         text,
+        textDirection: textDirection,
         style: style ??
             TextStyle(
               fontFamily: fontFamily ?? AppFontFamily.tajawalRegular,

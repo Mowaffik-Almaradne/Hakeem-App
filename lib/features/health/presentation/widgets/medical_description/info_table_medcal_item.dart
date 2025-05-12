@@ -38,6 +38,7 @@ class MedicalDescriptionTableInfo extends StatelessWidget {
               children: [
                 //? Usage Times
                 TextUtiels(
+                  textDirection: TextDirection.rtl,
                   text: '${item.usageTimes} ابام',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 10.sp,

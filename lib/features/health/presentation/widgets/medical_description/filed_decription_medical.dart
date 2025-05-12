@@ -39,9 +39,7 @@ class FiledDescriptionMedical extends StatelessWidget {
                   fontSize: 14.sp,
                 ),
           ),
-          const Spacer(),
           TextUtiels(
-            paddingRight: 10.w,
             text: periodOfUse,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontSize: 10.sp,

@@ -51,6 +51,7 @@ class CardSummaryWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextUtiels(
+                    textDirection: TextDirection.rtl,
                     paddingRight: 5.w,
                     paddingTop: 12.h,
                     text: getTimePeriodForReservation(request.startTime),

@@ -1,20 +1,20 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 
 class RowItemVist extends StatelessWidget {
-  const RowItemVist({
-    super.key,
-    this.padding,
-    required this.primatyText,
-    required this.secoundryText,
-    this.paddingForText,
-  });
+  const RowItemVist(
+      {super.key,
+      this.padding,
+      required this.primatyText,
+      required this.secoundryText,
+      this.paddingForText,
+      this.textDirection});
   final EdgeInsetsGeometry? padding;
   final String primatyText;
   final String secoundryText;
   final double? paddingForText;
+  final TextDirection? textDirection;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,6 +23,7 @@ class RowItemVist extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextUtiels(
+            textDirection: textDirection,
             text: secoundryText,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   fontSize: 11.sp,

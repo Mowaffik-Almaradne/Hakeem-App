@@ -56,6 +56,7 @@ class InfoMyVisitItem extends StatelessWidget {
               ),
               //? Hour :
               RowItemVist(
+                  textDirection: TextDirection.rtl,
                   paddingForText: 25.w,
                   primatyText: AppWordManger.hour,
                   secoundryText: item.appointmentStartTime.isNotEmpty

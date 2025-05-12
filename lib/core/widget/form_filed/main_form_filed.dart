@@ -71,6 +71,7 @@ class MainTextFormFiled extends StatelessWidget {
         textDirection: TextDirection.rtl,
         textInputAction: TextInputAction.next,
         inputFormatters: inputFormatter,
+
         keyboardType: textInputType,
         decoration: InputDecoration(
           filled: true,
@@ -98,27 +99,28 @@ class MainTextFormFiled extends StatelessWidget {
                 fontSize: fontSize ?? 12.sp,
                 fontWeight: AppFontWeightManger.fontWeightSemiBold,
                 color: AppColorManger.primaryColor,
-                height: 1,
+                height: 0.2,
               ),
           //? border :
           enabledBorder: outlineInputBorder(
             circular: 13.r,
-            width: borderWidht ?? 0,
-            color: borderColor ?? Colors.transparent,
+            width: borderWidht ?? 1.3.w,
+            color: borderColor ?? AppColorManger.borderColor,
           ),
           focusedBorder: outlineInputBorder(
             circular: 13,
-            width: borderWidht ?? 0,
-            color: borderColor ?? Colors.transparent,
+            width: borderWidht ?? 1.3.w,
+            color: borderColor ?? AppColorManger.borderColor,
           ),
           errorBorder: outlineInputBorder(
-              circular: 13,
-              width: borderWidht ?? 0,
-              color: AppColorManger.primaryColor),
-          focusedErrorBorder: outlineInputBorder(
             circular: 13,
             width: borderWidht ?? 0,
-            color: Colors.transparent,
+            color: AppColorManger.primaryColor,
+          ),
+          focusedErrorBorder: outlineInputBorder(
+            circular: 13,
+            width: borderWidht ?? 1.3.w,
+            color: borderColor ?? AppColorManger.borderColor,
           ),
         ),
         //? Function Event :

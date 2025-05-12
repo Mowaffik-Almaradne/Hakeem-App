@@ -54,139 +54,141 @@ class InfoProfilePage extends StatelessWidget {
               child: const MainLoadignWidget(),
             );
           }
-          return Column(
-            children: [
-              //? Header Profile
-              const HeaderInfoProfileWidget(),
-              SizedBox(height: 8.42.h),
-              TextUtiels(
-                text: data.fullName,
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      fontSize: 24.sp,
-                    ),
-              ),
-              TextUtiels(
-                text: AppWordManger.welcome,
-                fontFamily: AppFontFamily.extraBold,
-                color: AppColorManger.textlight,
-              ),
-              //? filed privat name :
-              const LabelTextFormFiled(
-                text: AppWordManger.fullName,
-                paddingTop: 5,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 45.w,
-                  vertical: 9.h,
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                //? Header Profile
+                const HeaderInfoProfileWidget(),
+                SizedBox(height: 8.42.h),
+                TextUtiels(
+                  text: data.fullName,
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                        fontSize: 24.sp,
+                      ),
                 ),
-                child: MainTextFormFiled(
-                  initialValue: data.fullName,
-                  onChange: (value) {
-                    request.fullName = value;
-                  },
-                  textInputType: TextInputType.name,
-                  fillColor: AppColorManger.white,
-                  borderColor: AppColorManger.borderColor,
-                  borderWidht: 1.3.w,
-                  contentPaddingVertical: 15.h,
-                  contentPaddingHorizontal: 27.w,
+                TextUtiels(
+                  text: AppWordManger.welcome,
+                  fontFamily: AppFontFamily.extraBold,
+                  color: AppColorManger.textlight,
                 ),
-              ),
-              //? Phone Number :
-              const LabelTextFormFiled(
-                text: AppWordManger.phoneNumber,
-                paddingTop: 5,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 45.w,
-                  vertical: 9.h,
+                //? filed privat name :
+                const LabelTextFormFiled(
+                  text: AppWordManger.fullName,
+                  paddingTop: 5,
                 ),
-                child: MainTextFormFiled(
-                  initialValue: data.phoneNumber,
-                  readOnly: true,
-                  textInputType: TextInputType.name,
-                  fillColor: AppColorManger.white,
-                  borderColor: AppColorManger.borderColor,
-                  borderWidht: 1.3.w,
-                  contentPaddingVertical: 15.h,
-                  contentPaddingHorizontal: 27.w,
-                ),
-              ),
-              //? birh day  form filed :
-              const LabelTextFormFiled(
-                text: AppWordManger.birthDay,
-                paddingTop: 10,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 45.w,
-                  vertical: 9.h,
-                ),
-                child: MainTextFormFiled(
-                  textInputType: TextInputType.name,
-                  fillColor: AppColorManger.white,
-                  borderColor: AppColorManger.borderColor,
-                  borderWidht: 1.3.w,
-                  contentPaddingVertical: 15.h,
-                  contentPaddingHorizontal: 27.w,
-                  readOnly: true,
-                  controller: controller,
-                  suffixIcon: Icons.calendar_month_outlined,
-                  onTap: () async {
-                    await selecteDate(context, controller);
-                    request.birthDate =
-                        DateTime.tryParse(controller.text) ?? DateTime.now();
-                  },
-                ),
-              ),
-              //? choose gender :
-              Padding(
-                padding: EdgeInsets.only(
-                  right: 10.w,
-                  top: 10.h,
-                  left: 10.w,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GenderBackWidget(
-                      requestProfile: request,
-                      selectIndex: data.gender,
-                      texts: const [AppWordManger.fmeal, AppWordManger.meal],
-                      marginRight: 10.w,
-                    ),
-                    const LabelTypeGenderWidget(),
-                  ],
-                ),
-              ),
-              //? button save info :
-              BlocConsumer<UpdataPatientProfileCubit,
-                  UpdataPatientProfileState>(
-                listener: (context, state) => ProfileLogic()
-                    .listenerProfileInfo(context: context, state: state),
-                builder: (context, state) {
-                  if (state.status == DeafultBlocStatus.loading) {
-                    return const MainLoadignWidget();
-                  }
-                  return MainElevatedButton(
-                    verticalPadding: 15.h,
-                    paddingOut: EdgeInsets.only(top: 34.h),
-                    horizontalPadding: 65.w,
-                    raduiseBorder: 18,
-                    text: AppWordManger.save,
-                    backgroundColor: AppColorManger.secoundryColor,
-                    textColor: AppColorManger.white,
-                    onPreesed: () {
-                      context
-                          .read<UpdataPatientProfileCubit>()
-                          .updataPatientProfile(request: request);
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 45.w,
+                    vertical: 9.h,
+                  ),
+                  child: MainTextFormFiled(
+                    initialValue: data.fullName,
+                    onChange: (value) {
+                      request.fullName = value;
                     },
-                  );
-                },
-              ),
-            ],
+                    textInputType: TextInputType.name,
+                    fillColor: AppColorManger.white,
+                    borderColor: AppColorManger.borderColor,
+                    borderWidht: 1.3.w,
+                    contentPaddingVertical: 15.h,
+                    contentPaddingHorizontal: 27.w,
+                  ),
+                ),
+                //? Phone Number :
+                const LabelTextFormFiled(
+                  text: AppWordManger.phoneNumber,
+                  paddingTop: 5,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 45.w,
+                    vertical: 9.h,
+                  ),
+                  child: MainTextFormFiled(
+                    initialValue: data.phoneNumber,
+                    readOnly: true,
+                    textInputType: TextInputType.name,
+                    fillColor: AppColorManger.white,
+                    borderColor: AppColorManger.borderColor,
+                    borderWidht: 1.3.w,
+                    contentPaddingVertical: 15.h,
+                    contentPaddingHorizontal: 27.w,
+                  ),
+                ),
+                //? birh day  form filed :
+                const LabelTextFormFiled(
+                  text: AppWordManger.birthDay,
+                  paddingTop: 10,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 45.w,
+                    vertical: 9.h,
+                  ),
+                  child: MainTextFormFiled(
+                    textInputType: TextInputType.name,
+                    fillColor: AppColorManger.white,
+                    borderColor: AppColorManger.borderColor,
+                    borderWidht: 1.3.w,
+                    contentPaddingVertical: 15.h,
+                    contentPaddingHorizontal: 27.w,
+                    readOnly: true,
+                    controller: controller,
+                    suffixIcon: Icons.calendar_month_outlined,
+                    onTap: () async {
+                      await selecteDate(context, controller);
+                      request.birthDate =
+                          DateTime.tryParse(controller.text) ?? DateTime.now();
+                    },
+                  ),
+                ),
+                //? choose gender :
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: 10.w,
+                    top: 10.h,
+                    left: 10.w,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GenderBackWidget(
+                        requestProfile: request,
+                        selectIndex: data.gender,
+                        texts: const [AppWordManger.fmeal, AppWordManger.meal],
+                        marginRight: 10.w,
+                      ),
+                      const LabelTypeGenderWidget(),
+                    ],
+                  ),
+                ),
+                //? button save info :
+                BlocConsumer<UpdataPatientProfileCubit,
+                    UpdataPatientProfileState>(
+                  listener: (context, state) => ProfileLogic()
+                      .listenerProfileInfo(context: context, state: state),
+                  builder: (context, state) {
+                    if (state.status == DeafultBlocStatus.loading) {
+                      return const MainLoadignWidget();
+                    }
+                    return MainElevatedButton(
+                      verticalPadding: 15.h,
+                      paddingOut: EdgeInsets.only(top: 34.h),
+                      horizontalPadding: 65.w,
+                      raduiseBorder: 18,
+                      text: AppWordManger.save,
+                      backgroundColor: AppColorManger.secoundryColor,
+                      textColor: AppColorManger.white,
+                      onPreesed: () {
+                        context
+                            .read<UpdataPatientProfileCubit>()
+                            .updataPatientProfile(request: request);
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           );
         },
       ),

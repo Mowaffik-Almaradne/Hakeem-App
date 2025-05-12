@@ -101,7 +101,7 @@ class AppWordManger {
   static const yes = 'نعم';
   static const no = 'لا';
   static const pleaseWriteSomeThingYouRemember = 'يرجى كتابة شيئ تتذكره';
-  static const mustbeSavenNumbers = 'يجب أن يكون 7 ارقام';
+  static const mustbeSavenNumbers = 'يجب أن يكون أكثر من 5 ارقام';
   static const confirmTheNewPassword = 'تأكيد كلمة السر الجديدة';
   static const reEnterPassword = 'إعادة كتابة كلمة السر';
   static const editMyNumber = 'تعديل رقمي';

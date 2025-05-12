@@ -1,10 +1,10 @@
 class FaluireManger {
-  static const pleaseTryLater = 'Please Try Later';
+  static const pleaseTryLater = 'يرجى المحاولة لاحقًا';
   static const thePageWasNotDisplayedBecauseTheRequestEntityistooLarge =
-      'the Page Was Not Displayed Because TheRequest Entityis tooLarge';
-  static const connectionError = 'Connection Error';
-  static const conectionTimeOut = 'conection Time Out';
-  static const pleaseCheckTheNetwork = 'Please Check The Network';
-  static const errorEmptyCach = 'error Empty Cach';
-  static const unHandledFailure = 'un Handled Failure';
+      'لم يتم عرض الصفحة لأن طلب الكيان كبير جدًا';
+  static const connectionError = 'خطأ في الاتصال';
+  static const conectionTimeOut = 'انتهت مهلة الاتصال';
+  static const pleaseCheckTheNetwork = 'يرجى التحقق من الشبكة';
+  static const errorEmptyCach = 'خطأ: ذاكرة التخزين المؤقت فارغة';
+  static const unHandledFailure = 'فشل غير معالج';
 }

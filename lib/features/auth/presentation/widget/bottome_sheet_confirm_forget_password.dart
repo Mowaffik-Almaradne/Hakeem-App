@@ -12,7 +12,7 @@ import 'package:hosptel_app/core/widget/form_filed/text_form_filed_verification_
 import 'package:hosptel_app/core/widget/loading/main_loading.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/auth/presentation/cubit/confirm_forget_password_cubit/confirm_forget_password_cubit.dart';
-import 'package:hosptel_app/features/auth/presentation/cubit/resend_code_cubit/resend_code_cubit.dart';
+import 'package:hosptel_app/features/auth/presentation/cubit/forget_password_phone_cubit/forget_password_phone_cubit.dart';
 import 'package:hosptel_app/features/auth/presentation/logic/auth_logic.dart';
 import 'package:hosptel_app/features/auth/presentation/widget/resend_code_widget.dart';
 
@@ -143,8 +143,8 @@ class _BottomeSheetConfirmPasswordWidgetState
           ResendCodeWidget(
             onTap: () {
               context
-                  .read<ResendCodeCubit>()
-                  .resendCode(phoneNumber: widget.numberPhone);
+                  .read<ForgetPassswordPhoneCubit>()
+                  .forgetPasswordPhone(phoneNumber: widget.numberPhone);
             },
           )
         ],

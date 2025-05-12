@@ -96,6 +96,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                         width: 200.w,
                         height: 60.h,
                         child: MainTextFormFiled(
+                          fontSize: AppFontSizeManger.s12,
                           hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                           onChange: (value) {
                             request.phomeNumber = value;

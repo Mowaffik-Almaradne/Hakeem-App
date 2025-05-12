@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosptel_app/core/function/show_dailog_guest.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
 import 'package:hosptel_app/core/widget/main/main_app_bar/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/sanck_bar/snack_bar_back_to_exit.dart';
@@ -52,19 +53,10 @@ class _HomePageState extends State<HomePage> {
   void _showDialogNotification(RemoteMessage message) {
     if (!mounted) return;
     if (message.notification != null) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(message.notification?.title ?? ''),
-          content: Text(message.notification?.body ?? ''),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text(AppWordManger.done),
-            ),
-          ],
-        ),
-      );
+      showDialogForNotification(
+          context: context,
+          title: message.notification?.title ?? "",
+          body: message.notification?.body ?? "");
     }
   }
 

@@ -78,7 +78,7 @@ class EditNumberPage extends StatelessWidget {
                         FilteringTextInputFormatter.digitsOnly,
                         LengthLimitingTextInputFormatter(10),
                       ],
-                      hintText: AppWordManger.pleaseWritePhoneNumber,
+                      hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                       filedWidth: 260.w,
                       onChange: (value) {
                         phoneNumber = value;
@@ -87,7 +87,6 @@ class EditNumberPage extends StatelessWidget {
                           VilidationApp().validatorPhone(value ?? ''),
                       textInputType: TextInputType.number,
                       fillColor: AppColorManger.white,
-                      borderColor: AppColorManger.borderColor,
                       borderWidht: 1.3.w,
                       contentPaddingVertical: 19.h,
                       contentPaddingHorizontal: 16.w,

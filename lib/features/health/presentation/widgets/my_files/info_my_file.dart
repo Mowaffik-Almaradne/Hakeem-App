@@ -60,7 +60,7 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: 100.w,
+                width: 80.w,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: TextUtiels(
@@ -82,9 +82,12 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
                         ),
                   ),
                   TextUtiels(
+                    textDirection: TextDirection.rtl,
                     paddingRight: 5.w,
-                    text: formatDate(widget.item.creationTime,
-                        slasheFormate: true),
+                    text: formatDate(
+                      widget.item.creationTime,
+                      slasheFormate: true,
+                    ),
                     style: Theme.of(context).textTheme.displaySmall?.copyWith(
                           fontSize: 12.sp,
                         ),
@@ -134,7 +137,9 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
           });
 
           SnackBarUtil.showSnackBar(
-              message: 'تم تحميل بنجاح', context: context);
+              colorSuccess: AppColorManger.primaryColor,
+              message: 'تم تحميل بنجاح',
+              context: context);
         },
         onDownloadError: (errorMessage) {
           setState(() {

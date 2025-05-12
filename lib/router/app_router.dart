@@ -155,7 +155,7 @@ class AppRouter {
                   create: (context) => di.sl<ConfirmForgetPasswordCubit>(),
                 ),
                 BlocProvider(
-                  create: (context) => di.sl<ResendCodeCubit>(),
+                  create: (context) => di.sl<ForgetPassswordPhoneCubit>(),
                 )
               ],
               child: ConfirmFrogetPassword(

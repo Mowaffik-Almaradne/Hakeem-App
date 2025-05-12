@@ -61,6 +61,23 @@ String getMonthName(int? month) {
   return arabicMonths[month - 1];
 }
 
+String getDayName(DateTime date) {
+  // List of day names in Arabic
+  const List<String> dayNames = [
+    'الأحد', // Sunday
+    'الاثنين', // Monday
+    'الثلاثاء', // Tuesday
+    'الأربعاء', // Wednesday
+    'الخميس', // Thursday
+    'الجمعة', // Friday
+    'السبت' // Saturday
+  ];
+
+  // Return the day name based on the weekday
+  return dayNames[
+      date.weekday - 1]; // weekday ranges from 1 (Monday) to 7 (Sunday)
+}
+
 //? For Show Time And Moring OR evnngig  :
 String getTimePeriod(String time) {
   List<String> timeParts = time.split(':');
@@ -71,7 +88,7 @@ String getTimePeriod(String time) {
 
   hour = hour % 12;
   hour = hour == 0 ? 12 : hour;
-  return '$period $hour:$minute';
+  return '$hour:$minute $period';
 }
 
 String getTimePeriodForReservation(String time) {

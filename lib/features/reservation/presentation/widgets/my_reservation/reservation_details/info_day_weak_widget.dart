@@ -27,7 +27,7 @@ class InfoDaysAndTimesWidget extends StatelessWidget {
             text: AppWordManger.notFoundeWorkHoursAvialibale,
           ),
           child: SizedBox(
-            height: 120.h,
+            height: 130.h,
             child: ListView.separated(
               itemCount: state.entitie.result.length,
               separatorBuilder: (context, index) => SizedBox(height: 9.h),

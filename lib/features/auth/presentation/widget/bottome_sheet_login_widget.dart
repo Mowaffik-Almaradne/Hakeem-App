@@ -74,7 +74,7 @@ class BottomeSheetLoginWidget extends StatelessWidget {
                         child: MainTextFormFiled(
                           fontSize: AppFontSizeManger.s12,
                           validator: (value) =>
-                              VilidationApp().validator(value!),
+                              VilidationApp().validatorPhone(value!),
                           hintText: AppWordManger.pleaseEnterYourPhoneNumber,
                           onChange: (value) {
                             phoneNumber = value;

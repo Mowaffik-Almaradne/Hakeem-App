@@ -79,10 +79,12 @@ class CardReservationWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       //? Name Doctor From (Api)
                       TextUtiels(
-                        text: item.dayName,
+                        paddingRight: 10.w,
+                        text: getDayName(item.appointmentDate),
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColorManger.colorShowDailogButton,
                               fontSize: 16.sp,
