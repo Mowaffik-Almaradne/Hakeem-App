@@ -26,7 +26,7 @@ class WattingReservationWidget extends StatelessWidget {
         return Visibility(
           visible: state.itemsListIsWatting.isNotEmpty,
           replacement: const EmptyReservationWidget(
-              mainText: AppWordManger.noExpiredReservationsAvailable),
+              mainText: AppWordManger.noPendingReservationsAvailable),
           child: SizedBox(
             height: 120.h,
             child: ListViewWithPagenationWidget<MyReservationItem>(

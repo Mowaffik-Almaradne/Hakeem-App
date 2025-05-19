@@ -51,7 +51,7 @@ class InfoDayItem extends StatelessWidget {
               ),
               //? Text Data :
               TextUtiels(
-                text: "${getMonthName(item.date.month)} ${item.date.day}",
+                text: "${getMonthName(date: item.date)} ${item.date.day}",
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     fontSize: 11.sp,
                     fontWeight: AppFontWeightManger.fontWeightExtraBold,

@@ -82,6 +82,7 @@ class DetailesReservationPage extends StatelessWidget {
                       );
                     } else {
                       MainShowDialog.customShowDialog(
+                        isRow: false,
                         insetPadding: EdgeInsets.symmetric(
                           vertical: 215.h,
                           horizontal: 20.w,
@@ -110,5 +111,3 @@ class DetailesReservationPage extends StatelessWidget {
     );
   }
 }
-
-

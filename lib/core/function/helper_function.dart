@@ -23,63 +23,16 @@ String findDifference({DateTime? serverDate, DateTime? localDateRating}) {
   }
 }
 
-//? Formate Data :
-String formatDate(DateTime dateTime,
-    {bool slasheFormate = false, bool isShowAmPm = false}) {
-  final DateFormat hourFormatter = DateFormat('HH'); // Format for hour
+String formatDate(
+  DateTime dateTime, {
+  bool slasheFormate = false,
+}) {
   final DateFormat dateFormatter = DateFormat('yyyy/M/d'); // Format for date
-  // Get the hour in 24-hour format
-  int hour = int.parse(hourFormatter.format(dateTime));
-
-  // Determine if it's AM or PM based on the hour
-  String amPm = hour < 12 ? 'ص' : 'م'; // 'ص' for AM, 'م' for PM
-
-  // Return the formatted string
-  return '${dateFormatter.format(dateTime)} ${isShowAmPm ? hourFormatter.format(dateTime) : ""} ${isShowAmPm ? amPm : ""}';
-}
-
-//? Get Name Month
-String getMonthName(int? month) {
-  if (month == null || month < 1 || month > 12) {
-    return 'شهر غير صالح';
-  }
-  const List<String> arabicMonths = [
-    'يناير', // January
-    'فبراير', // February
-    'مارس', // March
-    'أبريل', // April
-    'مايو', // May
-    'يونيو', // June
-    'يوليو', // July
-    'أغسطس', // August
-    'سبتمبر', // September
-    'أكتوبر', // October
-    'نوفمبر', // November
-    'ديسمبر' // December
-  ];
-
-  return arabicMonths[month - 1];
-}
-
-String getDayName(DateTime date) {
-  // List of day names in Arabic
-  const List<String> dayNames = [
-    'الأحد', // Sunday
-    'الاثنين', // Monday
-    'الثلاثاء', // Tuesday
-    'الأربعاء', // Wednesday
-    'الخميس', // Thursday
-    'الجمعة', // Friday
-    'السبت' // Saturday
-  ];
-
-  // Return the day name based on the weekday
-  return dayNames[
-      date.weekday - 1]; // weekday ranges from 1 (Monday) to 7 (Sunday)
+  return dateFormatter.format(dateTime);
 }
 
 //? For Show Time And Moring OR evnngig  :
-String getTimePeriod(String time) {
+String getTimePeriod({required String time, bool isShowPeriodtrue = true}) {
   List<String> timeParts = time.split(':');
   int hour = int.parse(timeParts[0]); // Get the hour part
   String minute = timeParts[1]; // Get the minute part
@@ -88,20 +41,7 @@ String getTimePeriod(String time) {
 
   hour = hour % 12;
   hour = hour == 0 ? 12 : hour;
-  return '$hour:$minute $period';
-}
-
-String getTimePeriodForReservation(String time) {
-  List<String> timeParts = time.split(':');
-  int hour = int.parse(timeParts[0]); // Get the hour part
-  String minute = timeParts[1]; // Get the minute part
-
-  String period = hour < 12 ? 'صباحًا' : 'مساءً';
-
-  hour = hour % 12;
-  hour = hour == 0 ? 12 : hour;
-
-  return '$hour:$minute $period';
+  return '$hour:$minute ${isShowPeriodtrue ? period : ""}';
 }
 
 String formatTimeTo12Hour(DateTime time) {
@@ -113,16 +53,6 @@ String formatTimeTo12Hour(DateTime time) {
   hour = hour == 0 ? 12 : hour; // تحويل الساعة 0 إلى 12
 
   return '$hour:$minute';
-}
-
-String amAndPm(DateTime time) {
-  int hour = time.hour;
-  String period = hour < 12 ? 'ص' : 'م';
-
-  hour = hour % 12;
-  hour = hour == 0 ? 12 : hour; // تحويل الساعة 0 إلى 12
-
-  return period;
 }
 
 //? Check Is Imae
@@ -139,4 +69,30 @@ bool isImageFile(String fileUrl) {
 
   return imageExtensions
       .any((extension) => fileUrl.toLowerCase().endsWith(extension));
+}
+
+String getDayName({required DateTime date}) {
+  String dayName = DateFormat('EEEE', 'ar').format(date);
+  return dayName;
+}
+
+String getMonthName({required DateTime date}) {
+  String dayName = DateFormat('MMMM', 'ar').format(date);
+
+  return dayName;
+}
+
+String getFulllDate({required DateTime date}) {
+  String fulllDate = DateFormat.yMEd('ar').add_jms().format(date);
+  return fulllDate;
+}
+
+String getTime({required DateTime date}) {
+  String time = DateFormat('hh:mm', 'en').format(date);
+  return time;
+}
+
+String amAndPm(DateTime time) {
+  String period = DateFormat('a', 'ar').format(time);
+  return period;
 }

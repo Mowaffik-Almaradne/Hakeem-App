@@ -1,4 +1,5 @@
 class ValidationWords {
+  static const noSpaces = 'لا يُسمح بوجود مسافات';
   static const requiredField = 'هذا الحقل مطلوب';
   static const passwordLength = 'يجب أن تكون كلمة المرور أكثر من 5 أحرف';
   static const emailPattren = 'الرجاء إدخال بريد إلكتروني صالح';

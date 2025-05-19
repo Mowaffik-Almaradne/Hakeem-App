@@ -22,19 +22,22 @@ class GenderBackWidget extends StatefulWidget {
   final double? marginRight;
   final CreateAccoutRequestEntite? requestEntite;
   final MainPatientProfile? requestProfile;
-  final int selectIndex; // Remove the '?' since it's non-nullable now
+  final int selectIndex;
 
   @override
   State<GenderBackWidget> createState() => _GenderBackWidgetState();
 }
 
 class _GenderBackWidgetState extends State<GenderBackWidget> {
-  int _selectedIndex = 0; // Declare a mutable field in the state
+  late int _selectedIndex;
 
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.selectIndex; // Initialize with widget's selectIndex
+
+    _selectedIndex = widget.requestEntite?.gender ??
+        widget.requestProfile?.gender ??
+        widget.selectIndex;
   }
 
   @override

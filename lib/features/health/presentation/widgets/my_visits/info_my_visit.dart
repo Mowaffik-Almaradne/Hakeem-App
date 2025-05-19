@@ -60,7 +60,8 @@ class InfoMyVisitItem extends StatelessWidget {
                   paddingForText: 25.w,
                   primatyText: AppWordManger.hour,
                   secoundryText: item.appointmentStartTime.isNotEmpty
-                      ? getTimePeriod(item.appointmentStartTime.substring(0, 5))
+                      ? getTimePeriod(
+                          time: item.appointmentStartTime.substring(0, 5))
                       : ''),
             ],
           ),

@@ -12,56 +12,47 @@ class InfoItemDetailsMonyAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        TextUtiels(
+          textDirection: TextDirection.rtl,
+          text: "${item.amount.toString()} ل.س",
+          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                fontFamily: AppFontFamily.extraBold,
+                fontSize: 20.sp,
+              ),
+        ),
+        const Spacer(),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
-          child: Row(
+          padding: EdgeInsetsDirectional.only(end: 14.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextUtiels(
-                text: 'ل.س',
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      fontFamily: AppFontFamily.extraBold,
-                      fontSize: 20.sp,
+                text: ' ${formatDate(item.creationTime, slasheFormate: true)}',
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                      fontSize: 14.sp,
+                      color: AppColorManger.textGray,
                     ),
               ),
               TextUtiels(
-                text: item.amount.toString(),
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      fontFamily: AppFontFamily.extraBold,
-                      fontSize: 20.sp,
+                textDirection: TextDirection.rtl,
+                text:
+                    "${formatTimeTo12Hour(item.creationTime)} ${amAndPm(item.creationTime)}",
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                      fontSize: 14.sp,
+                      color: AppColorManger.textGray,
                     ),
               ),
             ],
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextUtiels(
-              text: ' ${formatDate(item.creationTime, slasheFormate: true)}',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    fontSize: 14.sp,
-                    color: AppColorManger.textGray,
-                  ),
-            ),
-            TextUtiels(
-              text: formatTimeTo12Hour(item.creationTime),
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    fontSize: 14.sp,
-                    color: AppColorManger.textGray,
-                  ),
-            ),
-          ],
-        ),
         //? Icon :
         Container(
-          width: 26.w,
-          height: 30.h,
+          width: 23.66.w,
+          height: 25.81.h,
           decoration: BoxDecoration(
             color: AppColorManger.secoundryColor,
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(5.r),
           ),
         )
       ],

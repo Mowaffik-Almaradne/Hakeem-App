@@ -12,6 +12,7 @@ class GetAllMyResrvationEntities {
     );
   }
 }
+
 class MyReservationResult {
   MyReservationResult({
     required this.totalCount,

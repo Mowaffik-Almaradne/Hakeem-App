@@ -84,7 +84,7 @@ class CardReservationWidget extends StatelessWidget {
                       //? Name Doctor From (Api)
                       TextUtiels(
                         paddingRight: 10.w,
-                        text: getDayName(item.appointmentDate),
+                        text: getDayName(date: item.appointmentDate),
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColorManger.colorShowDailogButton,
                               fontSize: 16.sp,
@@ -96,7 +96,7 @@ class CardReservationWidget extends StatelessWidget {
                       TextUtiels(
                         paddingRight: 10.w,
                         text:
-                            "${AppWordManger.dataReservation} : ${formatDate(item.appointmentDate, slasheFormate: true, isShowAmPm: true)}",
+                            "${AppWordManger.dataReservation} : ${formatDate(item.appointmentDate, slasheFormate: true)} ${getTimePeriod(time: item.startTime, isShowPeriodtrue: false)}${amAndPm(item.appointmentDate)}",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColorManger.colorShowDailogButton,
                               fontSize: 16.sp,

@@ -22,14 +22,18 @@ class InfoNotificationWidget extends StatelessWidget {
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              TextUtiels(
-                text: item.body,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge
-                    ?.copyWith(fontSize: 14.sp),
+              SizedBox(
+                width: 200.w,
+                child: TextUtiels(
+                  textDirection: TextDirection.ltr,
+                  text: item.body,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelLarge
+                      ?.copyWith(fontSize: 14.sp),
+                ),
               ),
               TextUtiels(
                 text: formatDate(item.creationTime),

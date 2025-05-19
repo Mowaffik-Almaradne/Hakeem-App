@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hosptel_app/core/entity/decode_token_entity.dart';
+
 import 'package:hosptel_app/core/function/helper_function.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/text_utiles/text_utile_widget.dart';
 import 'package:hosptel_app/features/reservation/domain/entities/req/create_appoinment_request.dart';
 
@@ -38,7 +39,7 @@ class CardSummaryWidget extends StatelessWidget {
               TextUtiels(
                 paddingRight: 10.w,
                 text:
-                    "${AppWordManger.fullName} : ${DecodeTokenEntity.getData().name}",
+                    "${AppWordManger.fullName} : ${AppSharedPreferences.getUserName()}",
                 style: Theme.of(context).textTheme.displayLarge?.copyWith(
                       fontSize: 20.sp,
                       fontFamily: AppFontFamily.tajawalMedium,
@@ -54,7 +55,7 @@ class CardSummaryWidget extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     paddingRight: 5.w,
                     paddingTop: 12.h,
-                    text: getTimePeriodForReservation(request.startTime),
+                    text: getTimePeriod(time: request.startTime),
                     color: AppColorManger.colorShowDailogButton,
                     fontSize: 16.sp,
                     fontFamily: AppFontFamily.tajawalMedium,

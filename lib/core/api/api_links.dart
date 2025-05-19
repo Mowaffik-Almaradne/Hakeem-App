@@ -36,6 +36,10 @@ class ApiGet {
   //? Notification :
   static const getAllPatientNotification =
       "${subUrl}PatientNotification/GetAllForPatient";
+
+  //?General Settings
+  static const getGeneralSetting =
+      "${subUrl}GeneralSetting/GetGeneralSettingsForMobile";
 }
 //?
 

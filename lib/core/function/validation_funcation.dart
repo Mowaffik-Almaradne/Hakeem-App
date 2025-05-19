@@ -13,6 +13,8 @@ class VilidationApp {
   String? validator(String value) {
     if (value.isEmpty) {
       return ValidationWords.requiredField;
+    } else if (value.trim().isEmpty) {
+      return ValidationWords.noSpaces;
     } else {
       return null;
     }
@@ -30,6 +32,8 @@ class VilidationApp {
   String? validatorPassword({required String value}) {
     if (value.isEmpty) {
       return ValidationWords.requiredField;
+    } else if (value.trim().isEmpty) {
+      return ValidationWords.noSpaces;
     } else if (value.length < 6) {
       return ValidationWords.passwordLength;
     }
@@ -40,6 +44,8 @@ class VilidationApp {
   String? validatorPhone(String value) {
     if (value.isEmpty) {
       return ValidationWords.requiredField;
+    } else if (value.trim().isEmpty) {
+      return ValidationWords.noSpaces;
     } else if (!RagularExpression.phoneRegex.hasMatch(value)) {
       return ValidationWords.phoneNumber;
     }
@@ -52,6 +58,8 @@ class VilidationApp {
       return ValidationWords.requiredField;
     } else if (value.length < 6) {
       return ValidationWords.passwordLength;
+    } else if (value.trim().isEmpty) {
+      return ValidationWords.noSpaces;
     } else if (newPassword != value) {
       return ValidationWords.reenterPasswoprd;
     }

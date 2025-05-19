@@ -106,7 +106,9 @@ class _VerficationEditNumberState extends State<VerficationEditNumber> {
                 ConfirmEditPhoneNumberState>(
               listener: (context, state) => ProfileLogic()
                   .listenerConfirmEditPhoneNumber(
-                      context: context, state: state),
+                      context: context,
+                      state: state,
+                      phoneNumber: widget.phoneNumber),
               builder: (context, state) {
                 if (state.status == DeafultBlocStatus.loading) {
                   return const MainLoadignWidget();

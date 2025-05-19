@@ -40,17 +40,19 @@ class InfoAdvertisementWidget extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(
-                width: 180.w,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: TextUtiels(
-                    paddingRight: 30.w,
-                    text: item.title,
-                    fontFamily: AppFontFamily.tajawalBold,
-                    color: AppColorManger.primaryColor,
-                    fontSize: AppFontSizeManger.s16,
-                    height: 3.h,
+              Directionality(
+                textDirection: TextDirection.rtl,
+                child: SizedBox(
+                  width: 180.w,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: TextUtiels(
+                      text: item.title,
+                      fontFamily: AppFontFamily.tajawalBold,
+                      color: AppColorManger.primaryColor,
+                      fontSize: AppFontSizeManger.s16,
+                      height: 3.h,
+                    ),
                   ),
                 ),
               ),

@@ -39,7 +39,7 @@ class InfoTimeItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextUtiels(
-                text: getTimePeriod(item.fromTime),
+                text: getTimePeriod(time: item.fromTime),
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                       fontSize: 11.sp,
                       fontWeight: AppFontWeightManger.fontWeightExtraBold,

@@ -41,6 +41,7 @@ class CardMedicalDescription extends StatelessWidget {
               AppSvgManger.iconArrowProfile,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 TextUtiels(
                   paddingBottome: 4.h,
@@ -49,28 +50,36 @@ class CardMedicalDescription extends StatelessWidget {
                         fontSize: 14.sp,
                       ),
                 ),
-                Row(
-                  children: [
-                    TextUtiels(
-                      text: amAndPm(item.creationTime),
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            fontSize: 11.sp,
-                          ),
-                    ),
-                    TextUtiels(
-                      text: formatTimeTo12Hour(item.creationTime),
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            fontSize: 11.sp,
-                          ),
-                    ),
-                    TextUtiels(
-                      text: formatDate(item.creationTime),
-                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                            fontSize: 11.sp,
-                          ),
-                    ),
-                  ],
-                )
+                TextUtiels(
+                  textDirection: TextDirection.rtl,
+                  text:
+                      "${formatDate(item.creationTime)} ${getTime(date: item.creationTime)} ${amAndPm(item.creationTime)}",
+                  style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                        fontSize: 11.sp,
+                      ),
+                ),
+                // Row(
+                //   children: [
+                //     TextUtiels(
+                //       text: amAndPm(item.creationTime),
+                //       style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                //             fontSize: 11.sp,
+                //           ),
+                //     ),
+                //     TextUtiels(
+                //       text: formatTimeTo12Hour(item.creationTime),
+                //       style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                //             fontSize: 11.sp,
+                //           ),
+                //     ),
+                //     TextUtiels(
+                //       text: formatDate(item.creationTime),
+                //       style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                //             fontSize: 11.sp,
+                //           ),
+                //     ),
+                //   ],
+                // )
               ],
             ),
           ],

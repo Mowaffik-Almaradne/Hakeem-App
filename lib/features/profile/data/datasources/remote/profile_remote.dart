@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:hosptel_app/core/api/api_links.dart';
 import 'package:hosptel_app/core/api/api_methode_delete.dart';
 import 'package:hosptel_app/core/api/api_methode_get.dart';
@@ -53,7 +54,6 @@ class ProfileRemoteImpl implements ProfileRemote {
     );
   }
 
-
   //? Confirm Edit PhoneNumber Remote Impl :
   @override
   Future<Unit> confirmEditPhoneNumber({
@@ -73,7 +73,12 @@ class ProfileRemoteImpl implements ProfileRemote {
 //? Logout Remote Impl :
   @override
   Future<Unit> logout() async {
+    final firebaseMessaging = FirebaseMessaging.instance;
+    String tokenDevice = await firebaseMessaging.getToken() ?? "";
     return ApiPostMethods<Unit>().post(
+      body: {
+        "firebaseToken": tokenDevice,
+      },
       url: ApiPost.logoutUrl,
       data: (response) => unit,
     );

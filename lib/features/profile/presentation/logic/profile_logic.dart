@@ -3,6 +3,7 @@ import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/loading/main_loading.dart';
 import 'package:hosptel_app/core/widget/sanck_bar/main_snack_bar.dart';
+import 'package:hosptel_app/features/profile/domain/entities/res/patient_profile_entitiey.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/change_password_cubit/change_password_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/confirm_edit_phone_number_cubit/confirm_edit_phone_number_cubit.dart';
 import 'package:hosptel_app/features/profile/presentation/cubit/delete_account_cubit/delete_account_cubit.dart';
@@ -43,13 +44,16 @@ class ProfileLogic {
   } //?
 
 //? For Confirm Edit Phone Number  :
-  void listenerConfirmEditPhoneNumber(
-      {required ConfirmEditPhoneNumberState state,
-      required BuildContext context}) {
+  void listenerConfirmEditPhoneNumber({
+    required ConfirmEditPhoneNumberState state,
+    required BuildContext context,
+    required String phoneNumber,
+  }) {
     if (state.status == DeafultBlocStatus.error) {
       SnackBarUtil.showSnackBar(
           message: state.failureMessage.message, context: context);
     } else if (state.status == DeafultBlocStatus.done) {
+      AppSharedPreferences.cashPhoneUser(phone: phoneNumber);
       Navigator.pop(context, '');
       Navigator.pop(context);
     }
@@ -74,11 +78,13 @@ class ProfileLogic {
   //? For Confirm Edit Phone Number  :
   void listenerProfileInfo(
       {required UpdataPatientProfileState state,
-      required BuildContext context}) {
+      required BuildContext context,
+      required MainPatientProfile request}) {
     if (state.status == DeafultBlocStatus.error) {
       SnackBarUtil.showSnackBar(
           message: state.failureMessage.message, context: context);
     } else if (state.status == DeafultBlocStatus.done) {
+      AppSharedPreferences.cashUserName(userName: request.fullName);
       Navigator.pop(context);
     }
   } //?

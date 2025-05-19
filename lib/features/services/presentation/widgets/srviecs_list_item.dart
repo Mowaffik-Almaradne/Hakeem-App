@@ -29,8 +29,7 @@ class InfoServicesListWidget extends StatelessWidget {
           child: SizedBox(
             height: 120.h,
             child: ListViewWithPagenationWidget<ItemListServices>(
-              padding: EdgeInsets.symmetric(horizontal: 5.w),
-              separator: SizedBox(width: 25.w),
+              separator: SizedBox(width: 10.w),
               haseReachedMax: state.haseReachedMax,
               item: state.itemsList,
               loading: state.status == DeafultBlocStatus.loading,

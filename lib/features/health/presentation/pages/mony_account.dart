@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hosptel_app/core/entity/decode_token_entity.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/enum_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/word_manger.dart';
+import 'package:hosptel_app/core/shared/shared_pref.dart';
 import 'package:hosptel_app/core/widget/loading/loading_back_ground.dart';
 import 'package:hosptel_app/core/widget/main/main_app_bar/back_ground_main/back_ground_main.dart';
 import 'package:hosptel_app/core/widget/main/nav_button_main/repeted/titel_pages_widget.dart';
@@ -29,7 +29,6 @@ class MonyAccountPage extends StatelessWidget {
               .getAllAccountsForPatient(isRefresh: true);
         },
         child: SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 21.w, vertical: 30.h),
           child: BlocBuilder<GetAllAccountsForPatientCubit,
               GetAllAccountsForPatientState>(
@@ -76,7 +75,7 @@ class MonyAccountPage extends StatelessWidget {
                     ),
                     //? NAME :
                     TextUtiels(
-                      text: DecodeTokenEntity.getData().name,
+                      text: AppSharedPreferences.getUserName(),
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             fontSize: 20.sp,
                             color: AppColorManger.textColor2,
@@ -84,7 +83,7 @@ class MonyAccountPage extends StatelessWidget {
                     ),
                     //? Number Phone
                     TextUtiels(
-                      text: DecodeTokenEntity.getData().phoneNumber,
+                      text: AppSharedPreferences.getPhoneUser(),
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                             fontSize: 20.sp,
                             color: AppColorManger.lightText,

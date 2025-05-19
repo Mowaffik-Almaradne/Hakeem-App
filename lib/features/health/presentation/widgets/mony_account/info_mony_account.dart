@@ -28,8 +28,6 @@ class InfoMonyAccountWidget extends StatelessWidget {
         }
         return Container(
           alignment: Alignment.center,
-          width: 320.w,
-          height: 180.h,
           decoration: BoxDecoration(
               color: AppColorManger.fillColorCard,
               boxShadow: [
@@ -49,7 +47,7 @@ class InfoMonyAccountWidget extends StatelessWidget {
               separator: SizedBox(height: 10.h),
               haseReachedMax: state.haseReachedMax,
               item: state.itemsList,
-              padding: EdgeInsets.symmetric(vertical: 30.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
               loading: state.status == DeafultBlocStatus.loading,
               scrollDirection: Axis.vertical,
               shrinkWrap: true,

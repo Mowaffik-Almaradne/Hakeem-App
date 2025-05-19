@@ -25,6 +25,12 @@ import 'package:hosptel_app/features/doctor/domain/usecases/about_doctor_base_ca
 import 'package:hosptel_app/features/doctor/domain/usecases/about_doctor_use_case.dart';
 import 'package:hosptel_app/features/doctor/presentation/cubit/about_doctor_cubit/doctor_cubit.dart';
 import 'package:hosptel_app/features/doctor/presentation/cubit/get_all_work_hours_cubit/get_all_work_hours_for_doctor_cubit.dart';
+import 'package:hosptel_app/features/general_setting/data/datasources/remote/general_setting_remote.dart';
+import 'package:hosptel_app/features/general_setting/data/repositories/general_setting_repository_impl.dart';
+import 'package:hosptel_app/features/general_setting/domain/repositories/general_setting_repository.dart';
+import 'package:hosptel_app/features/general_setting/domain/usecases/general_setting_base_use_case.dart';
+import 'package:hosptel_app/features/general_setting/domain/usecases/general_setting_use_case.dart';
+import 'package:hosptel_app/features/general_setting/presentation/cubit/general_setting_cubit.dart';
 import 'package:hosptel_app/features/health/data/datasources/remote/health_remote.dart';
 import 'package:hosptel_app/features/health/data/repositories/health_repositories_impl.dart';
 import 'package:hosptel_app/features/health/domain/repositories/health_repositores.dart';
@@ -269,6 +275,28 @@ Future<void> init() async {
   //? Remote
   sl.registerLazySingleton<NotificationRemote>(() => NotificationRemoteImpl());
   //! Features - Notification End :
+
+//! Features - General Setting Start :
+//? Cubit :
+  sl.registerFactory(() => GeneralSettingCubit(useCase: sl()));
+
+//?
+
+//? Usecase
+  sl.registerLazySingleton<GeneralSettingBaseUseCase>(
+    () => GeneralSettingUseCase(repository: sl()),
+  );
+//?
+//? Repo
+  sl.registerLazySingleton<GeneralSettingRepository>(
+      () => GeneralSettingRepositoryImpl(
+            remote: sl(),
+          ));
+// DataSources
+  //? Remote
+  sl.registerLazySingleton<GeneralSettingRemote>(
+      () => GeneralSettingRemoteImpl());
+//! Features - General Setting End :
 
 //! Features - Global
   sl.registerLazySingleton<NetworkInfo>(

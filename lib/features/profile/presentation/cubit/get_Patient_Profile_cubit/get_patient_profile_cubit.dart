@@ -16,7 +16,7 @@ class GetPatientProfileCubit extends Cubit<GetPatientProfileState> {
     if (isClosed) {
       return;
     }
-    data.fold(
+    data.fold(  
       (failure) {
         emit(
           state.copyWith(

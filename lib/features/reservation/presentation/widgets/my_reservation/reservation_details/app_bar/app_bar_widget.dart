@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hosptel_app/core/class/clipping_path_class.dart';
-import 'package:hosptel_app/core/entity/decode_token_entity.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/png_manger.dart';
 import 'package:hosptel_app/core/resources/svg_manger.dart';
@@ -57,7 +56,7 @@ class AppBarReservationDetailsWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         TextUtiels(
-                          text: DecodeTokenEntity.getData().name,
+                          text: AppSharedPreferences.getUserName(),
                           style:
                               Theme.of(context).textTheme.bodyLarge?.copyWith(
                                     fontSize: 13.sp,

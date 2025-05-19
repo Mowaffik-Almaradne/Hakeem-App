@@ -12,12 +12,10 @@ class InfoServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         //? Image :
         Container(
-          margin: EdgeInsets.only(bottom: 8.h),
           decoration: ShapeDecoration(
             shadows: [
               BoxShadow(
@@ -49,6 +47,7 @@ class InfoServices extends StatelessWidget {
         //? Name :
         SizedBox(
           width: 100.w,
+          height: 50.h,
           child: TextUtiels(
             maxLines: 2,
             fontFamily: AppFontFamily.tajawalLight,

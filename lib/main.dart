@@ -7,6 +7,7 @@ import 'package:hosptel_app/firebase_options.dart';
 import 'package:hosptel_app/injection/injection_container.dart' as di;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:intl/date_symbol_data_local.dart' as intl;
 
 void main() async {
   await di.init();
@@ -14,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  intl.initializeDateFormatting('ar', null);
   await FirebaseApi().initNotifications();
   SharedPreferences.getInstance().then(
     (pref) {

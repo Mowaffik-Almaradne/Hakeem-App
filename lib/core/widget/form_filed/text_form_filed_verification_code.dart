@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hosptel_app/core/resources/color_manger.dart';
 import 'package:hosptel_app/core/resources/font_manger.dart';
@@ -21,6 +22,9 @@ class PinCodeFiledWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 25.w, right: 25.w, bottom: 40.h),
       child: PinCodeTextField(
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+        ],
         keyboardType: TextInputType.number,
         appContext: context,
         length: 4,

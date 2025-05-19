@@ -39,7 +39,7 @@ class MedicalDescriptionTableInfo extends StatelessWidget {
                 //? Usage Times
                 TextUtiels(
                   textDirection: TextDirection.rtl,
-                  text: '${item.usageTimes} ابام',
+                  text: '${item.usageDuration} ابام',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 10.sp,
                       ),
@@ -62,7 +62,7 @@ class MedicalDescriptionTableInfo extends StatelessWidget {
                 ), //?
                 //? usage Duration :
                 TextUtiels(
-                  text: item.usageDuration.toString(),
+                  text: item.usageTimes.toString(),
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 10.sp,
                       ),

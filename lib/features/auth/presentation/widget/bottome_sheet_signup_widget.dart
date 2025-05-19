@@ -102,7 +102,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                             request.phomeNumber = value;
                           },
                           validator: (value) =>
-                              VilidationApp().validator(value!),
+                              VilidationApp().validatorPhone(value!),
                           textInputType: TextInputType.phone,
                           contentPaddingVertical: 13.h,
                           contentPaddingHorizontal: 25.w,
@@ -167,7 +167,10 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                   children: [
                     GenderBackWidget(
                       requestEntite: request,
-                      texts: const [AppWordManger.fmeal, AppWordManger.meal],
+                      texts: const [
+                        AppWordManger.meal,
+                        AppWordManger.fmeal,
+                      ],
                       marginRight: 10.w,
                     ),
                     Container(
@@ -220,6 +223,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                     backgroundColor: AppColorManger.primaryColor,
                     textColor: AppColorManger.white,
                     onPreesed: () {
+                      print("-----${request.gender}");
                       if (formKeyCreateAccount.currentState!.validate()) {
                         context
                             .read<CreateAccountCubit>()

@@ -56,11 +56,15 @@ void showDialogForNotification(
 void showDialogForResrvation(BuildContext context) {
   MainShowDialog.customShowDialog(
     isRow: false,
+    canPop: false,
     textPopUp: AppWordManger.doneReservationSucces,
     context,
     firstButtonText: AppWordManger.home,
     secoundButtonText: AppWordManger.myReservation,
     onTapFirst: () {
+      context.read<ButtonNavCubit>().changeIndexButtonNav(2, context);
+    },
+    onTapArrow: () {
       context.read<ButtonNavCubit>().changeIndexButtonNav(2, context);
     },
     onTapSecound: () {

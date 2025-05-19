@@ -120,10 +120,7 @@ class _HomePageState extends State<HomePage> {
                           EdgeInsets.only(left: 19.w, right: 19.w, top: 10.h),
                       text: AppWordManger.services,
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25.w),
-                      child: const InfoServicesListWidget(),
-                    ),
+                    const InfoServicesListWidget(),
                     //? Advertasment :
                     const CaptionTextWidget(
                       text: AppWordManger.tipsAndNews,
@@ -135,7 +132,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              // تثبيت InfoDoctorWidget في أعلى الشاشة
               const Positioned(
                 top: 0,
                 left: 0,

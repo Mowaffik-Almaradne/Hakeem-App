@@ -15,7 +15,7 @@ class AppWordManger {
   static const forgotYourPassword = 'هل نسيت كلمة السر؟';
   static const login = 'تسجيل الدخول';
   static const createAccount = 'إنشاء حساب';
-  static const dontHaveAnAccountAlreadyPlease = 'ليس لديك حساب مسبقا يرجى';
+  static const dontHaveAnAccountAlreadyPlease = 'إذا كان لديك حساب مسبقا يرجى';
   static const loginGust = 'الدخول كضيف';
   static const writeNumber = 'ادخل الرمز';
   static const doneVerification = 'تأكيد الرمز';
@@ -27,7 +27,7 @@ class AppWordManger {
   static const sendCodeForEnsure = 'إرسال رمز التأكيد';
   static const accountAlradyFind = 'إذا كان لديك حساب مسبقا يرجى ';
   static const aCodeHasBeenSentViaTextMessageTo =
-      'تم إرسال رمز برسالة نصية إلى ';
+      'تم إرسال الرمز برسالة واتس اب';
   static const resetPassword = 'إعادة تعيين كلمة المرور';
   static const newPassword = 'كلمة السر  الجديدة';
   static const currentPassword = 'كلمة المرور الحالية';
