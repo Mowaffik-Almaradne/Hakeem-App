@@ -21,20 +21,13 @@ class ApiMethods {
   Logger logger() {
     return Logger(
       printer: PrettyPrinter(
-          methodCount: 0,
-          // number of method calls to be displayed
-          errorMethodCount: 0,
-          // number of method calls if stacktrace is provided
-          lineLength: 120,
-          // noBoxingByDefault: true,
-          // width of the output
-          colors: true,
-          // Colorful log messages
-          printEmojis: false,
-          // Print an emoji for each log message
-          printTime: false
-          // Should each log print contain a timestamp
-          ),
+        methodCount: 0,
+        errorMethodCount: 0,
+        lineLength: 120,
+        colors: true,
+        printEmojis: false,
+        printTime: false,
+      ),
     );
   }
 

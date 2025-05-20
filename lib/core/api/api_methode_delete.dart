@@ -1,14 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/foundation.dart';
+import 'package:hosptel_app/core/extenstion/from_json_extenstion.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
 import '../entity/error_entity_response.dart';
 import '../error/exception.dart';
 import 'api_methods.dart';
 import 'api_url.dart';
-
 class ApiDeleteMethods<T> {
   final String contentType;
   late Map<String, String> headers;
@@ -19,32 +17,26 @@ class ApiDeleteMethods<T> {
       headers.addAll(addHeader ?? {});
     }
   }
-
-  /// using this function for all delete requests
-  /// when the parameter does not needed set as empty value
   Future<T> delete(
       {required String url,
       required T Function(Response response) data,
       path,
       Map<String, dynamic>? query}) async {
-    ApiMethods().logRequest(url: url, query: query, path: {'': path});
+    ApiMethods().logRequest(url: url, query: query, path: path);
     http.Response response;
 
     try {
       if (query?.isNotEmpty ?? false) {
         response = await http
-            .delete(ApiUrl(url).getQuery(query ?? {}).getLink(),
-                headers: headers)
-            .timeout(
-              const Duration(seconds: 30),
-              onTimeout: () => http.Response("Time Out", -1),
-            );
+            .delete(
+              ApiUrl(url).getLink(queryParameters: query),
+              headers: headers,
+            )
+            .onTimeout();
       } else {
-        response =
-            await http.delete(ApiUrl(url).getLink(), headers: headers).timeout(
-                  const Duration(seconds: 30),
-                  onTimeout: () => http.Response("Time Out", -1),
-                );
+        response = await http
+            .delete(ApiUrl(url).getLink(), headers: headers)
+            .onTimeout();
       }
       ApiMethods().logResponse(response, url);
       if (response.statusCode == 200) {
@@ -59,22 +51,17 @@ class ApiDeleteMethods<T> {
                 str: response.body, code: response.statusCode));
       }
     } on TimeoutException catch (_) {
-      // Handle timeout exception here
       if (kDebugMode) {
         print("Request timed out");
       }
       throw ServerException(
           response: errorResponseEntityFromJson(str: '{}', code: -1));
     } on ServerException catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: ${e.response.error.code}");
       }
       rethrow;
     } catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: $e");
       }

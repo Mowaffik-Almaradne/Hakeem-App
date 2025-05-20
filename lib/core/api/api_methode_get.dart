@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:hosptel_app/core/extenstion/from_json_extenstion.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/foundation.dart';
@@ -33,35 +34,23 @@ class ApiGetMethods<T> {
     ApiMethods().logRequest(url: url, query: query, path: path);
     http.Response response;
     try {
-      if ((path?.isNotEmpty ?? false) && (query?.isNotEmpty ?? false)) {
+      if (query?.isNotEmpty ?? false) {
         response = await http
             .get(
-                ApiUrl(url).getPath(path ?? {}).getQuery(query ?? {}).getLink(),
-                headers: headers)
-            .timeout(
-              const Duration(seconds: 30), //? Set the timeout duration here
-            );
-      } else if (query?.isNotEmpty ?? false) {
-        response = await http
-            .get(ApiUrl(url).getQuery(query ?? {}).getLink(), headers: headers)
-            .timeout(
-              const Duration(seconds: 30), //? Set the timeout duration here
-            );
+              ApiUrl(url).getLink(queryParameters: query),
+              headers: headers,
+            )
+            .onTimeout();
       } else if (path?.isNotEmpty ?? false) {
         response = await http
-            .get(ApiUrl(url).getPath(path ?? {}).getLink(), headers: headers)
-            .timeout(
-              const Duration(seconds: 30), //? Set the timeout duration here
-            );
+            .get(ApiUrl(url).getLink(queryParameters: path), headers: headers)
+            .onTimeout();
       } else {
         response =
-            await http.get(ApiUrl(url).getLink(), headers: headers).timeout(
-                  const Duration(seconds: 30), //? Set the timeout duration here
-                );
+            await http.get(ApiUrl(url).getLink(), headers: headers).onTimeout();
       }
-
       ApiMethods().logResponse(response, url);
-      //? this is for request function data : 
+
       if (response.statusCode == 200) {
         return data(response);
       } else if (response.statusCode == 503) {
@@ -83,15 +72,11 @@ class ApiGetMethods<T> {
       throw ServerException(
           response: errorResponseEntityFromJson(str: '{}', code: -1));
     } on ServerException catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: ${e.response.error.code}");
       }
       rethrow;
     } catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: $e");
       }

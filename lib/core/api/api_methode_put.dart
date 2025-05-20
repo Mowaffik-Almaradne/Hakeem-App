@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:hosptel_app/core/extenstion/from_json_extenstion.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -20,9 +21,6 @@ class ApiPutMethods<T> {
       headers.addAll(addHeader ?? {});
     }
   }
-
-  /// using this function for all pu requests
-  /// when the parameter does not needed set as empty value
   Future<T> put(
       {required String url,
       required T Function(Response response) data,
@@ -37,18 +35,12 @@ class ApiPutMethods<T> {
         response = await http
             .put(ApiUrl(url).getLink(),
                 body: jsonEncode(body), headers: headers)
-            .timeout(
-              const Duration(seconds: 30),
-              onTimeout: () => http.Response("Time Out", -1),
-            );
+            .onTimeout();
       } else {
         response = await http
-            .put(ApiUrl(url).getQuery(query ?? {}).getLink(),
+            .put(ApiUrl(url).getLink(queryParameters: query),
                 body: jsonEncode(body), headers: headers)
-            .timeout(
-              const Duration(seconds: 30),
-              onTimeout: () => http.Response("Time Out", -1),
-            );
+            .onTimeout();
       }
       ApiMethods().logResponse(response, url);
       if (response.statusCode == 200) {
@@ -63,22 +55,17 @@ class ApiPutMethods<T> {
                 str: response.body, code: response.statusCode));
       }
     } on TimeoutException catch (_) {
-      // Handle timeout exception here
       if (kDebugMode) {
         print("Request timed out");
       }
       throw ServerException(
           response: errorResponseEntityFromJson(str: '{}', code: -1));
     } on ServerException catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: ${e.response.error.code}");
       }
       rethrow;
     } catch (e) {
-      // Handle other exceptions
-
       if (kDebugMode) {
         print("Error: $e");
       }
