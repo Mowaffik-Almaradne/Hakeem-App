@@ -63,7 +63,7 @@ class AppWordManger {
   static const watting = 'قيد الانتظار';
   static const cansleResevation = 'إلغاء الحجز';
   static const dataReservation = 'تاريخ الحجز';
-  static const numberResevation = ': رقم الحجز';
+  static const numberResevation = 'رقم الحجز : ';
   static const notFoundResevationinThisYet = 'لايوجدحجوزات حتى الآن.';
   static const sorryToCancelTheReservationPlease = 'عذرا ! لإلغاء الحجز يرجى ';
   static const contactUsWithAVoiceCall = 'التواصل معنا بمكالكة صوتية';

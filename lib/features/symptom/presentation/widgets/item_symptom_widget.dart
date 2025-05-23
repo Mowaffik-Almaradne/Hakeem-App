@@ -18,6 +18,7 @@ class SymptomItemWidget extends StatelessWidget {
         SizedBox(
           width: 250.w,
           child: TextUtiels(
+            textDirection: TextDirection.ltr,
             text: item.name,
             fontFamily: AppFontFamily.tajawalMedium,
             fontSize: 14.sp,
