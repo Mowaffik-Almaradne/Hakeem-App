@@ -452,7 +452,7 @@ class AppRouter {
           pageBuilder: (context, animation, secondaryAnimation) {
             return BlocProvider(
               create: (context) => di.sl<GetAllMyReservationCubit>()
-                ..getAllMyReservation(isEnded: true),
+                ..getAllMyReservation(isEnded: false),
               child: const ReservationPage(),
             );
           },

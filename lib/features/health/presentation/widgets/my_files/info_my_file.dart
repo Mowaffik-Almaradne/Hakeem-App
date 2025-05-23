@@ -55,52 +55,55 @@ class _InfoMyFileWidgetState extends State<InfoMyFileWidget> {
                   ),
           ),
           // Info File
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 80.w,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: TextUtiels(
-                    text: widget.item.fileName,
-                    paddingBottome: 3.h,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontSize: 16.sp,
-                        ),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 120.w,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: TextUtiels(
+                      text: widget.item.fileName,
+                      paddingBottome: 3.h,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            fontSize: 16.sp,
+                          ),
+                    ),
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  TextUtiels(
-                    paddingRight: 5.w,
-                    text: formatTimeTo12Hour(widget.item.creationTime),
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 10.sp,
-                        ),
-                  ),
-                  TextUtiels(
-                    textDirection: TextDirection.rtl,
-                    paddingRight: 5.w,
-                    text: formatDate(
-                      widget.item.creationTime,
-                      slasheFormate: true,
+                Row(
+                  children: [
+                    TextUtiels(
+                      textDirection: TextDirection.ltr,
+                      text: '${widget.item.fileSize} kB',
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 12.sp,
+                          ),
                     ),
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 12.sp,
-                        ),
-                  ),
-                  TextUtiels(
-                    text: '${widget.item.fileSize}kB',
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontSize: 12.sp,
-                        ),
-                  ),
-                ],
-              )
-            ],
+                    TextUtiels(
+                      paddingRight: 5.w,
+                      text: formatDate(widget.item.creationTime),
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 10.sp,
+                          ),
+                    ),
+                    TextUtiels(
+                      textDirection: TextDirection.rtl,
+                      paddingRight: 5.w,
+                      text: "${getTime(
+                        date: widget.item.creationTime,
+                      )} ${amAndPm(widget.item.creationTime)}",
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            fontSize: 12.sp,
+                          ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
           // Icon File Or Image
           Visibility(

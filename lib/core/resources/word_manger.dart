@@ -15,7 +15,9 @@ class AppWordManger {
   static const forgotYourPassword = 'هل نسيت كلمة السر؟';
   static const login = 'تسجيل الدخول';
   static const createAccount = 'إنشاء حساب';
-  static const dontHaveAnAccountAlreadyPlease = 'إذا كان لديك حساب مسبقا يرجى';
+  static const dontHaveAnAccountAlreadyPlease = 'ليس لديك حساب مسبقا يرجى ';
+  static const ifYouAlreadyHaveAnAccountPlease =
+      "إذا كان لديك حساب مسبقا يرجى ";
   static const loginGust = 'الدخول كضيف';
   static const writeNumber = 'ادخل الرمز';
   static const doneVerification = 'تأكيد الرمز';
@@ -54,7 +56,7 @@ class AppWordManger {
   static const noPendingReservationsAvailable = "لا يتوفر حجوزات قيد الانتظار";
   static const yourLoginHasExpired = 'انتهت صلاحية تسجيل الدخول';
   static const continueAsGuest = 'استمر كضيف';
-  static const bookingDate = ': تاريخ الحجز';
+  static const bookingDate = 'تاريخ الحجز :';
   static const myReservation = 'حجوزاتي';
   static const workHoursForDoctor = "ساعات العمل";
   static const finshied = 'منتهي';
@@ -110,7 +112,7 @@ class AppWordManger {
   static const newNumber = 'رقمك الجديد';
   static const pleaseWritePhoneNumber = 'يرجى ادخال رقم هاتفك';
   static const sure = 'تأكيد';
-  static const aCodeisSentViaTextMessageTo = 'تم إرسال رمز برسالة نصية إلى';
+  static const aCodeisSentViaTextMessageTo = 'تم إرسال رمز الى واتس اب ';
   static const codeNumber = 'تأكيد الرمز';
   static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
   static const logout = 'تسجيل الخروج';
@@ -139,7 +141,7 @@ class AppWordManger {
       'قبل مزود الخدمة أو الدعم الخاص بك';
   static const donePymant = 'تم الدفع';
   static const details = 'التفاصيل';
-  static const fullCost = 'الكلفة الكلية';
+  static const fullCost = 'الاجمالي المدفوع';
   static const notFoundInformation = 'لاتوجد معلومات .';
   static const medicalDescription = 'الوصفة الطبية';
   static const nameMedicine = 'اسم الدواء';

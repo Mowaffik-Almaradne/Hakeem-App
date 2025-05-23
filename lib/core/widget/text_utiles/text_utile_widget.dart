@@ -54,9 +54,11 @@ class TextUtiels extends StatelessWidget {
         softWrap: true,
         textAlign: textAlign ?? TextAlign.end,
         text,
-        textDirection: textDirection,
+        textDirection: textDirection ?? TextDirection.rtl,
         style: style ??
             TextStyle(
+              
+              
               fontFamily: fontFamily ?? AppFontFamily.tajawalRegular,
               fontSize: fontSize ?? 16.sp,
               color: color ?? AppColorManger.white,

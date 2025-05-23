@@ -34,11 +34,10 @@ String formatDate(
 //? For Show Time And Moring OR evnngig  :
 String getTimePeriod({required String time, bool isShowPeriodtrue = true}) {
   List<String> timeParts = time.split(':');
-  int hour = int.parse(timeParts[0]); // Get the hour part
-  String minute = timeParts[1]; // Get the minute part
+  int hour = int.parse(timeParts[0]);
+  String minute = timeParts[1];
 
   String period = hour < 12 ? 'صباحاً' : 'مساءً';
-
   hour = hour % 12;
   hour = hour == 0 ? 12 : hour;
   return '$hour:$minute ${isShowPeriodtrue ? period : ""}';
@@ -47,11 +46,8 @@ String getTimePeriod({required String time, bool isShowPeriodtrue = true}) {
 String formatTimeTo12Hour(DateTime time) {
   int hour = time.hour;
   String minute = time.minute.toString().padLeft(2, '0');
-  // String period = hour < 12 ? 'ص' : 'م';
-
   hour = hour % 12;
-  hour = hour == 0 ? 12 : hour; // تحويل الساعة 0 إلى 12
-
+  hour = hour == 0 ? 12 : hour;
   return '$hour:$minute';
 }
 
@@ -94,5 +90,13 @@ String getTime({required DateTime date}) {
 
 String amAndPm(DateTime time) {
   String period = DateFormat('a', 'ar').format(time);
+  return period;
+}
+
+String amAndPmFromStrnig({required String time}) {
+  List<String> timeParts = time.split(':');
+  int hour = int.parse(timeParts[0]);
+
+  String period = hour < 12 ? 'ص' : 'م';
   return period;
 }

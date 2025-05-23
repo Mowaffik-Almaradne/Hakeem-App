@@ -242,7 +242,7 @@ class BottomeSheetSignUpWidget extends StatelessWidget {
                     RouteNamedScreens.loginScreenNameRoute,
                   );
                 },
-                primaryText: AppWordManger.dontHaveAnAccountAlreadyPlease,
+                primaryText: AppWordManger.ifYouAlreadyHaveAnAccountPlease,
               ),
             ],
           ),

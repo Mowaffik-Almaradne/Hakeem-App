@@ -28,13 +28,11 @@ class MyApp extends StatelessWidget {
             BlocProvider(
               create: (context) => di.sl<LogoutCubit>(),
             ),
-            if (token.isNotEmpty) ...[
-              BlocProvider(
-                lazy: false,
-                create: (context) =>
-                    di.sl<GeneralSettingCubit>()..getGeneralSetting(),
-              ),
-            ],
+            BlocProvider(
+              lazy: false,
+              create: (context) =>
+                  di.sl<GeneralSettingCubit>()..getGeneralSetting(),
+            ),
             if (token.isNotEmpty && JwtDecoder.isExpired(token)) ...[
               BlocProvider(
                 create: (context) => di.sl<LogoutCubit>()..logout(),

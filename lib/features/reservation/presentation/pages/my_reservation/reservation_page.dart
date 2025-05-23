@@ -26,6 +26,7 @@ class ReservationPage extends StatelessWidget {
       },
       child: DefaultTabController(
         length: 2,
+        initialIndex: 1,
         child: MainBackGround(
           mainBody:
               BlocBuilder<GetAllMyReservationCubit, GetAllMyReservationState>(
@@ -39,12 +40,12 @@ class ReservationPage extends StatelessWidget {
                   //? Tab Bar Widget  :
                   TabBarWidget(
                     onTap: (index) {
-                      if (index == 1 && !state.hasTapped) {
+                      if (index == 0 && !state.hasTapped) {
                         context.read<GetAllMyReservationCubit>().hasTapped();
                         context
                             .read<GetAllMyReservationCubit>()
                             .getAllMyReservation(
-                                isEnded: false, isRefresh: true);
+                                isEnded: true, isRefresh: true);
                       }
                     },
                   ),

@@ -66,6 +66,7 @@ class _VerficationEditNumberState extends State<VerficationEditNumber> {
             Align(
               alignment: Alignment.centerRight,
               child: TextUtiels(
+                textDirection: TextDirection.ltr,
                 paddingBottome: 3.h,
                 text: '+963 ${widget.phoneNumber}',
                 style: Theme.of(context).textTheme.labelLarge?.copyWith(

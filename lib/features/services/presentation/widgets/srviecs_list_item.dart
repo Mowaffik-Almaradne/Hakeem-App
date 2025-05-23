@@ -19,7 +19,10 @@ class InfoServicesListWidget extends StatelessWidget {
       builder: (context, state) {
         if (state.status == DeafultBlocStatus.loading &&
             state.itemsList.isEmpty) {
-          return const LoadingForList();
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.w),
+            child: const LoadingForList(),
+          );
         }
         return Visibility(
           visible: state.itemsList.isNotEmpty,

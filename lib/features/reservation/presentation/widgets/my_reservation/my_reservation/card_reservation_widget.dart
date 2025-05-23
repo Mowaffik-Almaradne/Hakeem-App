@@ -96,7 +96,7 @@ class CardReservationWidget extends StatelessWidget {
                       TextUtiels(
                         paddingRight: 10.w,
                         text:
-                            "${AppWordManger.dataReservation} : ${formatDate(item.appointmentDate, slasheFormate: true)} ${getTimePeriod(time: item.startTime, isShowPeriodtrue: false)}${amAndPm(item.appointmentDate)}",
+                            "${AppWordManger.dataReservation} : ${formatDate(item.appointmentDate, slasheFormate: true)} ${getTimePeriod(time: item.startTime, isShowPeriodtrue: false)}${amAndPmFromStrnig(time: item.startTime)}",
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColorManger.colorShowDailogButton,
                               fontSize: 16.sp,
