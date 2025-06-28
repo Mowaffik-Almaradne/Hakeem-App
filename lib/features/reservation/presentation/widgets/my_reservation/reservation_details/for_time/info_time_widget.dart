@@ -22,7 +22,12 @@ class InfoTimesWidget extends StatelessWidget {
         bottom: 20.h,
       ),
       child: BlocConsumer<GetAllAvaliableTimeCubit, GetAllAvaliableTimeState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.status == DeafultBlocStatus.loading) {
+            request.startTime = "";
+            request.endTime = "";
+          }
+        },
         builder: (context, state) {
           if (state.status == DeafultBlocStatus.loading) {
             return const MainLoadignWidget();

@@ -117,7 +117,7 @@ class AppWordManger {
   static const preesAnotherForExit = 'اضغط مرة أخرى للخروج';
   static const logout = 'تسجيل الخروج';
   static const areYoueSureLogout = 'هل أنت متأكد من تسجيل الخروج؟';
-  static const allCost = 'الكلفة الكلية';
+  static const allCost = 'الاجمالي المدفوع';
   static const receivables = 'الذمم';
   //?
 

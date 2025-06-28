@@ -93,6 +93,7 @@ class _BottomeSheetVerifivcationWidgetState
             fontSize: 17.sp,
           ),
           TextUtiels(
+            textDirection: TextDirection.ltr,
             text: '+963 ${widget.numberPhone}',
             color: widget.fontColorSubText,
             fontSize: widget.fontSizeSubText,
